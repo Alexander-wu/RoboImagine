@@ -1,5 +1,7 @@
 # Run RoboImagine from released weights
 
+[English](INFERENCE.md) | [简体中文](INFERENCE.zh-CN.md) | [Project home](../README.md)
+
 This release includes the actual AR model, trained text adapters, FSQ visual codec, action ranges, fixed-anchor rolling memory, ordinary beam and grouped diverse beam search. It contains inference checkpoints for RT-1, BridgeV2 and RoboCasa, plus their SFT initializations. Architecture illustration scripts are not included.
 
 ## Installation

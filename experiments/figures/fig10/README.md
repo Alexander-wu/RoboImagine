@@ -1,7 +1,27 @@
-# Figure 10
+# Figure 10 — Three-dataset SFT comparison
 
-RT-1使用visual-only，BridgeV2/RoboCasa使用combined反馈，均500更新；不是全图统一Hybrid。
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-From `experiments/`: `python run_all.py --figures 10`.
+## Paper correspondence and protocol
 
-Entry: `render_figure.py`. Inputs are JSON/CSV plus local image/font assets. The current manuscript caption is in `paper_caption.tex`. Outputs are written under `reproduced/figures/fig10`; no model inference is performed.
+The RT-1 example uses the visual-only 500-update variant. BridgeV2 and RoboCasa use combined-feedback 500-update variants. In particular, the archived Bridge example predates the current validation-selected 250-update public checkpoint; it is not interchangeable with Figure 6 or the current main-table checkpoint. The selection manifest identifies the assets.
+
+## Reproduce
+
+Install dependencies using the [experiment guide](../../README.md). From the repository root:
+
+```bash
+python experiments/run_all.py --figures 10
+```
+
+Alternatively, open [Reproduce.ipynb](Reproduce.ipynb) and Run All in the environment with the dependencies installed.
+
+Generated PDF: `experiments/reproduced/figures/fig10/r2_three_dataset_comparison.pdf`. The same directory contains the run log.
+
+## Inputs and code
+
+- [selection.json](selection.json)
+- [render_figure.py](render_figure.py)
+- [paper_caption.tex](paper_caption.tex)
+
+This entry redraws archived outputs; it does not retrain, regenerate the evaluation cohort, or call paid evaluators. Use the [inference guide](../../../docs/INFERENCE.md) to generate new predictions from public weights.

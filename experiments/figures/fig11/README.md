@@ -1,7 +1,30 @@
-# Figure 11
+# Figure 11 — Prediction distances and feedback
 
-完整128条最终预测之间的token距离，不是单次搜索内部候选多样性。Jev为训练评价器，不是独立Qwen。
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-From `experiments/`: `python run_all.py --figures 11`.
+## Paper correspondence and protocol
 
-Entry: `build_figure.py`. Inputs are JSON/CSV plus local image/font assets. The current manuscript caption is in `paper_caption.tex`. Outputs are written under `reproduced/figures/fig11`; no model inference is performed.
+This uses all 128 matched RT-1 reporting trajectories and compares final predictions of SFT, MCTS, ordinary beam and GDBS. Distances are between models, not between candidates inside a single search. Higher token distance alone does not mean higher quality. Semantic feedback comes from the frozen training Jev evaluator; it is distinct from the independent Qwen ratings in Table 3. Both feedback columns are higher-is-better.
+
+## Reproduce
+
+Install dependencies using the [experiment guide](../../README.md). From the repository root:
+
+```bash
+python experiments/run_all.py --figures 11
+```
+
+Alternatively, open [Reproduce.ipynb](Reproduce.ipynb) and Run All in the environment with the dependencies installed.
+
+Generated PDF: `experiments/reproduced/figures/fig11/figure.pdf`. The same directory contains the run log.
+
+## Inputs and code
+
+- [results.json](results.json)
+- [per_case.csv](per_case.csv)
+- [distance_pairs.csv](distance_pairs.csv)
+- [quality_reference.json](quality_reference.json)
+- [build_figure.py](build_figure.py)
+- [paper_caption.tex](paper_caption.tex)
+
+This entry redraws archived outputs; it does not retrain, regenerate the evaluation cohort, or call paid evaluators. Use the [inference guide](../../../docs/INFERENCE.md) to generate new predictions from public weights.

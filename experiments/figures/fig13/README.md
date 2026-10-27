@@ -1,7 +1,27 @@
-# Figure 13
+# Figure 13 — Long-horizon memory comparison
 
-历史实验同11条held-out轨迹，64/128帧；完整记忆为固定锚点+最近6帧，不能隔离锚点贡献。
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-From `experiments/`: `python run_all.py --figures 13`.
+## Paper correspondence and protocol
 
-Entry: `build_figure.py`. Inputs are JSON/CSV plus local image/font assets. The current manuscript caption is in `paper_caption.tex`. Outputs are written under `reproduced/figures/fig13`; no model inference is performed.
+The plotted historical experiment uses the same 11 held-out trajectories for the first 64 and all 128 predicted frames. Full memory means a fixed dynamic anchor plus six recent states; current-frame-only removes the dynamic anchor and retains one recent state. Both retain initial context. This comparison does not isolate the anchor contribution. The data file also retains a historical development cohort; the figure selects the 11-trajectory held-out cohort. Do not relabel this as the newer matched-30 experiment.
+
+## Reproduce
+
+Install dependencies using the [experiment guide](../../README.md). From the repository root:
+
+```bash
+python experiments/run_all.py --figures 13
+```
+
+Alternatively, open [Reproduce.ipynb](Reproduce.ipynb) and Run All in the environment with the dependencies installed.
+
+Generated PDF: `experiments/reproduced/figures/fig13/figure.pdf`. The same directory contains the run log.
+
+## Inputs and code
+
+- [data.json](data.json)
+- [build_figure.py](build_figure.py)
+- [paper_caption.tex](paper_caption.tex)
+
+This entry redraws archived outputs; it does not retrain, regenerate the evaluation cohort, or call paid evaluators. Use the [inference guide](../../../docs/INFERENCE.md) to generate new predictions from public weights.

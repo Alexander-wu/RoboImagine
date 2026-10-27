@@ -1,7 +1,28 @@
-# Figure 14
+# Figure 14 — Window sensitivity and inference efficiency
 
-新实验同30条长序列test、五长度、四窗口；三次计时先轨迹内平均。与主表128条不同（W6/H32 22.20 vs22.57dB）。
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-From `experiments/`: `python run_all.py --figures 14`.
+## Paper correspondence and protocol
 
-Entry: `build_figure.py`. Inputs are JSON/CSV plus local image/font assets. The current manuscript caption is in `paper_caption.tex`. Outputs are written under `reproduced/figures/fig14`; no model inference is performed.
+A fixed Hybrid500 checkpoint is evaluated on the same 30 long-sequence-eligible RT-1 test trajectories at H=16/32/48/64/96. The figure shows anchored W=1/3/6/12; source results additionally retain current-frame-only. Quality averages frames first and trajectories second. Three timing repeats are averaged within each trajectory. Warm generation time excludes model loading, text-cache construction, scoring and file I/O; peak memory is PyTorch allocated memory with resident models, not reserved memory. W6/H32 PSNR is 22.20 dB here versus 22.57 dB in the original 128-trajectory main cohort; these means are not directly comparable.
+
+## Reproduce
+
+Install dependencies using the [experiment guide](../../README.md). From the repository root:
+
+```bash
+python experiments/run_all.py --figures 14
+```
+
+Alternatively, open [Reproduce.ipynb](Reproduce.ipynb) and Run All in the environment with the dependencies installed.
+
+Generated PDF: `experiments/reproduced/figures/fig14/figure14_heatmap_bars.pdf`. The same directory contains the run log.
+
+## Inputs and code
+
+- [data.json](data.json)
+- [plotted_data.json](plotted_data.json)
+- [build_figure.py](build_figure.py)
+- [paper_caption.tex](paper_caption.tex)
+
+This entry redraws archived outputs; it does not retrain, regenerate the evaluation cohort, or call paid evaluators. Use the [inference guide](../../../docs/INFERENCE.md) to generate new predictions from public weights.

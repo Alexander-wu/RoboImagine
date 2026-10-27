@@ -1,7 +1,27 @@
-# Figure 8
+# Figure 8 — Continued-SFT and search-variant learning curves
 
-同128条RT-1／32帧；四模型100/250/500更新；抽屉case034固定预测帧32。
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-From `experiments/`: `python run_all.py --figures 8`.
+## Paper correspondence and protocol
 
-Entry: `build_figure.py`. Inputs are JSON/CSV plus local image/font assets. The current manuscript caption is in `paper_caption.tex`. Outputs are written under `reproduced/figures/fig08`; no model inference is performed.
+Continued SFT, GDBS, ordinary beam and MCTS are evaluated at 100/250/500 updates on the same 128 RT-1 reporting trajectories with 32-frame predictions and a shared evaluation decoder. The qualitative row uses drawer case034 at predicted frame 32. Equal updates do not imply equal compute. Intermediate checkpoints are not part of the released main/SFT checkpoint bundle.
+
+## Reproduce
+
+Install dependencies using the [experiment guide](../../README.md). From the repository root:
+
+```bash
+python experiments/run_all.py --figures 8
+```
+
+Alternatively, open [Reproduce.ipynb](Reproduce.ipynb) and Run All in the environment with the dependencies installed.
+
+Generated PDF: `experiments/reproduced/figures/fig08/figure.pdf`. The same directory contains the run log.
+
+## Inputs and code
+
+- [curve_data.json](curve_data.json)
+- [build_figure.py](build_figure.py)
+- [paper_caption.tex](paper_caption.tex)
+
+This entry redraws archived outputs; it does not retrain, regenerate the evaluation cohort, or call paid evaluators. Use the [inference guide](../../../docs/INFERENCE.md) to generate new predictions from public weights.
