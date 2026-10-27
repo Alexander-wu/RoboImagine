@@ -1,0 +1,160 @@
+{
+  "state": "PASS",
+  "torch": "2.10.0",
+  "transformers": "4.57.1",
+  "diffusers": "0.35.2",
+  "cases": [
+    {
+      "dataset": "rt1",
+      "variant": "main",
+      "example": 0,
+      "seconds": 27.928004503250122,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true,
+      "exact_tokens": true,
+      "max_pixel_error": 0.0
+    },
+    {
+      "dataset": "rt1",
+      "variant": "main",
+      "example": 1,
+      "seconds": 27.268405437469482,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true,
+      "exact_tokens": true,
+      "max_pixel_error": 0.0
+    },
+    {
+      "dataset": "rt1",
+      "variant": "sft",
+      "example": 0,
+      "seconds": 27.41129207611084,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true
+    },
+    {
+      "dataset": "bridge",
+      "variant": "main",
+      "example": 0,
+      "seconds": 27.5578773021698,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true,
+      "exact_tokens": true,
+      "max_pixel_error": 0.0
+    },
+    {
+      "dataset": "bridge",
+      "variant": "main",
+      "example": 1,
+      "seconds": 27.526545524597168,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true,
+      "exact_tokens": true,
+      "max_pixel_error": 0.0
+    },
+    {
+      "dataset": "bridge",
+      "variant": "sft",
+      "example": 0,
+      "seconds": 27.738982439041138,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true
+    },
+    {
+      "dataset": "robocasa",
+      "variant": "main",
+      "example": 0,
+      "seconds": 29.68595314025879,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true,
+      "exact_tokens": true,
+      "max_pixel_error": 0.0
+    },
+    {
+      "dataset": "robocasa",
+      "variant": "main",
+      "example": 1,
+      "seconds": 29.466763019561768,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true,
+      "exact_tokens": true,
+      "max_pixel_error": 0.0
+    },
+    {
+      "dataset": "robocasa",
+      "variant": "sft",
+      "example": 0,
+      "seconds": 29.789092302322388,
+      "shape": [
+        32,
+        256,
+        320,
+        3
+      ],
+      "finite": true
+    }
+  ],
+  "notebook": {
+    "state": "PASS",
+    "mode": "Run All with cached SHA-256-verified bundle and local pinned T5.",
+    "report": {
+      "dataset": "rt1",
+      "variant": "main",
+      "horizon": 32,
+      "window": 6,
+      "retain_anchor": true,
+      "beam_width": 4,
+      "seconds_single_unwarmed_run": 27.482906818389893,
+      "precision": "float32",
+      "seed": 20261011,
+      "torch": "2.10.0",
+      "psnr_db": 23.423784299674352,
+      "mae": 0.037065139831221165,
+      "reference_check": {
+        "exact_tokens": true,
+        "maximum_pixel_error": 0.0
+      }
+    },
+    "mp4_bytes": 86913
+  }
+}

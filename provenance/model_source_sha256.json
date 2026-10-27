@@ -1,0 +1,13 @@
+{
+  "src/roboimagine/pipeline.py": "e2b18aede4b628bc07142cb38693d2ac2bbf93b853e6489c75d4a4e5509156b8",
+  "src/roboimagine/checkpoints.py": "6ce6f327dea0b7cd81d9abef9646bc879109bab62b236ff009ec86f3a7530566",
+  "src/roboimagine/text_conditioning.py": "363a5e3d5aeea28adc6ceea30a62653a480b478bca2ef41f3475afcb56555c1b",
+  "src/roboimagine/decoding.py": "41440c10b70e3f72b3dddeef1063220d3b98f917a2ad97a94c0c542cae51000f",
+  "src/roboimagine/memory.py": "55040316c2aca73045e3e37ee63db11e7b3867e5cd1432a5d7a18f7edb3ef2f6",
+  "src/roboimagine/batch.py": "35c4ffb7f82b3f00b56c8af02bcc8043361035af7892ae001ff2e6a6ef42602c",
+  "src/roboimagine/rewards.py": "96f027ebe47d990505acda076d633fd146dbe99a4beb5210fadf7d7d1994e6ff",
+  "src/roboimagine/reward_core.py": "387f8bca36cf5a748f0a9bb970b88f84389947a6159df3d5dc2f5db79b0b6e22",
+  "src/roboimagine/search.py": "2b7fb9ad1e87c7ef6b6c56db90eace0b90396e61c240763b59e7f4fc6df3eab7",
+  "src/roboimagine/ordinary_search.py": "fda2539e4d6629921d91f8d50cc08191939f2026f77d7eb8c19776e78713642c",
+  "src/roboimagine/objective.py": "b69789b215898d9027f9d482a7f65e2079969bbb49eaa29b368e9a42ee051ecd"
+}

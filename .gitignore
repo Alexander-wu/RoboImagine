@@ -10,3 +10,7 @@ experiments/reproduced/
 *.fdb_latexmk
 .DS_Store
 **/*.executed.ipynb
+
+weights/
+predictions/
+*.egg-info/
