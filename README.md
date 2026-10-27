@@ -38,6 +38,17 @@ On **128 RT-1 trajectories with 32-frame predictions**, 500 post-training update
 
 *One drawer-closing example from Figure 8: all images show prediction frame +32. Continued SFT and RoboImagine each use 500 additional updates. This qualitative example is separate from the aggregate results.*
 
+## Method overview
+
+![RoboImagine framework](website/assets/method-overview.png)
+
+1. **Supervised initialization.** A frozen visual codec quantizes scene and dynamics representations. A causal Transformer combines visual–action tokens with instruction features from a frozen T5 encoder; SFT trains the backbone and text cross-attention to predict future dynamics tokens.
+2. **Grouped diverse beam search.** Four groups of two beams construct candidates under shared conditions. A soft token-overlap penalty encourages cross-group differences, with one complete trajectory retained per group.
+3. **Complementary feedback.** The frozen 4B mJev evaluator (Jev) compares candidate videos in both orders using task context and eight sampled frames. Visual feedback is the negative sum of MAE and VGG-LPIPS. Candidate-wise standardized semantic and visual scores are fused with weights 0.25 and 0.75.
+4. **History-consistent policy updates.** Group-relative advantages reweight token likelihoods under each candidate’s actual generation prefixes, with regularization toward the SFT policy. Fixed initial context and the observed dynamics anchor accompany six recent predicted state–action pairs. The window bounds input history, not output length.
+
+At evaluation, the learned model uses frame-wise ordinary beam decoding of width four; neither the evaluator nor ground-truth futures is required. [Framework PDF](website/assets/method-overview.pdf) · [Actual training and feedback code](experiments/executed_sources/rt1_hybrid/README.md)
+
 ## Quick start
 
 Use **Python 3.10+** in a Linux CUDA environment. Install a compatible PyTorch/torchvision pair first, then:

@@ -17,6 +17,17 @@ RoboImagine 面向 **GPT 风格的自回归机器人世界模型**。模型接�
 **Hao Wu、Yuqi Li、Yizhou Zhao、Kun Wang、Xiao Luo、Yu Cheng、Yingli Tian、Laszlo A. Jeni、Ming-Hsuan Yang**  
 Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced
 
+## 方法框架
+
+![RoboImagine 方法框架](website/assets/method-overview.png)
+
+1. **监督初始化。** 冻结的视觉编解码器将场景与动态状态量化为离散 token；因果 Transformer 联合视觉—动作 token 与冻结 T5 编码的指令特征，通过 SFT 训练主干及文本交叉注意力，学习未来动态 token 的预测。
+2. **分组多样化束搜索。** 在共享观测、动作和指令条件下，使用四组、每组两个 beam 构造候选。跨组 token 重叠惩罚鼓励差异，每组保留一条完整轨迹。
+3. **互补反馈。** 冻结的 4B mJev（正文简称 Jev）依据任务上下文及每个视频的八帧，双向比较候选的任务进展；视觉反馈为 MAE 与 VGG-LPIPS 之和的负值。两类得分在候选集合内分别标准化，再以 0.25 和 0.75 的权重融合。
+4. **保持历史一致的策略优化。** 组内相对优势调整候选 token 的概率，并向冻结的 SFT 策略正则化。评分时重放各分支实际使用的生成前缀。固定初始上下文、观测动态锚点与最近六帧状态—动作历史共同构成输入；六帧限制输入历史，不限制输出视频长度。
+
+评估使用逐帧、宽度为四的普通束搜索，无需反馈评价器或真实未来帧。[框架图 PDF](website/assets/method-overview.pdf) · [实际训练与奖励代码](experiments/executed_sources/rt1_hybrid/README.md)
+
 ## 方法概览
 
 - **互补反馈：** 冻结多模态评价器比较任务进展，像素与感知层面的视觉反馈约束局部预测误差。

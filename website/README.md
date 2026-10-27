@@ -14,6 +14,8 @@ Open http://localhost:8090. A server is required because the page loads `data.js
 
 ## Sources
 
+- Method overview: the current manuscript’s framework figure, rendered from its vector PDF. Explanatory text follows Sections 3.1–3.4. Only the finished PNG/PDF are included; method-figure drawing source is not distributed.
+
 - Demonstrations: example 0 and its saved main-model prediction for each dataset from `easylearning/RoboImagine@cb4f5e2bdfbbbff2ad6caffa058d50fa21ec3ec7`. The WebP atlases encode all 32 frames in an 8-column × 4-row grid. No interpolation is used. Source NPZ SHA-256 hashes are recorded in `data.json`.
 - Learning curves: `experiments/figures/fig08/curve_data.json`. The page reads measured checkpoints, using straight line segments. It performs no inference or metric evaluation.
 - Drawer case: `experiments/figures/fig08/assets/case_034/`, all at frame +32. The shared references and two 500-update checkpoints are labeled explicitly.
