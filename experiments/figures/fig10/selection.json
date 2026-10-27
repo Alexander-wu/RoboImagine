@@ -1,0 +1,459 @@
+[
+  {
+    "dataset": "RT-1",
+    "index": 2,
+    "variant": "metric",
+    "instruction": "pick redbull can from middle drawer and place on counter",
+    "episode_id": "007631d25d9f94264182347c12927de4aad0d74e31cc2f0dc97073f9a611ff0e",
+    "prepared_input_sha256": "2fde69c8b617dbf64dd1977f3fe71a18101f01cc730039346132ecb595249062",
+    "source_runs": {
+      "sft": {
+        "source": "archived_cluster_artifact",
+        "artifact_sha256": "460f6e8f59b65ee428d765b9ed5a62aa7ba14ffcf4077f8652bd9354774180e7",
+        "judgment": {
+          "scores": {
+            "instruction_following": 0,
+            "manipulation_success": 0,
+            "action_outcome_consistency": 0,
+            "temporal_consistency": 1,
+            "contact_realism": 0,
+            "physics_adherence": 1
+          },
+          "total": 2,
+          "reported_total": 2,
+          "total_mismatch": false,
+          "reasoning": "The video shows no attempt to follow the instruction. The robot remains stationary with its hand extended throughout all frames, without moving toward the drawer, picking up the Red Bull can, or placing it on the counter. The can remains in the drawer in all frames. The video appears temporally consistent with smooth transitions between frames. However, there are no visible contacts between the robot and objects, nor any physical interactions to evaluate contact realism. The environment appears physically consistent with no apparent physics violations. No actions are performed, so action-outcome consistency cannot be assessed positively as the robot failed to attempt the required task."
+        },
+        "judge_input_sha256": "154f0e665d766ab0d7cece08efccb1cdb5e77fdfd9bc611847d03a29a0b0087c"
+      },
+      "mjev": {
+        "source": "archived_cluster_artifact",
+        "artifact_sha256": "14b869538f4b1d570cc796a5f5cd0a0a7f9303d26e93b6852404531c16ff4b3f",
+        "judgment": {
+          "scores": {
+            "instruction_following": 2,
+            "manipulation_success": 0,
+            "action_outcome_consistency": 1,
+            "temporal_consistency": 1,
+            "contact_realism": 1,
+            "physics_adherence": 2
+          },
+          "total": 7,
+          "reported_total": 7,
+          "total_mismatch": false,
+          "reasoning": "The instruction requires picking the Red Bull can from the middle drawer and placing it on the counter. The video shows the robot moving towards the drawer, reaching in, and grasping the can (e.g., frame +32 shows the robot holding the can). However, the can is not placed on the counter by the end of the video. \n\n1. Instruction Following: The robot correctly attempts to pick the can but does not complete the placement, making this a correct action but incomplete. Score: 2.\n2. Manipulation Success: The task requires placing the can on the counter, which is not achieved. Score: 0.\n3. Action-Outcome Consistency: The robot\u2019s actions (reaching, grasping) logically lead to the outcome of holding the can, even without placement. Score: 1.\n4. Temporal Consistency: Frames show smooth, continuous motion without abrupt changes or artifacts. Score: 1.\n5. Contact Realism: The gripper\u2019s interaction with the can appears natural (enclosing the can without unrealistic physics). Score: 1.\n6. Physics Adherence: The can remains stationary in the drawer until grasped, with no visible physics violations (e.g., no floating, unnatural movement). Score: 2.\n\nTotal score: 2+0+1+1+1+2 = 7."
+        },
+        "judge_input_sha256": "551d69b9115c3ce8e1310dccdc2a0850948ec36cfdf5b0eeb87f5307771b785e"
+      },
+      "metric": {
+        "source": "archived_cluster_artifact",
+        "artifact_sha256": "e745705b2800693492671326abb1b4e9581a1f5fc2b417e721b8bd533776fa9d",
+        "judgment": {
+          "scores": {
+            "instruction_following": 2,
+            "manipulation_success": 0,
+            "action_outcome_consistency": 1,
+            "temporal_consistency": 1,
+            "contact_realism": 1,
+            "physics_adherence": 2
+          },
+          "total": 7,
+          "reported_total": 7,
+          "total_mismatch": false,
+          "reasoning": "1. Instruction Following: The robot attempts to pick the Red Bull can from the middle drawer (Frame +10 to +32) but does not place it on the counter by the end of the video. The action of picking is correct but incomplete, matching the 'correct action but incomplete' category (2 points).\n2. Manipulation Success: The task requires placing the can on the counter; however, the can remains in the robot's hand (Frame +32) and is not on the counter, indicating task failure (0 points).\n3. Action-Outcome Consistency: The robot's actions (reaching into the drawer, grasping the can) logically result in the can being held, showing consistent causality (1 point).\n4. Temporal Consistency: The video shows smooth, sequential movements without flickering or jumps across frames (1 point).\n5. Contact Realism: The robot's gripper interacts with the can in a natural way (no unnatural sticking or slipping) during grasping (1 point).\n6. Physics Adherence: The can's movement follows gravity (being lifted from the drawer), and there are no obvious physics violations like floating or abrupt changes in motion (2 points)."
+        },
+        "judge_input_sha256": "27922d6ff2004351bb7de811fc1450a6ebba1e8b10f91c12c2e8d88e9edd9fc0"
+      },
+      "hybrid": {
+        "source": "archived_cluster_artifact",
+        "artifact_sha256": "94bb515cdd30e96627279a24327df564b29fcfe08ba2a09058ce5f677b4a0467",
+        "judgment": {
+          "scores": {
+            "instruction_following": 2,
+            "manipulation_success": 1,
+            "action_outcome_consistency": 1,
+            "temporal_consistency": 1,
+            "contact_realism": 1,
+            "physics_adherence": 2
+          },
+          "total": 8,
+          "reported_total": 8,
+          "total_mismatch": false,
+          "reasoning": "The robot begins with the middle drawer open (containing a Red Bull can), as described in the initial frame. The video shows the robot moving toward the drawer, grasping the Red Bull can (visible in frame +19 and +28), and holding it above the drawer by frame +32. However, the can is not placed on the counter by the end of the video, indicating incomplete task execution. For Instruction Following (2 points): The robot correctly attempts to pick the can but fails to place it on the counter, meeting the pick requirement but not the full instruction. For Manipulation Success (1 point): The can is moved from the drawer to the robot\u2019s hand, a partial success as the target (counter) is not reached. Action-Outcome Consistency (1 point): Actions (reaching, grasping) logically result in the can being held, which is consistent with the intermediate step of picking. Temporal Consistency (1 point): The robot\u2019s motion is smooth across frames without visible jumps or artifacts. Contact Realism (1 point): The robot\u2019s gripper contacts the can in a natural, plausible manner during grasping. Physics Adherence (2 points): All movements (e.g., grasping, lifting) follow basic physics without violations."
+        },
+        "judge_input_sha256": "c0799c9eadc79e314172e5823ac8947074b2873d96bb4666b552d54d5eee17ae"
+      }
+    },
+    "future_frame_numbers": [
+      8,
+      20,
+      32
+    ],
+    "assets": {
+      "GT": [
+        {
+          "file": "assets/rt-1_002_gt_08.png",
+          "sha256": "ac98ddb30130d4882229c8e10b7b1a151186e5974fd02286892d6ee60320f69f",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/rt-1_002_gt_20.png",
+          "sha256": "aea232ae5681f21d7b74ebcf5a4b869fb5c8129cd1e4d8e36508f74cce72cfe5",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/rt-1_002_gt_32.png",
+          "sha256": "56d662a734dc0fb1f63122054e5c9a1b965dedac21b2f5500336b5abdf0b391a",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ],
+      "SFT": [
+        {
+          "file": "assets/rt-1_002_sft_08.png",
+          "sha256": "5329f35f44d49efc763873e178429cd4b81755e586194f6142afc9c32d2ddcc5",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/rt-1_002_sft_20.png",
+          "sha256": "0414bf76867ffae79aad91bd8ae1fcc26f76100b24713ad36ae9ea94e68e0f73",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/rt-1_002_sft_32.png",
+          "sha256": "3c26b8f11bb28b987c9f0eb25af16f02eb08344afb50768e567feab4cf81d3f5",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ],
+      "R2": [
+        {
+          "file": "assets/rt-1_002_r2_08.png",
+          "sha256": "0f586f653ffad080cc11fd70123c9b82362310753d8b47bdd9aa751591352652",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/rt-1_002_r2_20.png",
+          "sha256": "2c5b2c3db34d4d5c855aca9c35035afa9c9589e45e4ddfc175776500bdf66926",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/rt-1_002_r2_32.png",
+          "sha256": "79448087d92c7a93e71a5db8c6b6ea69da7c3c75c0bd6ba648ab63978c1e9002",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ]
+    },
+    "display_selection": "Selected favorable paired example; not an aggregate performance claim."
+  },
+  {
+    "dataset": "BridgeV2",
+    "index": 6,
+    "variant": "hybrid",
+    "instruction": "Place the silver pan on top of the yellow rag.",
+    "episode_id": "2d021e4fe716c41925af98fc539efa8ea01e4016ab01a74ee8f1c0682275b50d",
+    "prepared_input_sha256": "1109557671815ed6b3f7c62f4d36fe18d6e1c345215f2af55f9fb43366a92eff",
+    "source_runs": {
+      "sft": {
+        "path": "archived_cluster_artifact",
+        "artifact_sha256": "905c93088acd21baca8fba14c1d43b32efb4ff5c94d89df60677fa6197f0c02c",
+        "metrics": {
+          "mse": 0.010195195878623053,
+          "mae": 0.042113909556064755,
+          "psnr": 20.36087328195572,
+          "lpips": 0.15488692081999034,
+          "ssim": 0.7882723174989223
+        }
+      },
+      "metric": {
+        "path": "archived_cluster_artifact",
+        "artifact_sha256": "5b8ee3341e9c344c6e92e6774a1800494775ee0b61afb918c005f18cfd066b75",
+        "metrics": {
+          "mse": 0.010310579207725823,
+          "mae": 0.04303777508903295,
+          "psnr": 20.003118872642517,
+          "lpips": 0.1410615595523268,
+          "ssim": 0.7949893195182085
+        }
+      },
+      "hybrid": {
+        "path": "archived_cluster_artifact",
+        "artifact_sha256": "d7a284d9c7eaac8d5597fae1cd9ef5527dfb6ea741ad8a7fe3b9fde9605d5c46",
+        "metrics": {
+          "mse": 0.006083160576963564,
+          "mae": 0.03330306918360293,
+          "psnr": 22.389713943004608,
+          "lpips": 0.11693013086915016,
+          "ssim": 0.8121338058263063
+        }
+      }
+    },
+    "future_frame_numbers": [
+      8,
+      20,
+      32
+    ],
+    "assets": {
+      "GT": [
+        {
+          "file": "assets/bridgev2_006_gt_08.png",
+          "sha256": "72db83785a097aad2694769090cdf6bacde524aec162923de40f8c7a30a62b34",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/bridgev2_006_gt_20.png",
+          "sha256": "911275a7508b0aef881a7fc2703d14f48da1a0ac323c371554e928f799c505df",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/bridgev2_006_gt_32.png",
+          "sha256": "f5aebed73b54339cb2ef88549516b084052518e39c6fa62f1217e0e006651baa",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ],
+      "SFT": [
+        {
+          "file": "assets/bridgev2_006_sft_08.png",
+          "sha256": "e64c6c35fb3c4fdaebeabd1b602d42b7a1721989ffc085fa2c2c833f9d1ee36f",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/bridgev2_006_sft_20.png",
+          "sha256": "710ea5a2e6f77d8fb38ab4b5b7eeb23c906ae4f90ce8c05f24e0390ef63fbfc3",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/bridgev2_006_sft_32.png",
+          "sha256": "1fb7ccafaf4b0ece6f0fe468c6bd8e9d5d1ce783a50155b2ea17365ff0876353",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ],
+      "R2": [
+        {
+          "file": "assets/bridgev2_006_r2_08.png",
+          "sha256": "2198277ae8ac7129629efbec59b2cf8a3425d2a01ea12e941188b29d0a96df98",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/bridgev2_006_r2_20.png",
+          "sha256": "2b54aa282a42733a5490b5efe6422510191ed7306177fb36380a3e14526bb487",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/bridgev2_006_r2_32.png",
+          "sha256": "dba9e55d0019fb55f509f2daf749857a02b0ee4db2b5d02001734e5f6b1e17be",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ]
+    },
+    "display_selection": "Selected favorable paired example; not an aggregate performance claim."
+  },
+  {
+    "dataset": "RoboCasa",
+    "index": 103,
+    "variant": "hybrid",
+    "instruction": "Pick up the cup and bowl from the counter, place them in the dishwasher, and close the dishwasher door.",
+    "episode_id": "f6358648f4e7ec0a27a0a97fc0e95c09a1adf90523b597d7902591ac5c5e3ded",
+    "prepared_input_sha256": "4e7ba947d634e967068dab04bb4a7a3e0cf2ceaecaf6517d31d7dcfdbc2b3719",
+    "source_runs": {
+      "sft": {
+        "path": "archived_cluster_artifact",
+        "artifact_sha256": "27fc362b7cbeb1e1011049f3224756c6314d7569c032d5374a299931a59e975e",
+        "metrics": {
+          "mse": 0.015491664846194908,
+          "mae": 0.055423614801838994,
+          "psnr": 18.553562074899673,
+          "lpips": 0.15836657700128853,
+          "ssim": 0.7974271606653929
+        }
+      },
+      "metric": {
+        "path": "archived_cluster_artifact",
+        "artifact_sha256": "de20cc89de7890f27dfd229cd57c4974421a0b9dacd48a5bd9f1aaeb9fab7565",
+        "metrics": {
+          "mse": 0.006865518560516648,
+          "mae": 0.03807960887206718,
+          "psnr": 21.803560495376587,
+          "lpips": 0.12348741968162358,
+          "ssim": 0.8364715650677681
+        }
+      },
+      "hybrid": {
+        "path": "archived_cluster_artifact",
+        "artifact_sha256": "82ffd3fe370d5bc588910e8c2a96bf2720104cdc648eda59da5044cd4a5c87cb",
+        "metrics": {
+          "mse": 0.006240805829293095,
+          "mae": 0.036719531286507845,
+          "psnr": 22.2029886841774,
+          "lpips": 0.11856545158661902,
+          "ssim": 0.8404294662177563
+        }
+      }
+    },
+    "future_frame_numbers": [
+      8,
+      20,
+      32
+    ],
+    "assets": {
+      "GT": [
+        {
+          "file": "assets/robocasa_103_gt_08.png",
+          "sha256": "4dd3cc8f89199aa15fe836ab1c27d14aeca0ba8872b5ad576a2f8c3f740cd51e",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/robocasa_103_gt_20.png",
+          "sha256": "806544e40e9a4c349a51be514c89770d2c4a85c46ada179ca7f65ea54057aeb4",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/robocasa_103_gt_32.png",
+          "sha256": "d005288c46a8e3d44362633f714f121b47d19587bcc8acf2851af6a56caaa628",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ],
+      "SFT": [
+        {
+          "file": "assets/robocasa_103_sft_08.png",
+          "sha256": "ab94e992816bd10028da42754c99990d5f3b3b345289519d370e3969dac4a987",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/robocasa_103_sft_20.png",
+          "sha256": "30505169d12ac608980a65a93c0808dcd544a61cef10b6773d13466f32f4eda8",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/robocasa_103_sft_32.png",
+          "sha256": "90900febd9f740f32376fba7c6a062993d67c8b7f767e7ab5135780e557fdec0",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ],
+      "R2": [
+        {
+          "file": "assets/robocasa_103_r2_08.png",
+          "sha256": "b2c65e4225a8b18ff0c829f9e4fecb61d150b2997ec3e26cd7a7923bb096a3bf",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/robocasa_103_r2_20.png",
+          "sha256": "4a927d8d42d7dd44f434f898b8b0b2373e3b0e1c83420073f02a6217ecf13032",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        },
+        {
+          "file": "assets/robocasa_103_r2_32.png",
+          "sha256": "ca8276cddd42f3c59d137ac8d580723ab146f993298445c4da2fdf9ef2e0d16e",
+          "shape": [
+            256,
+            320,
+            3
+          ]
+        }
+      ]
+    },
+    "display_selection": "Selected favorable paired example; not an aggregate performance claim."
+  }
+]

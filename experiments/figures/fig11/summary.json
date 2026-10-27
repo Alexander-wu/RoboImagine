@@ -1,0 +1,166 @@
+{
+  "trajectories": 128,
+  "generation_updates": {
+    "sft": 0,
+    "mcts500": 500,
+    "ordinary500": 500,
+    "diverse500": 500
+  },
+  "frames": 32,
+  "rows": [
+    {
+      "method": "sft",
+      "semantic": -0.18164182811502802,
+      "semantic_ci_low": -0.24099994388556015,
+      "semantic_ci_high": -0.12592135980647298,
+      "semantic_delta_vs_sft": 0.0,
+      "semantic_delta_ci_low": 0.0,
+      "semantic_delta_ci_high": 0.0,
+      "visual": -0.22289651937057897,
+      "visual_ci_low": -0.23399028894406798,
+      "visual_ci_high": -0.21215749451782245,
+      "visual_delta_vs_sft": 0.0,
+      "visual_delta_ci_low": 0.0,
+      "visual_delta_ci_high": 0.0,
+      "psnr": 21.366095108911395,
+      "ssim": 0.785980892542284,
+      "lpips": 0.1734311460495519,
+      "mae": 0.04946537332102707,
+      "mse": 0.01013495640936668
+    },
+    {
+      "method": "mcts500",
+      "semantic": -0.13185696107259415,
+      "semantic_ci_low": -0.18659719473091096,
+      "semantic_ci_high": -0.07716318624483465,
+      "semantic_delta_vs_sft": 0.04978486704243392,
+      "semantic_delta_ci_low": -0.03182270097602166,
+      "semantic_delta_ci_high": 0.13448053838122123,
+      "visual": -0.22115744094367074,
+      "visual_ci_low": -0.23210168819630325,
+      "visual_ci_high": -0.21077643536469282,
+      "visual_delta_vs_sft": 0.001739078426908236,
+      "visual_delta_ci_low": -0.0017592504901756455,
+      "visual_delta_ci_high": 0.005242972078036698,
+      "psnr": 21.48980776173994,
+      "ssim": 0.7870823375633336,
+      "lpips": 0.1721681508624897,
+      "mae": 0.048989290081181025,
+      "mse": 0.010019465045296272
+    },
+    {
+      "method": "ordinary500",
+      "semantic": 0.03197187209417027,
+      "semantic_ci_low": -0.01890474803601972,
+      "semantic_ci_high": 0.0844821728167845,
+      "semantic_delta_vs_sft": 0.21361370020919834,
+      "semantic_delta_ci_low": 0.13157513145368624,
+      "semantic_delta_ci_high": 0.30283470012964164,
+      "visual": -0.20803781575386893,
+      "visual_ci_low": -0.21905413868218487,
+      "visual_ci_high": -0.19752426813218452,
+      "visual_delta_vs_sft": 0.014858703616710045,
+      "visual_delta_ci_low": 0.010029434696673434,
+      "visual_delta_ci_high": 0.01972489370843391,
+      "psnr": 22.071287161437795,
+      "ssim": 0.796226022488554,
+      "lpips": 0.1626548366712086,
+      "mae": 0.04538297908266031,
+      "mse": 0.00864855842250023
+    },
+    {
+      "method": "diverse500",
+      "semantic": 0.281526917093452,
+      "semantic_ci_low": 0.21949082994937963,
+      "semantic_ci_high": 0.345036203279354,
+      "semantic_delta_vs_sft": 0.46316874520848,
+      "semantic_delta_ci_low": 0.35725404779436265,
+      "semantic_delta_ci_high": 0.5730452751998589,
+      "visual": -0.19636240248064496,
+      "visual_ci_low": -0.20664281368297566,
+      "visual_ci_high": -0.1867863413065038,
+      "visual_delta_vs_sft": 0.026534116889934012,
+      "visual_delta_ci_low": 0.02085384198935003,
+      "visual_delta_ci_high": 0.032388904128902135,
+      "psnr": 22.567982499487698,
+      "ssim": 0.8035291924170451,
+      "lpips": 0.15409563022330985,
+      "mae": 0.042266772257335106,
+      "mse": 0.007459440057537847
+    }
+  ],
+  "mean_token_distance_pct": [
+    [
+      0.0,
+      50.361328125,
+      56.29302978515625,
+      66.2017822265625
+    ],
+    [
+      50.361328125,
+      0.0,
+      56.0308837890625,
+      65.7391357421875
+    ],
+    [
+      56.29302978515625,
+      56.0308837890625,
+      0.0,
+      61.88385009765625
+    ],
+    [
+      66.2017822265625,
+      65.7391357421875,
+      61.88385009765625,
+      0.0
+    ]
+  ],
+  "distance_pairs": [
+    {
+      "method_i": "sft",
+      "method_j": "mcts500",
+      "mean_token_distance_percent": 50.361328125,
+      "ci_low": 47.41057586669922,
+      "ci_high": 53.35999298095703
+    },
+    {
+      "method_i": "sft",
+      "method_j": "ordinary500",
+      "mean_token_distance_percent": 56.29302978515625,
+      "ci_low": 53.489646911621094,
+      "ci_high": 59.133331298828125
+    },
+    {
+      "method_i": "sft",
+      "method_j": "diverse500",
+      "mean_token_distance_percent": 66.2017822265625,
+      "ci_low": 63.94926452636719,
+      "ci_high": 68.4344711303711
+    },
+    {
+      "method_i": "mcts500",
+      "method_j": "ordinary500",
+      "mean_token_distance_percent": 56.0308837890625,
+      "ci_low": 53.301979064941406,
+      "ci_high": 58.78692626953125
+    },
+    {
+      "method_i": "mcts500",
+      "method_j": "diverse500",
+      "mean_token_distance_percent": 65.7391357421875,
+      "ci_low": 63.51531219482422,
+      "ci_high": 67.92205810546875
+    },
+    {
+      "method_i": "ordinary500",
+      "method_j": "diverse500",
+      "mean_token_distance_percent": 61.88385009765625,
+      "ci_low": 59.61791229248047,
+      "ci_high": 64.14093780517578
+    }
+  ],
+  "bootstrap": "20000 paired trajectory resamples; seed20261026. Single-training-seed uncertainty.",
+  "semantic_definition": "Frozen training Jev, both orders of six method pairs; mean antisymmetric margin against other three methods, then mean across128 trajectories. Signed relative preferences, not absolute task quality.",
+  "visual_definition": "Negative of (MAE + VGG-LPIPS), calculated on unchanged float predictions; higher is better.",
+  "distance_definition": "Between-model dynamics-token normalized Hamming distance; not within-search diversity or a quality score."
+}

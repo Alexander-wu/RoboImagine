@@ -1,0 +1,23 @@
+% Separate visual-metric table, deferred one page after Table1.
+
+\begin{table*}[!t]
+  \centering
+  \normalsize
+  \renewcommand{\arraystretch}{1.05}
+  \setlength{\tabcolsep}{5.5pt}
+  \caption{RoboImagine visual prediction metrics over 32 frames. BridgeV2 uses 32 validation trajectories and the checkpoint selected by validation LPIPS; RT-1 and RoboCasa use 128 reporting trajectories.}
+
+  \label{tab:robotworldbench_lowlevel}
+  \begin{fullwidthcomparison}{10}{lccccccccc}
+    \toprule
+    \rowcolor{tblheadbg}
+    Method & \multicolumn{3}{c}{RT-1} & \multicolumn{3}{c}{BridgeV2} & \multicolumn{3}{c}{RoboCasa} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+    \rowcolor{tblheadbg}
+     & PSNR $\uparrow$ & SSIM $\uparrow$ & LPIPS $\downarrow$ & PSNR $\uparrow$ & SSIM $\uparrow$ & LPIPS $\downarrow$ & PSNR $\uparrow$ & SSIM $\uparrow$ & LPIPS $\downarrow$ \\
+    \midrule
+    \textcolor{mydarkblue}{\textbf{\roboimagine{} (ours)}} & 22.57 & 0.8035 & 0.1541 & 21.53 & 0.7880 & 0.1527 & 18.39 & 0.7727 & 0.1768 \\
+    \bottomrule
+  \end{fullwidthcomparison}
+
+\end{table*}

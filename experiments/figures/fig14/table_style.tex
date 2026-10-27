@@ -1,0 +1,33 @@
+% Shared table styles for the manuscript and standalone appendix.
+% Declared before the experiments to place wide tables near their first discussion.
+\definecolor{tblheadbg}{HTML}{E8EBF3}
+\definecolor{tblstripe}{HTML}{F7F8FB}
+\definecolor{rankfirstbg}{HTML}{FCE9E7}
+\definecolor{ranksecondbg}{HTML}{FEF1E5}
+\definecolor{rankthirdbg}{HTML}{E8F7FB}
+\newcommand{\scorestd}[2]{#1{\scriptsize$_{\pm#2}$}}
+\newcommand{\bestscore}[2]{\cellcolor{rankfirstbg}\textbf{\scorestd{#1}{#2}}\textsuperscript{\textcolor{red!70!black}{\scriptsize 1}}}
+\newcommand{\secondscore}[2]{\cellcolor{ranksecondbg}\textbf{\scorestd{#1}{#2}}\textsuperscript{\textcolor{orange!85!black}{\scriptsize 2}}}
+\newcommand{\thirdscore}[2]{\cellcolor{rankthirdbg}\textbf{\scorestd{#1}{#2}}\textsuperscript{\textcolor{cyan!60!black}{\scriptsize 3}}}
+\newcommand{\plainscore}[2]{\scorestd{#1}{#2}}
+\newcommand{\bestmean}[1]{\cellcolor{rankfirstbg}\textbf{#1}\textsuperscript{\textcolor{red!70!black}{\scriptsize 1}}}
+\newcommand{\secondmean}[1]{\cellcolor{ranksecondbg}\textbf{#1}\textsuperscript{\textcolor{orange!85!black}{\scriptsize 2}}}
+\newcommand{\thirdmean}[1]{\cellcolor{rankthirdbg}\textbf{#1}\textsuperscript{\textcolor{cyan!60!black}{\scriptsize 3}}}
+\newcommand{\tbd}{\textcolor{codegray}{\textsc{tbd}}}
+\newcommand{\placeholderfigure}[2]{
+  \fbox{%
+    \begin{minipage}[c][#1][c]{0.96\linewidth}
+      \centering
+      \textbf{Placeholder figure}\\[0.35em]
+      \footnotesize #2
+    \end{minipage}}
+}
+
+% Fill the template text width through cell padding, keeping row colors continuous.
+\newsavebox{\maincomparisonbox}
+\NewDocumentEnvironment{fullwidthcomparison}{m m +b}{%
+  \sbox{\maincomparisonbox}{\begin{tabular}{#2}#3\end{tabular}}%
+  \setlength{\tabcolsep}{\dimexpr\tabcolsep+(\textwidth-\wd\maincomparisonbox)/#1/2\relax}%
+  \begin{tabular*}{\textwidth}{#2}#3\end{tabular*}%
+}{}
+

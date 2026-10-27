@@ -1,0 +1,26 @@
+% Wide comparison tables; shared formatting is in tpami/table_style.tex.
+\begin{table*}[!tp]
+  \centering
+  \normalsize
+  \renewcommand{\scorestd}[2]{#1$_{\pm#2}$}
+  \renewcommand{\arraystretch}{1.05}
+  \setlength{\tabcolsep}{5.5pt}
+  % Local table-caption spacing; preserve the IEEE style elsewhere.
+  \setlength{\abovecaptionskip}{5pt}
+
+  \caption{RoboImagine six-dimensional RoboAlign-Judge scores on RT-1 (reported mean and standard deviation).}
+
+  \label{tab:robotworldbench_main}
+  \begin{fullwidthcomparison}{8}{lccccccc}
+    \toprule
+    \rowcolor{tblheadbg}
+    Method & \multicolumn{3}{c}{Task Alignment} & \multicolumn{3}{c}{Physical Realism} & Total \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+    \rowcolor{tblheadbg}
+     & Instr. $\uparrow$ & Manip. $\uparrow$ & Act.-Out. $\uparrow$ & Temp. $\uparrow$ & Contact $\uparrow$ & Phys. $\uparrow$ & $\uparrow$ \\
+    \midrule
+    \textcolor{mydarkblue}{\textbf{\roboimagine{} (ours)}} & \plainscore{2.82}{0.02} & \plainscore{1.78}{0.05} & \plainscore{0.82}{0.03} & \plainscore{0.79}{0.03} & \plainscore{1.00}{0.01} & \plainscore{1.77}{0.04} & \plainscore{8.98}{0.10} \\
+    \bottomrule
+  \end{fullwidthcomparison}
+
+\end{table*}

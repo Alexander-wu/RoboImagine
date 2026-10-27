@@ -1,0 +1,8 @@
+numpy==2.0.2
+matplotlib==3.9.4
+Pillow==10.4.0
+fonttools==4.60.2
+CairoSVG==2.8.2
+nbformat==5.10.4
+nbclient==0.10.2
+ipykernel==6.29.4

@@ -1,0 +1,376 @@
+{
+  "time": 1792802364.3696647,
+  "files": {
+    "case_034/gt.png": {
+      "sha256": "1724dc16cdc57ed19cc365a638c567f6cb455ca98693307c607f48e55cc68e69",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/gt.png"
+    },
+    "case_034/initial_sft.png": {
+      "sha256": "81bf45415b1f033d62c4ee8d1a6bde5e0e42d388d3ff532dde29dd7afb39435b",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/initial_sft.png"
+    },
+    "case_034/sft_500.png": {
+      "sha256": "748a3e668a574fc6551818ff1fadd7f78d5f64a09805acba641b7c7d8c8e33ef",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/sft_500.png"
+    },
+    "case_034/hybrid_500.png": {
+      "sha256": "1d55bdbef3d0e1cc30e731c551ec4574c878db882e4eb37d7e19a2196df6d25b",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/hybrid_500.png"
+    },
+    "case_034/sft_100.png": {
+      "sha256": "e6fb98f865017d939561cb71cf86d38d77bd272f8b3d6814b2df5725ba4c7b04",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/sft_100.png"
+    },
+    "case_034/sft_250.png": {
+      "sha256": "ab3fb91b34230235e84dbd3c1e2d3bbc5e712cec19c82a548eca6844f7c795af",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/sft_250.png"
+    },
+    "case_034/hybrid_100.png": {
+      "sha256": "90cacfa75b584a50ecfb63e63b889a31f20a4aba77545a8e1d4b005f7638592a",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/hybrid_100.png"
+    },
+    "case_034/hybrid_250.png": {
+      "sha256": "e1a19190b57f0fd55b24bbe066cd78982f6957a58b990fe912360d176f2a97b0",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/hybrid_250.png"
+    },
+    "case_034/mcts_100.png": {
+      "sha256": "163811e9a43172cb7bf18a1eff70edd1fe5438acc9fc46683ffe58d60202710b",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/mcts_100.png"
+    },
+    "case_034/mcts_250.png": {
+      "sha256": "d3e491a4d3e89257c657ca7b948741af218874097b3dc55a838a4eafbc7f1156",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/mcts_250.png"
+    },
+    "case_034/ordinary_100.png": {
+      "sha256": "45c67125363a1a301448f08567d6ec22e2e18f4a409f8bc686c7f5f00687a3b0",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/ordinary_100.png"
+    },
+    "case_034/ordinary_250.png": {
+      "sha256": "e5cf4c7c13ad193547a9f939e02ffaf01dc27abaaf26cc5c659f1955543fb169",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/ordinary_250.png"
+    },
+    "case_034/mcts_500.png": {
+      "sha256": "6733e50bda5a4bbdefdb9f8b31a37a431d8133f1753cde8e445057e115b55806",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/mcts_500.png"
+    },
+    "case_034/ordinary_500.png": {
+      "sha256": "ae0dfac2a26749d532c0a859c60707439e52684ee81618411c49d1b1261aa3af",
+      "dimensions": [
+        320,
+        256
+      ],
+      "frame_index": 31,
+      "prediction_frame_offset": 32,
+      "path": "archived_workspace/outputs/roboimagine_fig8_four_models_20261027/assets/case_034/ordinary_500.png"
+    }
+  },
+  "cases": {
+    "34": {
+      "id": "083236fad03aff598e3b20cd5c74398ba93dc16d36dbafbf0144a00922edbd8a",
+      "instruction": "close bottom drawer",
+      "matched_gt_observations_instruction": true,
+      "sources": {
+        "initial_sft": {
+          "source_npz": "archived_cluster_artifact",
+          "source_sha256": "b95119d93f627001f1c848d59a2af80b08540ed198db5307d945c6dbf25bacac",
+          "checkpoint_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+          "metrics32": {
+            "mse": 0.01276372395659564,
+            "mae": 0.048248186241835356,
+            "psnr": 19.575383365154266,
+            "lpips": 0.1436403493862599,
+            "ssim": 0.816176775842905
+          },
+          "frame32": {
+            "mse": 0.02120918780565262,
+            "mae": 0.07026731222867966,
+            "psnr": 16.734760284423828,
+            "lpips": 0.18799954652786255,
+            "ssim": 0.7555059790611267
+          }
+        },
+        "sft_500": {
+          "source_npz": "archived_cluster_artifact",
+          "source_sha256": "58d0e919eab1ce9950bf7e2c7b27ee41b166940a25574369a2746f933afbc1cc",
+          "checkpoint_digest": "758c22a2347e710e89a6ae8c8b71f8320c542cf5644f22c641ee503f205dcce6",
+          "metrics32": {
+            "mse": 0.01308004942984553,
+            "mae": 0.049810179974883795,
+            "psnr": 19.57178944349289,
+            "lpips": 0.15006945631466806,
+            "ssim": 0.8129052110016346
+          },
+          "frame32": {
+            "mse": 0.021304495632648468,
+            "mae": 0.07308093458414078,
+            "psnr": 16.715288162231445,
+            "lpips": 0.20231109857559204,
+            "ssim": 0.7499244213104248
+          }
+        },
+        "hybrid_500": {
+          "source_npz": "archived_cluster_artifact",
+          "source_sha256": "7971611d6d42e37043c89c3751ccd3435532d799535db6b2766aa8a27bd3992e",
+          "checkpoint_digest": "f4a63e643ec4525f7abedd5edbfd4a3ad1b764b184f36e202fde9cc2e46b9aa1",
+          "metrics32": {
+            "mse": 0.0026704092961153947,
+            "mae": 0.02629931370029226,
+            "psnr": 26.055867612361908,
+            "lpips": 0.08915363205596805,
+            "ssim": 0.8671925887465477
+          },
+          "frame32": {
+            "mse": 0.005670100450515747,
+            "mae": 0.040056366473436356,
+            "psnr": 22.464092254638672,
+            "lpips": 0.1309669315814972,
+            "ssim": 0.8174237012863159
+          }
+        },
+        "sft_100": {
+          "source_npz": "/tmp/r2_learning_curves_20261023/sft_000100/workers4/rank2/dev_034.npz",
+          "source_sha256": "469336ffc51ab3d71842c0e2f2d8af23f7ebe4e12ba0bb1bf6fb62a015492a36",
+          "checkpoint_digest": "37df9cace5cc3840ae5b6e34e922830fd58d2af9598ddfe4fb4b3214e68da1d0",
+          "metrics32": {
+            "mse": 0.013346470397664234,
+            "mae": 0.04962128045735881,
+            "psnr": 19.556759893894196,
+            "lpips": 0.14691429026424885,
+            "ssim": 0.8140503875911236
+          },
+          "frame32": {
+            "mse": 0.022207992151379585,
+            "mae": 0.07345328480005264,
+            "psnr": 16.5349063873291,
+            "lpips": 0.19794827699661255,
+            "ssim": 0.7502251863479614
+          }
+        },
+        "sft_250": {
+          "source_npz": "/tmp/r2_learning_curves_20261023/sft_000250/workers4/rank2/dev_034.npz",
+          "source_sha256": "a24366ec38663d0794fc8bcea36929f87584fe5ba9af791c459fd5b82df75f6c",
+          "checkpoint_digest": "8a62931e6380c874a2bc7412a8aa0072be16c1e99926f1a0cfe1204e6aab30a0",
+          "metrics32": {
+            "mse": 0.01382933126296848,
+            "mae": 0.05012370739132166,
+            "psnr": 19.350601077079773,
+            "lpips": 0.1469506686553359,
+            "ssim": 0.8136053308844566
+          },
+          "frame32": {
+            "mse": 0.023505518212914467,
+            "mae": 0.07443134486675262,
+            "psnr": 16.288301467895508,
+            "lpips": 0.1969633400440216,
+            "ssim": 0.7475918531417847
+          }
+        },
+        "hybrid_100": {
+          "source_npz": "/tmp/r2_learning_curves_20261023/hybrid_000100/workers4/rank2/dev_034.npz",
+          "source_sha256": "9ce3648c828f46f90e47c1c65832cc4be016c62f6e85b0b63b29bbe24f26887e",
+          "checkpoint_digest": "150630841ff29eeba86be43434aa6b30206ae1d51a84d7545ca6d26634dd3643",
+          "metrics32": {
+            "mse": 0.0036394400922290515,
+            "mae": 0.02916302578523755,
+            "psnr": 24.775197863578796,
+            "lpips": 0.09901510714553297,
+            "ssim": 0.8551848474889994
+          },
+          "frame32": {
+            "mse": 0.007430183235555887,
+            "mae": 0.044875673949718475,
+            "psnr": 21.290006637573242,
+            "lpips": 0.1473660171031952,
+            "ssim": 0.8078452944755554
+          }
+        },
+        "hybrid_250": {
+          "source_npz": "/tmp/r2_learning_curves_20261023/hybrid_000250/workers4/rank2/dev_034.npz",
+          "source_sha256": "128777973760b8f26ba623325c5b19e92e190ba7501dd842c4605d0c97fb9426",
+          "checkpoint_digest": "70fc47d82ed99a544985677a062fed5bc7b343104c1b8ae8ca4626f3e9fe52dd",
+          "metrics32": {
+            "mse": 0.003738800329301739,
+            "mae": 0.02956422622082755,
+            "psnr": 24.62177038192749,
+            "lpips": 0.10220283339731395,
+            "ssim": 0.8539169523864985
+          },
+          "frame32": {
+            "mse": 0.004012465942651033,
+            "mae": 0.0361531637609005,
+            "psnr": 23.965885162353516,
+            "lpips": 0.11857695132493973,
+            "ssim": 0.8247964978218079
+          }
+        },
+        "mcts_100": {
+          "path": "archived_cluster_artifact",
+          "sha256": "352fe3bcbebe37f23d9c7af1da6188d45cda9ff68c515028ef161d6bd0304d7e",
+          "id": "083236fad03aff598e3b20cd5c74398ba93dc16d36dbafbf0144a00922edbd8a",
+          "checkpoint_digest": "93a61163ff8f45a9c9a82d6b11291d22cb97478f86803b8c45443fbdf839e130"
+        },
+        "mcts_250": {
+          "path": "archived_cluster_artifact",
+          "sha256": "94da3c51b26d18cc32d15b48a789a988fbaac6d51dbd498660915edb186f3bf0",
+          "id": "083236fad03aff598e3b20cd5c74398ba93dc16d36dbafbf0144a00922edbd8a",
+          "checkpoint_digest": "4b6b2cc93441b514745fc6fef95783138fe71443c36f75cb49222fa1353b2969"
+        },
+        "ordinary_100": {
+          "path": "archived_cluster_artifact",
+          "sha256": "28f01160c08e7dc7d75aee94d5f80f24d983f838e64071aa05f47417f3d14334",
+          "id": "083236fad03aff598e3b20cd5c74398ba93dc16d36dbafbf0144a00922edbd8a",
+          "checkpoint_digest": "6ad310acbcfd5c416046733bc96a883ee322bde5a890da94c1741174c53c8319"
+        },
+        "ordinary_250": {
+          "path": "archived_cluster_artifact",
+          "sha256": "93b118e201a6ee0b1deb2c84bec5cf1ab7c4a7c79aa8f97d89ad4361de597e03",
+          "id": "083236fad03aff598e3b20cd5c74398ba93dc16d36dbafbf0144a00922edbd8a",
+          "checkpoint_digest": "a069734610347131cba8d49ddde6569114d0104d56634d6b483b6af1d6bc929f"
+        },
+        "mcts_500": {
+          "method": "mcts500",
+          "path": "archived_cluster_artifact",
+          "sha256": "92c79e1121ccd7a2af9e44ff34180eac00af69e50b3babd14945a7463fed309d",
+          "token_shape": [
+            1,
+            32,
+            80
+          ],
+          "token_dtype": "int64",
+          "token_sha256": "d393cf94c68298b966e05af52ccc83cd421cb73f09136f62707ccdfb56986f18",
+          "id": "083236fad03aff598e3b20cd5c74398ba93dc16d36dbafbf0144a00922edbd8a"
+        },
+        "ordinary_500": {
+          "method": "ordinary500",
+          "path": "archived_cluster_artifact",
+          "sha256": "911ac4dfc873745a8d51a4934ce5c4e3b9279993646dca8b542f261feb8861fb",
+          "token_shape": [
+            1,
+            32,
+            80
+          ],
+          "token_dtype": "int64",
+          "token_sha256": "9a60bd63448551019f1d721dfbc9ccd0944219a77e6e5340af02f1f6bc0e6eed",
+          "id": "083236fad03aff598e3b20cd5c74398ba93dc16d36dbafbf0144a00922edbd8a"
+        }
+      }
+    }
+  },
+  "protocol": {
+    "dataset": "RT-1",
+    "cohort_trajectories": 128,
+    "prediction_horizon": 32,
+    "prediction_frame_offset": 32,
+    "beam_width": 4,
+    "memory": "full",
+    "initial_sft_steps": 50000,
+    "additional_updates": [
+      100,
+      250,
+      500
+    ]
+  },
+  "quantization": "Prediction: round(clip(float_prediction,0,1)*255); GT: original uint8. No enhancement.",
+  "duplicate_check": {
+    "fig8_selection": "archived_workspace/work/roboalign_tpami_20261011/repo/tpami/figures/r2_qualitative/selection.json",
+    "fig8_manifest_sha256": "e60508b760b1ac900196d6eb5d40b71606fcb8a95624782660341eb201698d7b",
+    "excluded_ids": [
+      "007631d25d9f94264182347c12927de4aad0d74e31cc2f0dc97073f9a611ff0e",
+      "2d021e4fe716c41925af98fc539efa8ea01e4016ab01a74ee8f1c0682275b50d",
+      "f6358648f4e7ec0a27a0a97fc0e95c09a1adf90523b597d7902591ac5c5e3ded"
+    ],
+    "different_trajectory": true
+  },
+  "selection": {
+    "selected_index": 34,
+    "instruction": "close bottom drawer",
+    "roi_xywh": [
+      70,
+      112,
+      180,
+      144
+    ],
+    "reason": "User selects drawer-closing example instead of the trajectory repeated in Fig.8(a).",
+    "excluded_paper_fig8_rt1_index": 2,
+    "selection_scope": "Illustrative fixed-frame qualitative case; aggregate metrics remain over all 128 trajectories.",
+    "interpretation": "At predicted frame +32, compare the bottom-drawer state and arm/contact region; this frame does not show fully completed closure. The case is not claimed to improve monotonically with training steps."
+  }
+}

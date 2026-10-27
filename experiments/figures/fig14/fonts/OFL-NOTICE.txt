@@ -1,0 +1,24 @@
+EB Garamond — embedded font copyright and license notice
+
+The following declarations are copied verbatim from the local font name tables
+(name IDs 0, 13 and 14) of all four bundled EB Garamond font subsets.
+
+Copyright 2017 The EB Garamond Project Authors (https://github.com/octaviopardo/EBGaramond12)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
+
+http://scripts.sil.org/OFL
+
+Local source of these exact subset files:
+work/r2_learning_curves_20261023/source/fonts/
+
+Files: EBGaramond-Regular.otf, EBGaramond-Bold.otf,
+EBGaramond-Italic.otf, EBGaramond-BoldItalic.otf.
+
+The four files were copied byte-for-byte for this figure bundle. Their original
+subset_manifest.json records the glyph subset and font-subsetting options;
+font_manifest.json records source paths, verified SHA-256 hashes, file sizes,
+and these embedded declarations. The supplied local subset directory did not
+contain a separate full OFL license-text file. This file is the preserved
+embedded notice and source record, not a substitute authored license text.
+No network retrieval was used to prepare this bundle.

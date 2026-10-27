@@ -2,14 +2,28 @@
 
 **Learning Robotic World Models with Semantic and Visual Feedback**
 
-Project repository for RoboImagine, a framework for learning autoregressive robotic world models through candidate-future comparisons with semantic and visual feedback.
+RoboImagine learns autoregressive robotic world models by comparing candidate futures with semantic and visual feedback.
 
-## Release status
+## Experimental reproducibility release
 
-This is a placeholder repository. Code and documentation are being prepared and will be uploaded after manuscript submission. No implementation is available here yet.
+The [`experiments/`](experiments/) directory contains the code, saved results, and necessary example frames for **Figures 6–14 and Tables 1–5**. It covers continued-SFT comparisons, reward/search ablations, GDBS case analysis, and memory quality/efficiency. Tables 1–2 export RoboImagine rows only; external-baseline implementations and architectural drawing code are not included.
+
+```bash
+cd experiments
+pip install -r requirements.txt
+jupyter lab Reproduce_All.ipynb
+# or
+python run_all.py
+```
+
+CairoSVG requires system Cairo; table PDFs additionally require TeX/latexmk. See the [experiment guide](experiments/README.md) for figure-specific notebooks, protocols, dependencies, and limitations.
+
+This release reproduces plots and tables **from archived experimental outputs**. It does not yet provide end-to-end training or checkpoint inference. There are no automatic paid API calls or cluster submissions.
 
 ## Resources
 
-- [Data and model weights](https://huggingface.co/easylearning/RoboImagine): release hub (coming soon).
+- [Experiment code and guide](experiments/README.md)
+- [Run All notebook](experiments/Reproduce_All.ipynb)
+- [Data and weights hub](https://huggingface.co/easylearning/RoboImagine) — checkpoint release remains in preparation.
 
-Data resources, evaluation assets, and model checkpoints will be documented at the release hub as they become available.
+Third-party font/icon notices are retained with assets. No blanket license is granted over third-party datasets or brand marks; see [NOTICE](NOTICE.md).

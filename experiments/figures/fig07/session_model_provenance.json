@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-15T08:08:39.184744+00:00",
+  "source_log": "archived_local_asset",
+  "scope": "Sanitized local structured metadata only; no message bodies or credentials exported.",
+  "scoring_window_utc": {
+    "start_inclusive": "2026-10-15T06:24:00.000Z",
+    "end_exclusive": "2026-10-15T07:30:00.000Z"
+  },
+  "turn_contexts": [
+    {
+      "source_line": 1973,
+      "timestamp_utc": "2026-10-15T06:24:35.898Z",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "ultra"
+    },
+    {
+      "source_line": 1997,
+      "timestamp_utc": "2026-10-15T06:26:33.490Z",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "ultra"
+    },
+    {
+      "source_line": 2012,
+      "timestamp_utc": "2026-10-15T06:44:32.087Z",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "ultra"
+    },
+    {
+      "source_line": 2240,
+      "timestamp_utc": "2026-10-15T06:58:04.110Z",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "ultra"
+    },
+    {
+      "source_line": 2761,
+      "timestamp_utc": "2026-10-15T07:28:04.610Z",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "ultra"
+    }
+  ],
+  "scorer_spawn_calls": [
+    {
+      "task_name": "blind_video_review_a",
+      "source_line": 2039,
+      "timestamp_utc": "2026-10-15T06:46:12.040Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2012,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind_video_review_b",
+      "source_line": 2045,
+      "timestamp_utc": "2026-10-15T06:46:28.545Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2012,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind_video_review_c",
+      "source_line": 2051,
+      "timestamp_utc": "2026-10-15T06:46:44.021Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2012,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch01",
+      "source_line": 2387,
+      "timestamp_utc": "2026-10-15T07:06:01.282Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch02",
+      "source_line": 2393,
+      "timestamp_utc": "2026-10-15T07:06:15.197Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch03",
+      "source_line": 2399,
+      "timestamp_utc": "2026-10-15T07:06:31.062Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch04",
+      "source_line": 2468,
+      "timestamp_utc": "2026-10-15T07:10:26.545Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch05",
+      "source_line": 2483,
+      "timestamp_utc": "2026-10-15T07:10:53.148Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch06",
+      "source_line": 2489,
+      "timestamp_utc": "2026-10-15T07:11:06.855Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch07",
+      "source_line": 2528,
+      "timestamp_utc": "2026-10-15T07:14:26.537Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch08",
+      "source_line": 2540,
+      "timestamp_utc": "2026-10-15T07:15:08.033Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch09",
+      "source_line": 2626,
+      "timestamp_utc": "2026-10-15T07:19:53.288Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    },
+    {
+      "task_name": "blind50_batch10",
+      "source_line": 2638,
+      "timestamp_utc": "2026-10-15T07:20:32.339Z",
+      "fork_turns": "none",
+      "model_override_present": false,
+      "model_override": null,
+      "reasoning_effort_override_present": false,
+      "parent_context_source_line": 2240,
+      "parent_configured_model": "gpt-6-astra"
+    }
+  ],
+  "conclusion": {
+    "configured_parent_model": "gpt-6-astra",
+    "scorer_model_overrides_found": 0,
+    "scorer_attribution": "GPT-6 Astra via inherited parent configuration; no model override specified in 13 scorer spawn calls.",
+    "supported_chart_label": "GPT-6 Astra (session-based)",
+    "attribution_level": "configured session model",
+    "immutable_api_snapshot_verified": false,
+    "actual_backend_execution_independently_verified": false,
+    "limitation": "This parent-session log supports configured model attribution. It does not supply immutable API snapshot identifiers or independently verify each scorer backend execution."
+  }
+}

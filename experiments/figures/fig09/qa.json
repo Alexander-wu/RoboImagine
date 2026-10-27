@@ -1,0 +1,13 @@
+{
+  "data_identical_to_previous": true,
+  "font": "EB Garamond",
+  "vector_pdf": true,
+  "embedded_images": 0,
+  "live_svg_text_count": 14,
+  "figure_points": [
+    252.0,
+    82.08000183105469
+  ],
+  "height_reduction_percent": 13.636363636363647,
+  "independent_audit": "Passed; color legend, values, row order and negative gain preserved."
+}

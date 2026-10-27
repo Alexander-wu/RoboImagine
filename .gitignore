@@ -1,0 +1,12 @@
+**/__pycache__/
+**/.mplconfig/
+**/.mplcache/
+**/.ipynb_checkpoints/
+.venv/
+experiments/reproduced/
+*.pyc
+*.aux
+*.fls
+*.fdb_latexmk
+.DS_Store
+**/*.executed.ipynb

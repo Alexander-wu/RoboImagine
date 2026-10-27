@@ -1,0 +1,5 @@
+matplotlib==3.11.1
+Pillow==12.3.0
+nbformat>=5
+nbclient>=0.10
+ipykernel>=6

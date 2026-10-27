@@ -1,0 +1,92 @@
+[
+  {
+    "figure": 6,
+    "directory": "figures/fig06",
+    "entry": "build_figure.py",
+    "pdf": "baseline_comparison.pdf",
+    "kind": "measured",
+    "title_zh": "GT 与模型预测的四时刻对比",
+    "protocol_note": "RT-1 case032 + BridgeV2 case079（当前验证所选检查点）；真实帧8/16/24/32和固定ROI。保留必要Baseline图片，不含Baseline模型代码。",
+    "reference_pdf_sha256": "13c01da2e0599e0ebfba99ff54be8efd2a2531399b600d27d57b55c0855fac86"
+  },
+  {
+    "figure": 7,
+    "directory": "figures/fig07",
+    "entry": "build_figure.py",
+    "pdf": "figure.pdf",
+    "kind": "measured",
+    "title_zh": "多模型评测与输出摘录",
+    "protocol_note": "Qwen 97、Doubao 10、GPT-6 Astra 50个匹配轨迹；均值和实际摘录分开。GPT是会话评估，不是固定API版本。仅重绘已有记录。",
+    "reference_pdf_sha256": "76ced66ea0efaaf7949062383204b0ce41e63209a8f6bd99dcd9d17046f475fd"
+  },
+  {
+    "figure": 8,
+    "directory": "figures/fig08",
+    "entry": "build_figure.py",
+    "pdf": "figure.pdf",
+    "kind": "measured",
+    "title_zh": "SFT 续训与搜索变体训练曲线",
+    "protocol_note": "同128条RT-1／32帧；四模型100/250/500更新；抽屉case034固定预测帧32。",
+    "reference_pdf_sha256": "ec97d0bbaf076ec93f165ff353aeae3fb09c633338a65ddf22de67b6f670432d"
+  },
+  {
+    "figure": 9,
+    "directory": "figures/fig09",
+    "entry": "build_figure.py",
+    "pdf": "figure.pdf",
+    "kind": "measured",
+    "title_zh": "训练 GPU 小时与质量",
+    "protocol_note": "单次运行的训练阶段GPU小时，不是等计算预算比较，也不是纯推理延迟。",
+    "reference_pdf_sha256": "ed5d7eadfc3989bcfcd63896d4c7c2cf2bd5f3d5175fe0e45ea6d9836bda7037"
+  },
+  {
+    "figure": 10,
+    "directory": "figures/fig10",
+    "entry": "render_figure.py",
+    "pdf": "r2_three_dataset_comparison.pdf",
+    "kind": "measured",
+    "title_zh": "三数据集 SFT 对照",
+    "protocol_note": "RT-1使用visual-only，BridgeV2/RoboCasa使用combined反馈，均500更新；不是全图统一Hybrid。",
+    "reference_pdf_sha256": "ad1cab286a4ff6aea7d059537debd05a0068453c5881a500f42e904ee4323733"
+  },
+  {
+    "figure": 11,
+    "directory": "figures/fig11",
+    "entry": "build_figure.py",
+    "pdf": "figure.pdf",
+    "kind": "measured",
+    "title_zh": "完整128条预测距离与反馈",
+    "protocol_note": "完整128条最终预测之间的token距离，不是单次搜索内部候选多样性。Jev为训练评价器，不是独立Qwen。",
+    "reference_pdf_sha256": "1239158be13b5294051cf70530c8e25d32b9d74d8ad81f23f61e8a577c65aadc"
+  },
+  {
+    "figure": 12,
+    "directory": "figures/fig12",
+    "entry": "build_figure.py",
+    "pdf": "gdbs_case_study.pdf",
+    "kind": "measured",
+    "title_zh": "真实 GDBS 搜索案例",
+    "protocol_note": "八个训练条件中按语义分数spread增幅选出的单个案例，不是均值。raw_traces.json保留祖先关系与真实反馈。",
+    "reference_pdf_sha256": "0bb9078014d81d6c49e2f7e9518816cfcd776704a1775f9d5c3444462d7d160e"
+  },
+  {
+    "figure": 13,
+    "directory": "figures/fig13",
+    "entry": "build_figure.py",
+    "pdf": "figure.pdf",
+    "kind": "measured",
+    "title_zh": "64／128帧记忆对照",
+    "protocol_note": "历史实验同11条held-out轨迹，64/128帧；完整记忆为固定锚点+最近6帧，不能隔离锚点贡献。",
+    "reference_pdf_sha256": "06b2f195488c27d4578f075804abcf804f4ddaaadc067659a631a501612b4093"
+  },
+  {
+    "figure": 14,
+    "directory": "figures/fig14",
+    "entry": "build_figure.py",
+    "pdf": "figure14_heatmap_bars.pdf",
+    "kind": "measured",
+    "title_zh": "窗口质量与推理效率",
+    "protocol_note": "新实验同30条长序列test、五长度、四窗口；三次计时先轨迹内平均。与主表128条不同（W6/H32 22.20 vs22.57dB）。",
+    "reference_pdf_sha256": "f5922babe39b509ec684971cca1aa965350b347067ebdf2ac2ca8e6b92506f87"
+  }
+]

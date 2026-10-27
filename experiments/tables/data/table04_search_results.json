@@ -1,0 +1,346 @@
+{
+  "state": "SUCCEEDED",
+  "table": [
+    {
+      "method": "SFT",
+      "psnr": 21.366095108911395,
+      "ssim": 0.785980892542284,
+      "lpips": 0.1734311460495519,
+      "mae": 0.04946537332102707,
+      "mse": 0.01013495640936668
+    },
+    {
+      "method": "Sampling",
+      "psnr": 21.47457156633027,
+      "ssim": 0.786905621207552,
+      "lpips": 0.1728536317114049,
+      "mae": 0.0490900508618779,
+      "mse": 0.010053887301801012
+    },
+    {
+      "method": "Ordinary beam",
+      "psnr": 22.071287161437795,
+      "ssim": 0.796226022488554,
+      "lpips": 0.1626548366712086,
+      "mae": 0.04538297908266031,
+      "mse": 0.00864855842250023
+    },
+    {
+      "method": "Grouped diverse beam",
+      "psnr": 22.567982499487698,
+      "ssim": 0.8035291924170451,
+      "lpips": 0.15409563022330985,
+      "mae": 0.042266772257335106,
+      "mse": 0.007459440057537847
+    },
+    {
+      "method": "Likelihood-guided MCTS (16)",
+      "psnr": 21.48980776173994,
+      "ssim": 0.7870823375633336,
+      "lpips": 0.1721681508624897,
+      "mae": 0.048989290081181025,
+      "mse": 0.010019465045296272
+    }
+  ],
+  "paired_mcts_minus_other": {
+    "SFT": {
+      "psnr": {
+        "mcts_minus_comparator": 0.12371265282854438,
+        "paired_trajectory_bootstrap95": [
+          -0.03282074941089377,
+          0.2706602180027402
+        ]
+      },
+      "ssim": {
+        "mcts_minus_comparator": 0.0011014450210495852,
+        "paired_trajectory_bootstrap95": [
+          -0.0013184402594561106,
+          0.0035015597974052065
+        ]
+      },
+      "lpips": {
+        "mcts_minus_comparator": -0.001262995187062188,
+        "paired_trajectory_bootstrap95": [
+          -0.003855787035809044,
+          0.001327683373119722
+        ]
+      },
+      "mae": {
+        "mcts_minus_comparator": -0.00047608323984604795,
+        "paired_trajectory_bootstrap95": [
+          -0.0014313761273854197,
+          0.000488938229386803
+        ]
+      },
+      "mse": {
+        "mcts_minus_comparator": -0.00011549136407040805,
+        "paired_trajectory_bootstrap95": [
+          -0.0005091914074697001,
+          0.0002775706113393282
+        ]
+      }
+    },
+    "Sampling": {
+      "psnr": {
+        "mcts_minus_comparator": 0.015236195409670472,
+        "paired_trajectory_bootstrap95": [
+          -0.13873682042467408,
+          0.16163985510356718
+        ]
+      },
+      "ssim": {
+        "mcts_minus_comparator": 0.00017671635578153655,
+        "paired_trajectory_bootstrap95": [
+          -0.0020340898558060872,
+          0.0024370181003177966
+        ]
+      },
+      "lpips": {
+        "mcts_minus_comparator": -0.0006854808489151765,
+        "paired_trajectory_bootstrap95": [
+          -0.0032491397006197075,
+          0.0018521049803439371
+        ]
+      },
+      "mae": {
+        "mcts_minus_comparator": -0.00010076078069687355,
+        "paired_trajectory_bootstrap95": [
+          -0.0009733900686001107,
+          0.0007922043146663779
+        ]
+      },
+      "mse": {
+        "mcts_minus_comparator": -3.442225650474029e-05,
+        "paired_trajectory_bootstrap95": [
+          -0.0003756053495010292,
+          0.0003161254792754419
+        ]
+      }
+    },
+    "Ordinary beam": {
+      "psnr": {
+        "mcts_minus_comparator": -0.5814793996978551,
+        "paired_trajectory_bootstrap95": [
+          -0.7846139617613517,
+          -0.37240072974236704
+        ]
+      },
+      "ssim": {
+        "mcts_minus_comparator": -0.009143684925220441,
+        "paired_trajectory_bootstrap95": [
+          -0.012303386063103971,
+          -0.005879772094885997
+        ]
+      },
+      "lpips": {
+        "mcts_minus_comparator": 0.009513314191281097,
+        "paired_trajectory_bootstrap95": [
+          0.005869689042492609,
+          0.012922402075582795
+        ]
+      },
+      "mae": {
+        "mcts_minus_comparator": 0.003606310998520712,
+        "paired_trajectory_bootstrap95": [
+          0.002291110359414006,
+          0.004876373241438614
+        ]
+      },
+      "mse": {
+        "mcts_minus_comparator": 0.001370906622796042,
+        "paired_trajectory_bootstrap95": [
+          0.0008477232565038406,
+          0.0018825248140011295
+        ]
+      }
+    },
+    "Grouped diverse beam": {
+      "psnr": {
+        "mcts_minus_comparator": -1.0781747377477586,
+        "paired_trajectory_bootstrap95": [
+          -1.3364290252735374,
+          -0.849003632774111
+        ]
+      },
+      "ssim": {
+        "mcts_minus_comparator": -0.016446854853711557,
+        "paired_trajectory_bootstrap95": [
+          -0.020220206602789403,
+          -0.012826689477515175
+        ]
+      },
+      "lpips": {
+        "mcts_minus_comparator": 0.018072520639179857,
+        "paired_trajectory_bootstrap95": [
+          0.014343989249300648,
+          0.021982270258376953
+        ]
+      },
+      "mae": {
+        "mcts_minus_comparator": 0.006722517823845919,
+        "paired_trajectory_bootstrap95": [
+          0.005308080236875412,
+          0.008263026239740156
+        ]
+      },
+      "mse": {
+        "mcts_minus_comparator": 0.0025600249877584247,
+        "paired_trajectory_bootstrap95": [
+          0.0020088948088140767,
+          0.0031592299932750477
+        ]
+      }
+    }
+  },
+  "cost": {
+    "train_seconds": 84291.91517265886,
+    "train_gpu_hours": 93.65768352517651,
+    "gpu_count": 4,
+    "complete_groups": 4000,
+    "simulations_per_group": 16,
+    "returned_candidates": 4,
+    "total_model_forward_calls": 42290720,
+    "total_actor_token_logit_rows": 42290720,
+    "candidate_seconds_sum_over_groups": 281111.0861200653,
+    "judge_seconds_sum_over_groups": 18149.985681921244,
+    "mean_max_tree_depth": 4.1515,
+    "peak_train_allocated_GiB": 12.754902839660645,
+    "note": "Same500updates/globalbatch8; different MCTS search budget and physical GPU parallelism. Group component times overlap across4 ranks; do not add them to wall time."
+  },
+  "source_files": {
+    "SFT": {
+      "path": "archived_cluster_artifact",
+      "sha256": "3f6563764c16df6059ee8d97ab1c06213d9bd6f5a0b5909206279c1c8325ca0c"
+    },
+    "Sampling": {
+      "path": "archived_cluster_artifact",
+      "sha256": "848a420269857ff2c020470df19ee0ff978aa0a6fde2bc70e3d4a5113791c253"
+    },
+    "Ordinary beam": {
+      "path": "archived_cluster_artifact",
+      "sha256": "de651c3492eb8d8053e51164e16963f242a81141ec762a8d0f9dd89d853aeb4e"
+    },
+    "Grouped diverse beam": {
+      "path": "archived_cluster_artifact",
+      "sha256": "33a3a5b4c7e2fc2787a719bab7dbb0c0600275f087a4c59734cb131c638397c0"
+    },
+    "Likelihood-guided MCTS (16)": {
+      "path": "/tmp/roboimagine_mcts_rt1_20261025/v1/run4/complete.json",
+      "sha256": "66e6e51ddee054fe8b774f685a64d354d0916cb41f65884bdaeab53f2e5c3978"
+    }
+  },
+  "protocol": {
+    "version": "roboimagine_mcts_rt1_v1_20261025",
+    "scope": "RT1 likelihood-guided frame-prefix UCT MCTS post-training from the same SFT50000 checkpoint; 500 updates, one training seed; all128 matched H32 evaluation trajectories",
+    "initial_updates": 0,
+    "seeds": [
+      20261011
+    ],
+    "group_size": 4,
+    "global_batch": 8,
+    "horizon_train": 10,
+    "search": {
+      "strategy": "mcts",
+      "simulations": 16,
+      "branching": 2,
+      "returned_candidates": 4,
+      "c_uct": 1.0,
+      "temperature": 1.0,
+      "recent": 6,
+      "tree_unit": "One generated dynamics frame per tree edge; input observations/actions/text fixed.",
+      "selection": "UCT on visited children; binary ancestral expansion; one new node per simulation, then stochastic full remaining rollout.",
+      "backup": "exp(mean raw model token log probability over complete10frame trajectory), including stored prefix and rollout suffix; update raw sum/count along all ancestors.",
+      "value_scaling": "At selection only, normalize mean raw Q by current global terminal-return min/max; degenerate range neutral0.5; raw stored returns are never rescaled.",
+      "final_selection": "Stable top4 of16 complete simulations by raw cumulative model log probability. Keep duplicates, no extra diversity resampling.",
+      "uses_ground_truth": false,
+      "uses_vlm": false,
+      "uses_visual_metric_reward": false,
+      "budget_note": "16 rollouts give nontrivial depth/adaptive tree decisions; exceeds nominal8path beam budget and must not be described as equal-compute."
+    },
+    "optimizer": {
+      "type": "AdamW",
+      "lr": 1e-06,
+      "weight_decay": 0,
+      "grad_clip": 1,
+      "fresh": true
+    },
+    "clip": 0.2,
+    "kl": 0.001,
+    "reference": "Frozen identical initializer; same generator conditioning intervention as actor",
+    "mjev": "Frozen SoMarkAI/mJev-Qwen3-VL-4B-RLCD 7af7cda55ea36e76bce64e87a02c9faea1919d64, both orders of all6pairs, candidate-list label logits, same native implementation as Bridge pilot",
+    "evaluation": {
+      "cases": 128,
+      "horizon": 32,
+      "beam": 4,
+      "memory": "full",
+      "primary": "mean frames1..32 then mean all128 trajectories",
+      "secondary": "frame32 only; H10,H20 prefix means",
+      "cohort": "exact IDs in original configs/cohorts/rt1_128.json, start0; re-evaluate baseline on same runtime",
+      "no_gt_future_inputs": true
+    },
+    "seeds_meaning": "Seed20261011;5200unique predetermined train windows,8disjoint smoke,128dev. One global schedule split byrank.",
+    "checkpoints": [
+      100,
+      250,
+      500
+    ],
+    "stopping": "500globalupdates;650globalbatch cap; globally all-tied batch skips; local ties zero policy advantage and retainKL",
+    "cost": "Four H20,16 sequential MCTS simulations per training trajectory,4 returned candidates. This is NOT equal compute to prior8path beam variants. Record actor forward calls/token rows, wall time and4GPU-hours.",
+    "frozen": "codec,T5,judge and reference; update core and original trained adapters at same fixedlr",
+    "sft_steps": 50000,
+    "target_updates": 500,
+    "metric_reward_used": true,
+    "training_data": "Same sealed 5200 training windows, 8 disjoint smoke windows and 128 dev trajectories as completed RT1 reward controls",
+    "world_size": 4,
+    "max_global_batches": 650,
+    "gradient_sync": "4 physical DDP ranks x2 trajectories per rank, each loss scaled0.5; firstmicro and first9frames of secondmicro no_sync, synchronize only secondmicro lastframe. All8 proposals/rewards precede optimizer step.",
+    "evaluation_parallelism": "128 original dev trajectories indexmodulo4;32cases perGPU; collectall128",
+    "metric_reward": "negative mean per-frame MAE + VGG LPIPS",
+    "hybrid": {
+      "metric": 0.75,
+      "mjev": 0.25,
+      "scaling": "per-group sample std floored at1e-6"
+    },
+    "prompt_policy": "Unchanged from completed mJev500, including inherited T/U-vs-C/D wording. No prompt change during reward ablation.",
+    "dataset": "rt1",
+    "action_dim": 13,
+    "arm": "hybrid",
+    "baseline_complete": "archived_cluster_artifact",
+    "verified_files": {
+      "archived_cluster_artifact": "9f5cde05fc628a550fa321343573c66919eb72338438e37883cecc45bc28d068",
+      "archived_cluster_artifact": "c426c478c690679230b613401b59f8d17bc7863b33450ba12964d42722b489cd",
+      "archived_cluster_artifact": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "archived_cluster_artifact": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "archived_cluster_artifact": "072b972d52a73e1a7c28b4dae7385dcd434dca57634c66f9742cccc1337f8cc7",
+      "archived_cluster_artifact": "006511fd5bbfdeb2f6975695415243b5cec4912517c7f187e65864a48ecfcf07",
+      "archived_cluster_artifact": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "archived_cluster_artifact": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "archived_cluster_artifact": "7c8194f83617137ef0a002a15d60c6ee222bcd2442afb4ed704a7918496cc073",
+      "archived_cluster_artifact": "9739df1c8157400c8efc54e67370f1e6be9db074c059ef25b26e475fc0fe9d9d",
+      "archived_cluster_artifact": "7b22a29492c55958ab63b16c91a6825b0c844e06afb4107f6fccf8f3d437db60",
+      "archived_cluster_artifact": "06584370456a83520812b39ddeb5d1299b54beea9f42bb41ab6c42ffb8a1a86a"
+    },
+    "text_mode": "full",
+    "initial_checkpoint": "archived_cluster_artifact",
+    "expected_initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+    "initialization_description": "Text-enabled SFT50000, prior RL0; no additional SFT",
+    "text_donor_map_file": "archived_cluster_artifact",
+    "text_donor_map_sha256": "8b6c4c1bdb1af8e63dbd7ebeb313266f104852fbf5709915c8671f69a61eada3",
+    "generator_text_intervention": {
+      "mode": "full",
+      "judge_uses": "Original correct instruction in all arms",
+      "training_and_evaluation_match": true,
+      "no_text": "Zero mask in cached proposals/actor/reference and pipeline predictions",
+      "shuffled": "Frozen split-local bijective different-instruction map; no dev donor used in training"
+    },
+    "gradient_accumulation": 2,
+    "memory": "Fixed initial context and fixed dynamics anchor, branch-local last6 state/action pairs; same as prior controls",
+    "qualification": "One specified likelihood-guided MCTS instantiation; no assertion about all MCTS algorithms; no outcome-based tuning or sample selection"
+  },
+  "limitations": [
+    "One training seed; bootstrap reflects trajectory uncertainty only.",
+    "Likelihood-guided frame-prefix UCT16 is one specified MCTS instantiation, not all MCTS methods.",
+    "Do not call this equal-compute; nominal16 rollouts differ from8-path beam.",
+    "No dev/test tuning or favorable-sample selection."
+  ]
+}

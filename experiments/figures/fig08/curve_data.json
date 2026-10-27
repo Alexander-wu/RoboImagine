@@ -1,0 +1,200 @@
+{
+  "baseline": {
+    "label": "SFT 50k",
+    "metrics": {
+      "mse": 0.01013495640936668,
+      "mae": 0.04946537332102707,
+      "psnr": 21.366095108911395,
+      "lpips": 0.1734311460495519,
+      "ssim": 0.785980892542284
+    },
+    "source": "archived_cluster_artifact",
+    "source_sha256": "3f6563764c16df6059ee8d97ab1c06213d9bd6f5a0b5909206279c1c8325ca0c"
+  },
+  "series": [
+    {
+      "id": "r2_hybrid",
+      "label": "RoboImagine (GDBS)",
+      "points": [
+        {
+          "step": 100,
+          "metrics": {
+            "psnr": 22.01226362469606,
+            "ssim": 0.7955163118604105,
+            "lpips": 0.16279918586496933,
+            "mae": 0.045519787843431914,
+            "mse": 0.008606559023938587
+          },
+          "source": "/tmp/r2_learning_curves_20261023/hybrid_000100/complete.json",
+          "source_sha256": "a5389e1d4c6cca9977821cb70c6ccc958df7285b5d16b28f6c1997df1beac2cd"
+        },
+        {
+          "step": 250,
+          "metrics": {
+            "psnr": 22.452265467960387,
+            "ssim": 0.8021564949231106,
+            "lpips": 0.15548367502196925,
+            "mae": 0.043057668415031,
+            "mse": 0.007741814749067544
+          },
+          "source": "/tmp/r2_learning_curves_20261023/hybrid_000250/complete.json",
+          "source_sha256": "50df69ca78cce69b9edb63a68634909279b7c56fbb8a339e91d40b5241a35793"
+        },
+        {
+          "step": 500,
+          "metrics": {
+            "mse": 0.007459440057537847,
+            "mae": 0.042266772257335106,
+            "psnr": 22.567982499487698,
+            "lpips": 0.15409563022330985,
+            "ssim": 0.8035291924170451
+          },
+          "source": "archived_cluster_artifact",
+          "source_sha256": "33a3a5b4c7e2fc2787a719bab7dbb0c0600275f087a4c59734cb131c638397c0"
+        }
+      ]
+    },
+    {
+      "id": "continued_sft",
+      "label": "Continued SFT",
+      "points": [
+        {
+          "step": 100,
+          "metrics": {
+            "psnr": 21.345265034819022,
+            "ssim": 0.7848478686719318,
+            "lpips": 0.1743712039633465,
+            "mae": 0.04980275156049174,
+            "mse": 0.010273173910270827
+          },
+          "source": "/tmp/r2_learning_curves_20261023/sft_000100/complete.json",
+          "source_sha256": "c79c44c9862a1512500abfb9c320fedc7d03af0dcae604f56158ae5e6020961a"
+        },
+        {
+          "step": 250,
+          "metrics": {
+            "psnr": 21.334651267388836,
+            "ssim": 0.7857112642159336,
+            "lpips": 0.17400829881626123,
+            "mae": 0.049602532220433204,
+            "mse": 0.010187089857360832
+          },
+          "source": "/tmp/r2_learning_curves_20261023/sft_000250/complete.json",
+          "source_sha256": "959a3bd92d1e0560bffa72f883e0a5a3d0face558227ba65e1dc86e65f6e7473"
+        },
+        {
+          "step": 500,
+          "metrics": {
+            "mse": 0.010431715381322704,
+            "mae": 0.050073954129175036,
+            "psnr": 21.311314462916926,
+            "lpips": 0.17496617923825397,
+            "ssim": 0.7844221863269922
+          },
+          "source": "/tmp/r2_supplement_20261023/sft/rt1_sft500_v1/complete.json",
+          "source_sha256": "c0099eefab2583e7cac33c4b05de889054e02dca86c98963f11428f5657ec766"
+        }
+      ]
+    },
+    {
+      "id": "mcts",
+      "label": "MCTS",
+      "points": [
+        {
+          "step": 100,
+          "metrics": {
+            "mse": 0.010140890051594909,
+            "mae": 0.04936727999120194,
+            "psnr": 21.392774869222194,
+            "lpips": 0.17322674500792345,
+            "ssim": 0.7864100795341074
+          },
+          "source": "archived_workspace/work/roboimagine_search_curves_full128_20261026/control/run-v1_export.json",
+          "checkpoint_digest": "93a61163ff8f45a9c9a82d6b11291d22cb97478f86803b8c45443fbdf839e130"
+        },
+        {
+          "step": 250,
+          "metrics": {
+            "mse": 0.010331182215274737,
+            "mae": 0.049784259937496245,
+            "psnr": 21.360219470225275,
+            "lpips": 0.17458185094437795,
+            "ssim": 0.7852158848909312
+          },
+          "source": "archived_workspace/work/roboimagine_search_curves_full128_20261026/control/run-v1_export.json",
+          "checkpoint_digest": "4b6b2cc93441b514745fc6fef95783138fe71443c36f75cb49222fa1353b2969"
+        },
+        {
+          "step": 500,
+          "metrics": {
+            "mse": 0.010019465045296272,
+            "mae": 0.048989290081181025,
+            "psnr": 21.48980776173994,
+            "lpips": 0.1721681508624897,
+            "ssim": 0.7870823375633336
+          },
+          "source": "archived_workspace/outputs/roboimagine_mcts_final_20261026/summary.json"
+        }
+      ]
+    },
+    {
+      "id": "ordinary",
+      "label": "Ordinary beam",
+      "points": [
+        {
+          "step": 100,
+          "metrics": {
+            "mse": 0.009409444723111449,
+            "mae": 0.04747109246704895,
+            "psnr": 21.6825099370908,
+            "lpips": 0.16851140009566734,
+            "ssim": 0.7906994625227526
+          },
+          "source": "archived_workspace/work/roboimagine_search_curves_full128_20261026/control/run-v1_export.json",
+          "checkpoint_digest": "6ad310acbcfd5c416046733bc96a883ee322bde5a890da94c1741174c53c8319"
+        },
+        {
+          "step": 250,
+          "metrics": {
+            "mse": 0.009431103853472678,
+            "mae": 0.04756140138852061,
+            "psnr": 21.72572886152193,
+            "lpips": 0.16828411353071715,
+            "ssim": 0.7906964382200385
+          },
+          "source": "archived_workspace/work/roboimagine_search_curves_full128_20261026/control/run-v1_export.json",
+          "checkpoint_digest": "a069734610347131cba8d49ddde6569114d0104d56634d6b483b6af1d6bc929f"
+        },
+        {
+          "step": 500,
+          "metrics": {
+            "mse": 0.00864855842250023,
+            "mae": 0.04538297908266031,
+            "psnr": 22.071287161437795,
+            "lpips": 0.1626548366712086,
+            "ssim": 0.796226022488554
+          },
+          "source": "archived_workspace/outputs/roboimagine_mcts_final_20261026/summary.json"
+        }
+      ]
+    }
+  ],
+  "planned_steps": [
+    0,
+    100,
+    250,
+    500
+  ],
+  "protocol": {
+    "dataset": "RT-1",
+    "trajectories": 128,
+    "prediction_frames": 32,
+    "initial_sft_updates": 50000,
+    "initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+    "beam_width": 4,
+    "memory": "full",
+    "cost": "Equal updates do not imply equal GPU time"
+  },
+  "status": "COMPLETE",
+  "updated": 1792778044.3514361
+}

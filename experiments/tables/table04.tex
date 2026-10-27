@@ -1,0 +1,25 @@
+% Verified source: outputs/roboimagine_mcts_final_20261026/summary.json.
+% Final 500-update models, all128 matched RT-1 trajectories; shared SFT initialization and evaluation decoder.
+\begin{table}[!ht]
+  \centering
+  \small
+  \renewcommand{\arraystretch}{1.05}
+  \setlength{\tabcolsep}{2pt}
+  \caption{Search comparison after 500 post-training updates on all 128 RT-1 trajectories (32-frame prediction). Cost: training GPU-seconds per trajectory presentation. Superscripts rank visual metrics.}
+  \label{tab:search_pilot}
+  \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{0.30\columnwidth}cccc@{}}
+    \toprule
+    \rowcolor{tblheadbg}
+    Method & PSNR $\uparrow$ & SSIM $\uparrow$ & LPIPS $\downarrow$ & \shortstack{GPU-s/\\traj. $\downarrow$} \\
+    \midrule
+    \rowcolor{tblstripe}
+    SFT initialization & 21.37 & 0.7860 & 0.1734 & --- \\
+    Random sampling & 21.47 & 0.7869 & 0.1729 & 23.78 \\
+    MCTS & \thirdmean{21.49} & \thirdmean{0.7871} & \thirdmean{0.1722} & 84.29 \\
+    \rowcolor{tblstripe}
+    Ordinary beam & \secondmean{22.07} & \secondmean{0.7962} & \secondmean{0.1627} & 24.81 \\
+    \rowcolor{mydarkblue!6}
+    \textcolor{mydarkblue}{\textbf{GDBS}} & \bestmean{22.57} & \bestmean{0.8035} & \bestmean{0.1541} & 25.34 \\
+    \bottomrule
+  \end{tabular*}
+\end{table}

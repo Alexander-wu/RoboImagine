@@ -1,0 +1,80 @@
+{
+  "task": "open bottom drawer",
+  "dataset": "RT-1",
+  "case": 24,
+  "selection": "Illustrative case with visible task-state contrast and final-answer rationales available for all three evaluators; not a representative sample or new evaluation.",
+  "records": [
+    {
+      "evaluator": "qwen",
+      "index": 24,
+      "arm": "sft",
+      "total": 6,
+      "excerpt": "the drawer remains closed throughout the entire sequence",
+      "full_rationale": "The video shows the robot attempting to open the bottom drawer. The robot moves toward the bottom drawer, positions itself to interact with the handle, and repeatedly engages with the drawer's handle (visible from frame +10 to +32). However, the drawer remains closed throughout the entire sequence, indicating the action was not completed. 1. Instruction Following: The robot clearly targets the bottom drawer and attempts to open it, matching the instruction (score 2). 2. Manipulation Success: The drawer does not open, so the task is completely failed (score 0). 3. Action-Outcome Consistency: The robot's interaction with the handle does not result in the drawer opening, creating inconsistency (score 0). 4. Temporal Consistency: The sequence shows smooth motion without flickering or jumps (score 1). 5. Contact Realism: The robot's contact with the drawer handle appears natural (score 1). 6. Physics Adherence: There are no evident physics violations (e.g., rigid object interactions) (score 2).",
+      "uid": "rt1_024_sft",
+      "judge_input_sha256": "fa3b37c6d911f170d913875295f28d8464999cb7350c544a22aee0557075bd45",
+      "source": "archived_workspace/work/r2_qwen8b_sixdim_20261014/rt1_final_1701.json",
+      "source_sha256": "dd8492547bb4b0073d5e9d300dbfd34b3faa49c1915e848b3ff5cb19edf03f8b"
+    },
+    {
+      "evaluator": "qwen",
+      "index": 24,
+      "arm": "hybrid",
+      "total": 10,
+      "excerpt": "By Frame +32, the bottom drawer is visibly open.",
+      "full_rationale": "The video shows the robot attempting to open the bottom drawer of a cabinet. Starting from the initial frame, the robot moves toward the cabinet (Frame +5 to +10), positions itself near the bottom drawer (Frame +14 to +23), and interacts with the drawer handle (Frame +19 to +28). By Frame +32, the bottom drawer is visibly open.  \n\n- **Instruction Following**: The robot targets the bottom drawer specifically (no wrong object) and performs actions consistent with opening it. This is a direct and correct execution of the instruction, earning a 3.  \n- **Manipulation Success**: The bottom drawer is fully opened by the final frame (Frame +32), indicating the task was completed as instructed, earning a 2.  \n- **Action-Outcome Consistency**: The robot\u2019s movements (pulling the handle) logically cause the drawer to open, so outcomes match actions, earning a 1.  \n- **Temporal Consistency**: Transitions between frames are smooth with no flickering, jumps, or artifacts, earning a 1.  \n- **Contact Realism**: The robot\u2019s gripper makes natural contact with the drawer handle during the pull, earning a 1.  \n- **Physics Adherence**: The drawer opens smoothly without violations (e.g., unrealistic weight, sudden motion), earning a 2.  \n\nAll aspects are observable in the provided frames.",
+      "uid": "rt1_024_hybrid",
+      "judge_input_sha256": "17075ca6b49ebf65ce5753057ce951f0e376b03afb9cb6f860e858071fd5dd6b",
+      "source": "archived_workspace/work/r2_qwen8b_sixdim_20261014/rt1_final_1701.json",
+      "source_sha256": "dd8492547bb4b0073d5e9d300dbfd34b3faa49c1915e848b3ff5cb19edf03f8b"
+    },
+    {
+      "evaluator": "doubao",
+      "index": 24,
+      "arm": "sft",
+      "total": 7,
+      "excerpt": "remains closed and shows no outward displacement",
+      "full_rationale": "The robot arm moves toward the bottom drawer and positions its gripper at the drawer/handle area, showing an appropriate attempt to open it. However, across all sampled frames the bottom drawer remains closed and shows no outward displacement, so the instructed manipulation is not completed. The motion is temporally smooth and no major physics violations, flickering, or obvious object interpenetration are visible. Contact is somewhat difficult to verify due to image blur and gripper placement, but nothing clearly unrealistic occurs; the drawer simply does not move because no effective pull is completed.",
+      "uid": "rt1_024_sft",
+      "judge_input_sha256": "fa3b37c6d911f170d913875295f28d8464999cb7350c544a22aee0557075bd45",
+      "source": "archived_workspace/work/r2_external_judges_20261015/pilot10/final_run/results/doubao/024_sft.json",
+      "source_sha256": "0d978d53f26838acd06ddf70598005a84f51a38ec23aa32e41f8ac4ffeca086d"
+    },
+    {
+      "evaluator": "doubao",
+      "index": 24,
+      "arm": "hybrid",
+      "total": 10,
+      "excerpt": "the bottom drawer is visibly extended with its interior exposed.",
+      "full_rationale": "The robot correctly identifies and approaches the bottom drawer (not the top or middle), makes contact, and pulls it open. By the final frame, the bottom drawer is visibly extended with its interior exposed. The arm motion is smooth and temporally coherent across all frames, with no flickering or jumps. Contact between the gripper and drawer produces a logically consistent and physically plausible sliding motion. Objects on top of the cabinet remain stationary as expected. Exact finger placement on the handle is slightly obscured by resolution, but the overall contact and outcome look natural.",
+      "uid": "rt1_024_hybrid",
+      "judge_input_sha256": "17075ca6b49ebf65ce5753057ce951f0e376b03afb9cb6f860e858071fd5dd6b",
+      "source": "archived_workspace/work/r2_external_judges_20261015/pilot10/final_run/results/doubao/024_hybrid.json",
+      "source_sha256": "428f8cdd7c9b0180156ae3a42ee16fe21eec0c636b9a48170464990411343506"
+    },
+    {
+      "evaluator": "session",
+      "index": 24,
+      "arm": "sft",
+      "total": 7,
+      "excerpt": "the drawer does not visibly open farther by the last frames.",
+      "full_rationale": "The gripper approaches the bottom drawer and settles against its front/right edge, but the drawer does not visibly open farther by the last frames. The arm and cabinet remain coherent with plausible contact; sparse frames do not establish a completed pull.",
+      "uid": "rt1_024_sft",
+      "judge_input_sha256": "fa3b37c6d911f170d913875295f28d8464999cb7350c544a22aee0557075bd45",
+      "source": "archived_workspace/outputs/r2_session_multimodal_review50_20261015/scores.json",
+      "source_sha256": "9ec10f0705a5461da4222a5a13b9a0735f2b7a33312ae131e2fbff3e2c4c16f8"
+    },
+    {
+      "evaluator": "session",
+      "index": 24,
+      "arm": "hybrid",
+      "total": 10,
+      "excerpt": "The last frame shows the bottom drawer visibly open",
+      "full_rationale": "The arm lowers to the bottom drawer, engages its front and pulls it outward. The last frame shows the bottom drawer visibly open while the cabinet and tabletop items remain stable. The observed pull is coherent and physically plausible; small, partially obscured contacts and sparse sampling limit finer assessment.",
+      "uid": "rt1_024_hybrid",
+      "judge_input_sha256": "17075ca6b49ebf65ce5753057ce951f0e376b03afb9cb6f860e858071fd5dd6b",
+      "source": "archived_workspace/outputs/r2_session_multimodal_review50_20261015/scores.json",
+      "source_sha256": "9ec10f0705a5461da4222a5a13b9a0735f2b7a33312ae131e2fbff3e2c4c16f8"
+    }
+  ]
+}

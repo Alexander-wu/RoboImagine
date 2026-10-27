@@ -1,0 +1,41 @@
+% RT-1 same128/H32 results: work/r2_rt1_recovery_20261016/final_results.json.
+% Qwen both blocks: outputs/roboimagine_search_qwen97_20261026/results.json (same97).
+% Three invalid sampling outputs use bounded8192-token repair; original-budget common94 sensitivity retained.
+% Search differs during post-training; evaluation decoding is identical.
+\newsavebox{\rTwoAblationBox}
+\NewDocumentEnvironment{columncomparison}{m +b}{%
+  \sbox{\rTwoAblationBox}{\begin{tabular}{#1}#2\end{tabular}}%
+  \setlength{\tabcolsep}{\dimexpr\tabcolsep+(\columnwidth-\wd\rTwoAblationBox)/10\relax}%
+  \begin{tabular*}{\columnwidth}{#1}#2\end{tabular*}%
+}{}
+
+\begin{table}[!ht]
+  \centering
+  \normalsize
+  \renewcommand{\arraystretch}{1.05}
+  \setlength{\tabcolsep}{2pt}
+  \caption{Ablations of reward composition and candidate search on RT-1. Superscripts rank the top three scores within each block. Visual metrics use 128 trajectories; Qwen scores use the same 97 trajectories in both blocks. Hybrid in A and GDBS in B denote the same configuration.}
+  \label{tab:r2_ablation}
+  \begin{columncomparison}{lcccc}
+    \toprule
+    \rowcolor{tblheadbg}
+    Setting & PSNR $\uparrow$ & SSIM $\uparrow$ & LPIPS $\downarrow$ & Qwen $\uparrow$ \\
+    \midrule
+    \multicolumn{5}{l}{\textcolor{codepurple}{\textbf{\textit{A. Reward composition}}}} \\
+    \rowcolor{tblstripe}
+    SFT & 21.37 & 0.7860 & 0.1734 & 7.04 \\
+    Jev only & \thirdmean{21.95} & \thirdmean{0.7945} & \thirdmean{0.1637} & \thirdmean{7.69} \\
+    \rowcolor{tblstripe}
+    Visual only & \bestmean{22.67} & \bestmean{0.8062} & \bestmean{0.1510} & \secondmean{7.97} \\
+    \rowcolor{mydarkblue!6}
+    \textcolor{mydarkblue}{\textbf{Hybrid}} & \secondmean{22.57} & \secondmean{0.8035} & \secondmean{0.1541} & \bestmean{8.30} \\
+    \midrule
+    \multicolumn{5}{l}{\textcolor{codepurple}{\textbf{\textit{B. Candidate search}}}} \\
+    \rowcolor{tblstripe}
+    Random sampling & \thirdmean{21.47} & \thirdmean{0.7869} & \thirdmean{0.1729} & \thirdmean{7.10} \\
+    Ordinary beam & \secondmean{22.07} & \secondmean{0.7962} & \secondmean{0.1627} & \secondmean{7.58} \\
+    \rowcolor{mydarkblue!6}
+    \textcolor{mydarkblue}{\textbf{GDBS}} & \bestmean{22.57} & \bestmean{0.8035} & \bestmean{0.1541} & \bestmean{8.30} \\
+    \bottomrule
+  \end{columncomparison}
+\end{table}

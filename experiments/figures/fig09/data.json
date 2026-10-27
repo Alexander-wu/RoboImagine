@@ -1,0 +1,35 @@
+{
+  "raw_evidence": "archived_workspace/work/r2_supplement_20261023/control/cost-audit-20261024-v1_export.json",
+  "scope": "Observed training-loop wall time \u00d7 allocated H20 GPU count; excludes initialization, preprocessing, final evaluation and earlier SFT50k training. RL includes candidate search, decoding, metric/Jev scoring, IPC waits, policy updates, synchronization and checkpoints; judge shares GPUs with actor. Same initialization and500updates, not equal compute.",
+  "shared_initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+  "baseline": {
+    "label": "SFT 50k",
+    "metrics": {
+      "mse": 0.01013495640936668,
+      "mae": 0.04946537332102707,
+      "psnr": 21.366095108911395,
+      "lpips": 0.1734311460495519,
+      "ssim": 0.785980892542284
+    },
+    "source": "archived_cluster_artifact",
+    "source_sha256": "3f6563764c16df6059ee8d97ab1c06213d9bd6f5a0b5909206279c1c8325ca0c"
+  },
+  "records": [
+    {
+      "method": "Continued SFT",
+      "updates": 500,
+      "gpus": 4,
+      "train_seconds": 956.9262948036194,
+      "gpu_hours": 1.0632514386706882,
+      "psnr": 21.311314462916926
+    },
+    {
+      "method": "RoboAlign-R2",
+      "updates": 500,
+      "gpus": 8,
+      "train_seconds": 12668.388474207371,
+      "gpu_hours": 28.151974387127492,
+      "psnr": 22.567982499487698
+    }
+  ]
+}

@@ -1,0 +1,617 @@
+{
+  "arms": {
+    "ordinary": {
+      "path": "archived_cluster_artifact",
+      "sha256": "84dd5bf2127c7898d8c8fbe7008999ce961b818599d78612719ccc0aab507b85",
+      "shapes": {
+        "initial": [
+          256,
+          320,
+          3
+        ],
+        "videos": [
+          4,
+          10,
+          256,
+          320,
+          3
+        ],
+        "instruction": []
+      },
+      "instruction": "move green jalapeno chip bag near pepsi can",
+      "protocol": {
+        "version": "r2_rt1_ablation_v1_20261015",
+        "scope": "RT1-only search and generator-text post-training ablations from text-enabled SFT50000; 500 updates each; one training seed",
+        "initial_updates": 0,
+        "seeds": [
+          20261011
+        ],
+        "group_size": 4,
+        "global_batch": 8,
+        "horizon_train": 10,
+        "search": {
+          "strategy": "ordinary",
+          "active_paths": 8,
+          "returned_candidates": 4,
+          "groups": 4,
+          "beams": 2,
+          "penalty": 0.0,
+          "sample_selected_indices": [
+            0,
+            2,
+            4,
+            6
+          ]
+        },
+        "optimizer": {
+          "type": "AdamW",
+          "lr": 1e-06,
+          "weight_decay": 0,
+          "grad_clip": 1,
+          "fresh": true
+        },
+        "clip": 0.2,
+        "kl": 0.001,
+        "reference": "Frozen identical initializer; same generator conditioning intervention as actor",
+        "mjev": "Frozen SoMarkAI/mJev-Qwen3-VL-4B-RLCD 7af7cda55ea36e76bce64e87a02c9faea1919d64, both orders of all6pairs, candidate-list label logits, same native implementation as Bridge pilot",
+        "evaluation": {
+          "cases": 128,
+          "horizon": 32,
+          "beam": 4,
+          "memory": "full",
+          "primary": "mean frames1..32 then mean all128 trajectories",
+          "secondary": "frame32 only; H10,H20 prefix means",
+          "cohort": "exact IDs in original configs/cohorts/rt1_128.json, start0; re-evaluate baseline on same runtime",
+          "no_gt_future_inputs": true
+        },
+        "seeds_meaning": "Seed20261011;5200unique predetermined train windows,8disjoint smoke,128dev. One global schedule split byrank.",
+        "checkpoints": [
+          100,
+          250,
+          500
+        ],
+        "stopping": "500globalupdates;650globalbatch cap; globally all-tied batch skips; local ties zero policy advantage and retainKL",
+        "cost": "8 synchronous DDP ranks, 8 active proposal paths and 4 decoded/rewarded candidates per rank. Equal expansion budget; not an assertion of equal FLOPs or wall time.",
+        "frozen": "codec,T5,judge and reference; update core and original trained adapters at same fixedlr",
+        "sft_steps": 50000,
+        "target_updates": 500,
+        "metric_reward_used": true,
+        "training_data": "Same sealed 5200 training windows, 8 disjoint smoke windows and 128 dev trajectories as completed RT1 reward controls",
+        "world_size": 8,
+        "max_global_batches": 650,
+        "gradient_sync": "DDP; no_sync first9of10frame backward calls; lastframe averages gradient across8ranks.",
+        "evaluation_parallelism": "128dev indexmodulo8;16cases perGPU; collectall128",
+        "metric_reward": "negative mean per-frame MAE + VGG LPIPS",
+        "hybrid": {
+          "metric": 0.75,
+          "mjev": 0.25,
+          "scaling": "per-group sample std floored at1e-6"
+        },
+        "prompt_policy": "Unchanged from completed mJev500, including inherited T/U-vs-C/D wording. No prompt change during reward ablation.",
+        "dataset": "rt1",
+        "action_dim": 13,
+        "arm": "hybrid",
+        "baseline_complete": "archived_cluster_artifact",
+        "verified_files": {
+          "archived_cluster_artifact": "9f5cde05fc628a550fa321343573c66919eb72338438e37883cecc45bc28d068",
+          "archived_cluster_artifact": "c426c478c690679230b613401b59f8d17bc7863b33450ba12964d42722b489cd",
+          "archived_cluster_artifact": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+          "archived_cluster_artifact": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+          "archived_cluster_artifact": "072b972d52a73e1a7c28b4dae7385dcd434dca57634c66f9742cccc1337f8cc7",
+          "archived_cluster_artifact": "006511fd5bbfdeb2f6975695415243b5cec4912517c7f187e65864a48ecfcf07",
+          "archived_cluster_artifact": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+          "archived_cluster_artifact": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+          "archived_cluster_artifact": "7c8194f83617137ef0a002a15d60c6ee222bcd2442afb4ed704a7918496cc073",
+          "archived_cluster_artifact": "9739df1c8157400c8efc54e67370f1e6be9db074c059ef25b26e475fc0fe9d9d",
+          "archived_cluster_artifact": "7b22a29492c55958ab63b16c91a6825b0c844e06afb4107f6fccf8f3d437db60",
+          "archived_cluster_artifact": "06584370456a83520812b39ddeb5d1299b54beea9f42bb41ab6c42ffb8a1a86a"
+        },
+        "text_mode": "full",
+        "initial_checkpoint": "archived_cluster_artifact",
+        "expected_initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+        "initialization_description": "Text-enabled SFT50000, prior RL0; no additional SFT",
+        "text_donor_map_file": "archived_cluster_artifact",
+        "text_donor_map_sha256": "8b6c4c1bdb1af8e63dbd7ebeb313266f104852fbf5709915c8671f69a61eada3",
+        "generator_text_intervention": {
+          "mode": "full",
+          "judge_uses": "Original correct instruction in all arms",
+          "training_and_evaluation_match": true,
+          "no_text": "Zero mask in cached proposals/actor/reference and pipeline predictions",
+          "shuffled": "Frozen split-local bijective different-instruction map; no dev donor used in training"
+        }
+      },
+      "reward": {
+        "scores": [
+          -2.9919994529059583e-05,
+          7.990792127513895e-05,
+          -7.03581781875684e-05,
+          2.0370251441489035e-05
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "j": 1,
+            "margin": -0.00013955628452810842,
+            "forward": {
+              "A": 0.0004305570328142494,
+              "B": 1.1856012172017927e-08,
+              "T": 0.9995693564414978,
+              "U": 5.3134964872469936e-08
+            },
+            "reverse": {
+              "A": 0.0007096703629940748,
+              "B": 1.261713578060153e-08,
+              "T": 0.9992902278900146,
+              "U": 6.01929883714547e-08
+            },
+            "seconds": 0.9547484293580055
+          },
+          {
+            "i": 0,
+            "j": 2,
+            "margin": -2.8650072935398896e-05,
+            "forward": {
+              "A": 0.0004305570328142494,
+              "B": 1.0462894550755664e-08,
+              "T": 0.9995693564414978,
+              "U": 5.3134964872469936e-08
+            },
+            "reverse": {
+              "A": 0.00048785717808641493,
+              "B": 1.0462295918500786e-08,
+              "T": 0.9995121955871582,
+              "U": 4.6888761318086836e-08
+            },
+            "seconds": 0.530812781304121
+          },
+          {
+            "i": 0,
+            "j": 3,
+            "margin": 7.844637387632858e-05,
+            "forward": {
+              "A": 0.0007096703629940748,
+              "B": 1.429708706979227e-08,
+              "T": 0.9992902278900146,
+              "U": 6.820759068659754e-08
+            },
+            "reverse": {
+              "A": 0.0005527785397134721,
+              "B": 1.52215591242566e-08,
+              "T": 0.9994470477104187,
+              "U": 6.821829146019809e-08
+            },
+            "seconds": 0.5392839126288891
+          },
+          {
+            "i": 1,
+            "j": 2,
+            "margin": 0.0001612782336217755,
+            "forward": {
+              "A": 0.0010322309099137783,
+              "B": 1.5214258297646666e-08,
+              "T": 0.9989676475524902,
+              "U": 6.818557096721634e-08
+            },
+            "reverse": {
+              "A": 0.0007096703629940748,
+              "B": 1.1134582145189142e-08,
+              "T": 0.9992902278900146,
+              "U": 5.3120125187433587e-08
+            },
+            "seconds": 0.5246392153203487
+          },
+          {
+            "i": 1,
+            "j": 3,
+            "margin": -6.111075432446711e-05,
+            "forward": {
+              "A": 0.0004305570328142494,
+              "B": 1.4301080319967241e-08,
+              "T": 0.9995693564414978,
+              "U": 7.26268751805037e-08
+            },
+            "reverse": {
+              "A": 0.0005527785397134721,
+              "B": 1.4299330608480432e-08,
+              "T": 0.9994470477104187,
+              "U": 6.821829146019809e-08
+            },
+            "seconds": 0.5270610563457012
+          },
+          {
+            "i": 2,
+            "j": 3,
+            "margin": -7.844637387632858e-05,
+            "forward": {
+              "A": 0.0005527785397134721,
+              "B": 1.52215591242566e-08,
+              "T": 0.9994470477104187,
+              "U": 7.26179933963067e-08
+            },
+            "reverse": {
+              "A": 0.0007096703629940748,
+              "B": 1.429708706979227e-08,
+              "T": 0.9992902278900146,
+              "U": 6.820759068659754e-08
+            },
+            "seconds": 0.5303870774805546
+          }
+        ],
+        "judge_seconds": 3.60693247243762,
+        "source_sha256": "84dd5bf2127c7898d8c8fbe7008999ce961b818599d78612719ccc0aab507b85"
+      }
+    },
+    "diverse": {
+      "path": "archived_cluster_artifact",
+      "sha256": "302b11419cfb93a1de275d783e22b46dd3b140269e23cd77112fbfa5c16acb33",
+      "shapes": {
+        "initial": [
+          256,
+          320,
+          3
+        ],
+        "videos": [
+          4,
+          10,
+          256,
+          320,
+          3
+        ],
+        "instruction": []
+      },
+      "instruction": "move green jalapeno chip bag near pepsi can",
+      "protocol": {
+        "version": "r2_rt1_hybrid500_20261012",
+        "scope": "Matched RT1 SFT50000 to hybrid500; same initialization, schedule, globalbatch8 and128dev as completed puremJev500",
+        "initial_variant": "sft",
+        "initial_updates": 0,
+        "assets": {
+          "rt1/models/main/model.safetensors": {
+            "sha256": "9f5cde05fc628a550fa321343573c66919eb72338438e37883cecc45bc28d068",
+            "bytes": 508419080
+          },
+          "rt1/models/main/text_adapters.safetensors": {
+            "sha256": "c426c478c690679230b613401b59f8d17bc7863b33450ba12964d42722b489cd",
+            "bytes": 9476032
+          },
+          "rt1/models/main/config.json": {
+            "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+            "bytes": 695
+          },
+          "rt1/models/main/generation_config.json": {
+            "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+            "bytes": 117
+          },
+          "rt1/models/sft/model.safetensors": {
+            "sha256": "072b972d52a73e1a7c28b4dae7385dcd434dca57634c66f9742cccc1337f8cc7",
+            "bytes": 508419080
+          },
+          "rt1/models/sft/text_adapters.safetensors": {
+            "sha256": "006511fd5bbfdeb2f6975695415243b5cec4912517c7f187e65864a48ecfcf07",
+            "bytes": 9476032
+          },
+          "rt1/models/sft/config.json": {
+            "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+            "bytes": 695
+          },
+          "rt1/models/sft/generation_config.json": {
+            "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+            "bytes": 117
+          },
+          "rt1/codec/diffusion_pytorch_model.safetensors": {
+            "sha256": "7c8194f83617137ef0a002a15d60c6ee222bcd2442afb4ed704a7918496cc073",
+            "bytes": 517850360
+          },
+          "rt1/codec/config.json": {
+            "sha256": "9739df1c8157400c8efc54e67370f1e6be9db074c059ef25b26e475fc0fe9d9d",
+            "bytes": 844
+          },
+          "rt1/preprocessing/frac_action_ranges.pth": {
+            "sha256": "7b22a29492c55958ab63b16c91a6825b0c844e06afb4107f6fccf8f3d437db60",
+            "bytes": 1274
+          }
+        },
+        "arms": [
+          "hybrid"
+        ],
+        "seeds": [
+          20261011
+        ],
+        "group_size": 4,
+        "global_batch": 8,
+        "horizon_train": 10,
+        "search": {
+          "strategy": "diverse",
+          "groups": 4,
+          "beams": 2,
+          "penalty": 0.1
+        },
+        "optimizer": {
+          "type": "AdamW",
+          "lr": 1e-06,
+          "weight_decay": 0,
+          "grad_clip": 1,
+          "fresh": true
+        },
+        "clip": 0.2,
+        "kl": 0.001,
+        "reference": "Frozen identical SFT50000 checkpoint including text adapters",
+        "mjev": "Frozen SoMarkAI/mJev-Qwen3-VL-4B-RLCD 7af7cda55ea36e76bce64e87a02c9faea1919d64, both orders of all6pairs, candidate-list label logits, same native implementation as Bridge pilot",
+        "evaluation": {
+          "cases": 128,
+          "horizon": 32,
+          "beam": 4,
+          "memory": "full",
+          "primary": "mean frames1..32 then mean all128 trajectories",
+          "secondary": "frame32 only; H10,H20 prefix means",
+          "cohort": "exact IDs in original configs/cohorts/rt1_128.json, start0; re-evaluate baseline on same runtime",
+          "no_gt_future_inputs": true
+        },
+        "seeds_meaning": "Seed20261011;5200unique predetermined train windows,8disjoint smoke,128dev. One global schedule split byrank.",
+        "checkpoints": [
+          100,
+          250,
+          500
+        ],
+        "stopping": "500globalupdates;650globalbatch cap; globally all-tied batch skips; local ties zero policy advantage and retainKL",
+        "cost": "One model with8synchronousDDP replicas; not8independent runs. One trajectory/fourcandidates perGPU perupdate.",
+        "frozen": "codec,T5,judge and reference; update core and original trained adapters at same fixedlr",
+        "changes_from_original_training": "SFT initialization; globalbatch8,lr1e-6 sharedcore/adapters,puremJev500updates; distinct from historical batch16.",
+        "sft_steps": 50000,
+        "target_updates": 500,
+        "metric_reward_used": true,
+        "training_data": "5200train windows+8smoke selected byIDhash before training; no dev based selection",
+        "baseline_file": "archived_cluster_artifact",
+        "world_size": 8,
+        "max_global_batches": 650,
+        "train_pool_episodes": 5200,
+        "gradient_sync": "DDP; no_sync first9of10frame backward calls; lastframe averages gradient across8ranks.",
+        "evaluation_parallelism": "128dev indexmodulo8;16cases perGPU; collectall128",
+        "matched_mjev_root": "archived_cluster_artifact",
+        "metric_reward": "negative mean per-frame MAE + VGG LPIPS",
+        "hybrid": {
+          "metric": 0.75,
+          "mjev": 0.25,
+          "scaling": "per-group sample std floored at1e-6"
+        },
+        "prompt_policy": "Unchanged from completed mJev500, including inherited T/U-vs-C/D wording. No prompt change during reward ablation."
+      },
+      "reward": {
+        "scores": [
+          0.15414787989500192,
+          -0.08334800249223424,
+          -0.019259424981775908,
+          -0.05154045242099177
+        ],
+        "pairs": [
+          {
+            "i": 0,
+            "j": 1,
+            "margin": 0.22148672342007814,
+            "forward": {
+              "A": 0.8807968497276306,
+              "B": 9.912062637340568e-08,
+              "T": 0.11920288950204849,
+              "U": 1.535210287784139e-07
+            },
+            "reverse": {
+              "A": 0.4378233850002289,
+              "B": 8.123338091081678e-08,
+              "T": 0.5621763467788696,
+              "U": 1.6155183857335942e-07
+            },
+            "seconds": 0.9623011574149132
+          },
+          {
+            "i": 0,
+            "j": 2,
+            "margin": 0.09986135455823231,
+            "forward": {
+              "A": 0.9770224094390869,
+              "B": 8.562867037653632e-08,
+              "T": 0.02297736518085003,
+              "U": 1.0994939003694526e-07
+            },
+            "reverse": {
+              "A": 0.777299702167511,
+              "B": 8.747355906280063e-08,
+              "T": 0.2227000892162323,
+              "U": 1.6342211495157244e-07
+            },
+            "seconds": 0.5217976830899715
+          },
+          {
+            "i": 0,
+            "j": 3,
+            "margin": 0.14109556170669535,
+            "forward": {
+              "A": 0.37754058837890625,
+              "B": 7.45663015777609e-08,
+              "T": 0.6224591732025146,
+              "U": 1.7887522574255854e-07
+            },
+            "reverse": {
+              "A": 0.09534943848848343,
+              "B": 4.808926945543135e-08,
+              "T": 0.9046503305435181,
+              "U": 1.3915091301441862e-07
+            },
+            "seconds": 0.53614891320467
+          },
+          {
+            "i": 1,
+            "j": 2,
+            "margin": -0.013170079415701252,
+            "forward": {
+              "A": 0.9626728296279907,
+              "B": 1.0833456087766535e-07,
+              "T": 0.0373268760740757,
+              "U": 1.3067642612440977e-07
+            },
+            "reverse": {
+              "A": 0.9890129566192627,
+              "B": 7.64944303455195e-08,
+              "T": 0.010986941866576672,
+              "U": 9.822080215826645e-08
+            },
+            "seconds": 0.531970601528883
+          },
+          {
+            "i": 1,
+            "j": 3,
+            "margin": -0.015387204640923358,
+            "forward": {
+              "A": 0.02931222692131996,
+              "B": 3.129678205482378e-08,
+              "T": 0.9706876873970032,
+              "U": 9.05602419720708e-08
+            },
+            "reverse": {
+              "A": 0.06008664146065712,
+              "B": 3.655427249782406e-08,
+              "T": 0.9399132132530212,
+              "U": 9.936481859540436e-08
+            },
+            "seconds": 0.541315071284771
+          },
+          {
+            "i": 2,
+            "j": 3,
+            "margin": 0.02891300019720333,
+            "forward": {
+              "A": 0.8933092355728149,
+              "B": 8.871628409679033e-08,
+              "T": 0.10669057816267014,
+              "U": 1.5570191180813708e-07
+            },
+            "reverse": {
+              "A": 0.8354832530021667,
+              "B": 1.0654004256593907e-07,
+              "T": 0.1645164042711258,
+              "U": 1.9904300074813364e-07
+            },
+            "seconds": 0.5445770062506199
+          }
+        ],
+        "judge_seconds": 3.6381104327738285,
+        "source_sha256": "302b11419cfb93a1de275d783e22b46dd3b140269e23cd77112fbfa5c16acb33"
+      }
+    }
+  },
+  "assets": {
+    "ordinary_initial.png": {
+      "sha256": "445a0ecdbfa88e619ada83730ece7ca85438b1c0e10237f33ad2b65bd9237ebf",
+      "pixel_sha256": "2369f1ff72cc97215a2fb50a44aa6c396797dbefd67270083e3c797ade2eaa89"
+    },
+    "ordinary_c1_t01.png": {
+      "sha256": "ccc9ec3d7ac7ea4e7ae952b46332f7f73a103b43beaac7ec59a313d30e2575e4",
+      "pixel_sha256": "d27111ac5fad71163a2d672f00162d65b80c4d7cd2660de17bcdb8d02427442c"
+    },
+    "ordinary_c1_t05.png": {
+      "sha256": "c03c578ec8373b891cb5e7c3d72db287ab17dd67c963af8f6fda97eeeadff23c",
+      "pixel_sha256": "441a2f09d62ba3903ab37fe4ce9f7dfa7490794071379cfd3c2aaa31da9d5a8d"
+    },
+    "ordinary_c1_t10.png": {
+      "sha256": "ee65737be893106e193c2d4a7aa4c93bc306b85b89815ed82a41d3fa500dd22f",
+      "pixel_sha256": "d75da344b0c7a227c07d86abd353081bbd4b00b7920119994aaa602610b8ec3e"
+    },
+    "ordinary_c2_t01.png": {
+      "sha256": "ccc9ec3d7ac7ea4e7ae952b46332f7f73a103b43beaac7ec59a313d30e2575e4",
+      "pixel_sha256": "d27111ac5fad71163a2d672f00162d65b80c4d7cd2660de17bcdb8d02427442c"
+    },
+    "ordinary_c2_t05.png": {
+      "sha256": "c03c578ec8373b891cb5e7c3d72db287ab17dd67c963af8f6fda97eeeadff23c",
+      "pixel_sha256": "441a2f09d62ba3903ab37fe4ce9f7dfa7490794071379cfd3c2aaa31da9d5a8d"
+    },
+    "ordinary_c2_t10.png": {
+      "sha256": "90b2c2eec221b83bdddb028f8f960bd8ccc8ef9746f7d32c18213cdbdb81525a",
+      "pixel_sha256": "ca409be1e53655e2b2716efc779f0bea6d9138d6ef6aa5f09c5cc5f0e98a5f93"
+    },
+    "ordinary_c3_t01.png": {
+      "sha256": "ccc9ec3d7ac7ea4e7ae952b46332f7f73a103b43beaac7ec59a313d30e2575e4",
+      "pixel_sha256": "d27111ac5fad71163a2d672f00162d65b80c4d7cd2660de17bcdb8d02427442c"
+    },
+    "ordinary_c3_t05.png": {
+      "sha256": "c03c578ec8373b891cb5e7c3d72db287ab17dd67c963af8f6fda97eeeadff23c",
+      "pixel_sha256": "441a2f09d62ba3903ab37fe4ce9f7dfa7490794071379cfd3c2aaa31da9d5a8d"
+    },
+    "ordinary_c3_t10.png": {
+      "sha256": "e77cb33ec74f4bbc619b641129edb49a529dce5e8b8b664b597cb6ea624bdc1e",
+      "pixel_sha256": "00d8a9d3d8de8fdcc8033934b0b99258e863cc8c38375efcd96e280d58aedc07"
+    },
+    "ordinary_c4_t01.png": {
+      "sha256": "ccc9ec3d7ac7ea4e7ae952b46332f7f73a103b43beaac7ec59a313d30e2575e4",
+      "pixel_sha256": "d27111ac5fad71163a2d672f00162d65b80c4d7cd2660de17bcdb8d02427442c"
+    },
+    "ordinary_c4_t05.png": {
+      "sha256": "c03c578ec8373b891cb5e7c3d72db287ab17dd67c963af8f6fda97eeeadff23c",
+      "pixel_sha256": "441a2f09d62ba3903ab37fe4ce9f7dfa7490794071379cfd3c2aaa31da9d5a8d"
+    },
+    "ordinary_c4_t10.png": {
+      "sha256": "4f9af68a8964ab3ce284c690b3408492c861922475389be41cfc77b0916de23e",
+      "pixel_sha256": "984bab26b4fb5254078892b5432087fb36034ba462269e574170f05c8074a4c6"
+    },
+    "diverse_initial.png": {
+      "sha256": "445a0ecdbfa88e619ada83730ece7ca85438b1c0e10237f33ad2b65bd9237ebf",
+      "pixel_sha256": "2369f1ff72cc97215a2fb50a44aa6c396797dbefd67270083e3c797ade2eaa89"
+    },
+    "diverse_c1_t01.png": {
+      "sha256": "6d39483598fd95c3e920aac8c71827b7f19f1ae01a516336f1c2f17e839e88c9",
+      "pixel_sha256": "26e0a5a98e8d86e8690d5e9060797b5d2dad0a008d9319d0c963143812ef3a8b"
+    },
+    "diverse_c1_t05.png": {
+      "sha256": "726f0ad245b4296d815f094901c2cd62e6fe6f86770a5d5a4e3ae43b202fb02e",
+      "pixel_sha256": "fa4e66fd7bce8183e58b70756106c9fd64cf3dbebb03d7e7a072173709b42415"
+    },
+    "diverse_c1_t10.png": {
+      "sha256": "35bf6629529f61a88d058b4e59bd942f2d178896d94bd33e64ba7c469b2ef0c5",
+      "pixel_sha256": "5e0d5487220257363dda4a7b862dbc76c049c7a44e5cf51cd260d08a5d315dbb"
+    },
+    "diverse_c2_t01.png": {
+      "sha256": "e5f30957c40cef652d0375cb2460e5486768c941a35d22e28eccb74f51b4f004",
+      "pixel_sha256": "4ee34bc91d0b54a5190a659fab05ca96dcbaa25a0b3176364caddc0c857fef12"
+    },
+    "diverse_c2_t05.png": {
+      "sha256": "70be196ffabb145f1aeee860f03bfa40b9789557108bede17b741fb8b620484f",
+      "pixel_sha256": "d6ea9723d7fa2b06fe877d770db0fed6c561778710bba401c2d9d3a3e23fa72b"
+    },
+    "diverse_c2_t10.png": {
+      "sha256": "d8cef8095aca388dd6afdb2fc14f44479581c4f014d3ce9838f7569b213f3562",
+      "pixel_sha256": "5f665e388624508d859b94406d8c828770ef6d237c1b4b345388810d3c0d6353"
+    },
+    "diverse_c3_t01.png": {
+      "sha256": "ca90d21875f21522c3aeb7bed4d4da22a2defcedf7ba4fa13f8f51b65fe3ba0e",
+      "pixel_sha256": "1f8ef2d65436b24d6bbe78aa1bf9d7dec69cac9be81d7f56d5b5ef100d25459a"
+    },
+    "diverse_c3_t05.png": {
+      "sha256": "2bc3257474ebc2451f8f49e69734c9b32fe51ab903567fbf0177fd13355b4214",
+      "pixel_sha256": "2d4245e572dc28fbcdf6737db77ee48917ecae73f662fa31b4e275691c1935d4"
+    },
+    "diverse_c3_t10.png": {
+      "sha256": "0a72f79089d9bccb6c8614b3c4b71fc0a4fd2a21b3c8888b67fecffd35134fc6",
+      "pixel_sha256": "1d3a27ce77c6bbaa195bd238793fd6acc89947c5659a7c7b36773add586c7f82"
+    },
+    "diverse_c4_t01.png": {
+      "sha256": "f1f2d1570b4581707587af2b52bd839bfbf3153de4be50bdfc9ecbe2781b9d73",
+      "pixel_sha256": "9bc3a4e384122a47d6ec48997d2fbee0eca7be226688bda542d0ba7d60ed712c"
+    },
+    "diverse_c4_t05.png": {
+      "sha256": "4efab50db2586baade680c80830c6eb6c8788b0f70e7748557a5d2e9f7aa1f3c",
+      "pixel_sha256": "3fd6cf0beae815bbe7ac649585cee511ab0f32411fb755339fdfb4fc321999e8"
+    },
+    "diverse_c4_t10.png": {
+      "sha256": "4522dab3ec8a70683530824cf973868029d5390424b0baac6bbcf90e28d54cea",
+      "pixel_sha256": "c5980d302262b975abc626afef54ed9263967d44c2640d9ca82b13066180b9ab"
+    }
+  },
+  "ordinary_source": {
+    "path": "archived_cluster_artifact",
+    "sha256": "fda2539e4d6629921d91f8d50cc08191939f2026f77d7eb8c19776e78713642c",
+    "text": "\"\"\"Global beam width 8; return top 4 by raw cumulative model score, no diversity penalty.\"\"\"\n\nimport torch\nfrom .memory import make_prefix\n\n\n@torch.no_grad()\ndef rollout_ordinary_beam(\n    model,\n    context,\n    anchor,\n    actions,\n    horizon,\n    penalty,\n    groups=4,\n    beams=2,\n    visual=4375,\n    width=80,\n):\n    assert groups == 4 and beams == 2\n    groups, beams, penalty = 1, 8, 0.0\n    returned = 4\n    model.eval()\n    device = context.device\n    count = groups * beams\n    history = {1: anchor.expand(count, -1)}\n    frames = []\n    traces = []\n    scores = torch.full((count,), float(\"-inf\"), device=device, dtype=torch.float64)\n    scores[::beams] = 0\n    raw = torch.zeros(count, device=device, dtype=torch.float64)\n    for target in range(2, horizon + 2):\n        original, kept = make_prefix(\n            context.expand(count, -1), history, actions, target\n        )\n        ancestors = torch.arange(count, device=device)\n        codes = torch.empty((count, 0), device=device, dtype=torch.long)\n        logs = torch.empty((count, 0), device=device)\n        pending = original\n        cache = None\n        for token in range(width):\n            out = model(input_ids=pending, past_key_values=cache, use_cache=True)\n            lp = out.logits[:, -1, :visual].float().log_softmax(-1)\n            parents = []\n            choices = []\n            next_scores = []\n            for g in range(groups):\n                start = g * beams\n                if g:\n                    frequency = torch.bincount(\n                        torch.cat(choices), minlength=visual\n                    ).double() / (g * beams)\n                else:\n                    frequency = torch.zeros(visual, device=device, dtype=torch.float64)\n                totals = (\n                    scores[start : start + beams, None]\n                    + lp[start : start + beams].double()\n                    - penalty * frequency\n                )\n                score, flat = totals.flatten().topk(beams, sorted=True)\n                parents.append(start + flat // visual)\n                choices.append(flat % visual)\n                next_scores.append(score)\n            parent = torch.cat(parents)\n            chosen = torch.cat(choices)\n            assert torch.equal(\n                parent // beams, torch.arange(count, device=device) // beams\n            )\n            raw = raw[parent] + lp[parent, chosen].double()\n            scores = torch.cat(next_scores)\n            codes = torch.cat([codes[parent], chosen[:, None]], 1)\n            logs = torch.cat([logs[parent], lp[parent, chosen, None]], 1)\n            ancestors = ancestors[parent]\n            cache = out.past_key_values\n            cache.reorder_cache(parent)\n            pending = chosen[:, None]\n        for f in frames:\n            for key in [\"prefix\", \"response\", \"model_logp\"]:\n                f[key] = f[key][ancestors]\n        history = {t: x[ancestors] for t, x in history.items()}\n        history[target] = codes\n        frames.append(\n            dict(\n                target=target,\n                prefix=original[ancestors],\n                response=codes,\n                model_logp=logs,\n            )\n        )\n        traces.append(\n            dict(\n                target=target,\n                retained=kept,\n                prefix_length=original.shape[1],\n                frame_parent_indices=ancestors.tolist(),\n                positions_reset=True,\n                kv_reset=True,\n                future_observations=False,\n                random_sampling=False,\n            )\n        )\n    selected = torch.arange(returned, device=device)\n    frames = [\n        {k: (v[selected] if torch.is_tensor(v) else v) for k, v in f.items()}\n        for f in frames\n    ]\n    history = {t: x[selected] for t, x in history.items()}\n    for f in frames:\n        rebuilt, _ = make_prefix(\n            context.expand(returned, -1), history, actions, f[\"target\"]\n        )\n        assert torch.equal(rebuilt, f[\"prefix\"])\n    rebuilt = sum(f[\"model_logp\"].double().sum(-1) for f in frames)\n    assert torch.allclose(rebuilt, raw[selected], atol=1e-7, rtol=0)\n    codes = torch.stack([f[\"response\"] for f in frames], 1)\n    pair = [\n        float((codes[i] != codes[j]).float().mean())\n        for i in range(returned)\n        for j in range(i + 1, returned)\n    ]\n    perframe = (codes != codes[:1]).any(0).sum(-1).tolist()\n    return frames, dict(\n        strategy=\"ordinary_global_beam8_top4_full_video\",\n        groups=groups,\n        beams_per_group=beams,\n        active_paths=count,\n        returned_trajectories=returned,\n        penalty=penalty,\n        unique_trajectories=len({tuple(c.flatten().tolist()) for c in codes}),\n        mean_pairwise_token_difference_fraction=sum(pair) / len(pair),\n        pairwise_token_difference_fraction=pair,\n        different_token_positions=sum(perframe),\n        different_positions_per_frame=perframe,\n        model_log_scores=raw[selected].tolist(),\n        search_scores=scores[selected].tolist(),\n        score_is_behavior_logprob=False,\n        on_policy_grpo=False,\n        frames=traces,\n    )\n"
+  },
+  "diverse_source": {
+    "path": "archived_cluster_artifact",
+    "sha256": "2b7fb9ad1e87c7ef6b6c56db90eace0b90396e61c240763b59e7f4fc6df3eab7",
+    "text": "\"\"\"Four disjoint beam groups, with unmodified policy scores for the RL surrogate.\n\nSearch penalties only affect proposal selection. Deterministic proposals do not\nhave on-policy sampling probabilities; the beam RL objective remains biased.\n\"\"\"\n\nimport torch\nfrom .memory import make_prefix\n\n\n@torch.no_grad()\ndef rollout_group_beam(\n    model,\n    context,\n    anchor,\n    actions,\n    horizon,\n    penalty,\n    groups=4,\n    beams=2,\n    visual=4375,\n    width=80,\n):\n    # One input episode is expanded into groups * beams independent candidates.\n    # context: [1, scene_tokens]; anchor: [1, frame_tokens]; actions: [T, A].\n    model.eval()\n    device = context.device\n    count = groups * beams\n    history = {1: anchor.expand(count, -1)}\n    frames = []\n    traces = []\n    scores = torch.full((count,), float(\"-inf\"), device=device, dtype=torch.float64)\n    scores[::beams] = 0\n    # Keep raw model scores separate from diversity-penalized search scores.\n    raw = torch.zeros(count, device=device, dtype=torch.float64)\n    for target in range(2, horizon + 2):\n        original, kept = make_prefix(\n            context.expand(count, -1), history, actions, target\n        )\n        ancestors = torch.arange(count, device=device)\n        codes = torch.empty((count, 0), device=device, dtype=torch.long)\n        logs = torch.empty((count, 0), device=device)\n        pending = original\n        cache = None\n        for token in range(width):\n            out = model(input_ids=pending, past_key_values=cache, use_cache=True)\n            lp = out.logits[:, -1, :visual].float().log_softmax(-1)\n            parents = []\n            choices = []\n            next_scores = []\n            # Earlier groups provide same-position token counts for diversity.\n            for g in range(groups):\n                start = g * beams\n                if g:\n                    frequency = torch.bincount(\n                        torch.cat(choices), minlength=visual\n                    ).double() / (g * beams)\n                else:\n                    frequency = torch.zeros(visual, device=device, dtype=torch.float64)\n                totals = (\n                    scores[start : start + beams, None]\n                    + lp[start : start + beams].double()\n                    - penalty * frequency\n                )\n                score, flat = totals.flatten().topk(beams, sorted=True)\n                parents.append(start + flat // visual)\n                choices.append(flat % visual)\n                next_scores.append(score)\n            parent = torch.cat(parents)\n            chosen = torch.cat(choices)\n            assert torch.equal(\n                parent // beams, torch.arange(count, device=device) // beams\n            )\n            raw = raw[parent] + lp[parent, chosen].double()\n            scores = torch.cat(next_scores)\n            codes = torch.cat([codes[parent], chosen[:, None]], 1)\n            logs = torch.cat([logs[parent], lp[parent, chosen, None]], 1)\n            ancestors = ancestors[parent]\n            cache = out.past_key_values\n            cache.reorder_cache(parent)\n            pending = chosen[:, None]\n        # A surviving branch inherits its own entire history, not its old slot's.\n        for f in frames:\n            for key in [\"prefix\", \"response\", \"model_logp\"]:\n                f[key] = f[key][ancestors]\n        history = {t: x[ancestors] for t, x in history.items()}\n        history[target] = codes\n        frames.append(\n            dict(\n                target=target,\n                prefix=original[ancestors],\n                response=codes,\n                model_logp=logs,\n            )\n        )\n        traces.append(\n            dict(\n                target=target,\n                retained=kept,\n                prefix_length=original.shape[1],\n                frame_parent_indices=ancestors.tolist(),\n                positions_reset=True,\n                kv_reset=True,\n                future_observations=False,\n                random_sampling=False,\n            )\n        )\n    # Each group remains score-sorted; its first slot is the returned trajectory.\n    selected = torch.arange(0, count, beams, device=device)\n    frames = [\n        {k: (v[selected] if torch.is_tensor(v) else v) for k, v in f.items()}\n        for f in frames\n    ]\n    history = {t: x[selected] for t, x in history.items()}\n    # Rebuild every scored prefix to catch branch/history mismatches.\n    for f in frames:\n        rebuilt, _ = make_prefix(\n            context.expand(groups, -1), history, actions, f[\"target\"]\n        )\n        assert torch.equal(rebuilt, f[\"prefix\"])\n    rebuilt = sum(f[\"model_logp\"].double().sum(-1) for f in frames)\n    assert torch.allclose(rebuilt, raw[selected], atol=1e-7, rtol=0)\n    codes = torch.stack([f[\"response\"] for f in frames], 1)\n    pair = [\n        float((codes[i] != codes[j]).float().mean())\n        for i in range(groups)\n        for j in range(i + 1, groups)\n    ]\n    perframe = (codes != codes[:1]).any(0).sum(-1).tolist()\n    return frames, dict(\n        strategy=\"grouped_diverse_full_video_beam\",\n        groups=groups,\n        beams_per_group=beams,\n        active_paths=count,\n        returned_trajectories=groups,\n        penalty=penalty,\n        unique_trajectories=len({tuple(c.flatten().tolist()) for c in codes}),\n        mean_pairwise_token_difference_fraction=sum(pair) / len(pair),\n        pairwise_token_difference_fraction=pair,\n        different_token_positions=sum(perframe),\n        different_positions_per_frame=perframe,\n        model_log_scores=raw[selected].tolist(),\n        search_scores=scores[selected].tolist(),\n        score_is_behavior_logprob=False,\n        on_policy_grpo=False,\n        frames=traces,\n    )\n"
+  }
+}

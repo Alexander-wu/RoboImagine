@@ -1,0 +1,49 @@
+\begin{table*}[!t]
+\centering
+\normalsize
+\renewcommand{\arraystretch}{1.04}
+\setlength{\tabcolsep}{4pt}
+\caption{History-window quality and inference cost with fixed weights and anchors. Time denotes whole-rollout latency; memory denotes peak allocated GPU memory. Three timing repeats are averaged within each trajectory. Superscripts rank the top three values within each length at full precision. \emph{This experiment uses the same 30 long-sequence-eligible RT-1 test trajectories, whereas Table 2 uses 128 RT-1 trajectories. Thus, the 32-frame means are not directly comparable across tables (e.g., $W=6$: 22.20 versus 22.57 dB).}}
+\label{tab:window_sensitivity}
+\begin{fullwidthcomparison}{8}{cccccccc}
+\toprule
+\rowcolor{tblheadbg}
+Frames & Window & PSNR $\uparrow$ & SSIM $\uparrow$ & LPIPS $\downarrow$ & MAE $\downarrow$ & Time (s) $\downarrow$ & Memory (GiB) $\downarrow$ \\
+\midrule
+\rowcolor{tblstripe}
+16 & $W=1$ & 20.99 & 0.7869 & 0.1730 & 0.0463 & \bestmean{12.46} & \bestmean{2.206} \\
+ & $W=3$ & \bestmean{23.33} & \bestmean{0.8128} & \bestmean{0.1424} & \secondmean{0.0359} & \secondmean{12.67} & \secondmean{2.206} \\
+\rowcolor{tblstripe}
+ & $W=6$ & \secondmean{23.27} & \secondmean{0.8115} & \secondmean{0.1430} & \bestmean{0.0357} & \thirdmean{13.42} & \thirdmean{2.324} \\
+ & $W=12$ & \thirdmean{22.94} & \thirdmean{0.8076} & \thirdmean{0.1471} & \thirdmean{0.0374} & 14.39 & 2.586 \\
+\midrule
+\rowcolor{tblstripe}
+32 & $W=1$ & 19.77 & 0.7671 & 0.1941 & 0.0546 & \bestmean{24.94} & \bestmean{2.230} \\
+ & $W=3$ & \secondmean{22.08} & \secondmean{0.7963} & \secondmean{0.1599} & \secondmean{0.0429} & \secondmean{25.36} & \secondmean{2.230} \\
+\rowcolor{tblstripe}
+ & $W=6$ & \bestmean{22.20} & \bestmean{0.7963} & \bestmean{0.1586} & \bestmean{0.0416} & \thirdmean{27.19} & \thirdmean{2.325} \\
+ & $W=12$ & \thirdmean{21.19} & \thirdmean{0.7791} & \thirdmean{0.1752} & \thirdmean{0.0487} & 30.53 & 2.588 \\
+\midrule
+\rowcolor{tblstripe}
+48 & $W=1$ & 19.19 & 0.7541 & 0.2064 & 0.0592 & \bestmean{37.27} & \bestmean{2.253} \\
+ & $W=3$ & \secondmean{21.31} & \secondmean{0.7821} & \secondmean{0.1740} & \secondmean{0.0478} & \secondmean{38.01} & \secondmean{2.253} \\
+\rowcolor{tblstripe}
+ & $W=6$ & \bestmean{21.47} & \bestmean{0.7830} & \bestmean{0.1715} & \bestmean{0.0458} & \thirdmean{40.97} & \thirdmean{2.326} \\
+ & $W=12$ & \thirdmean{20.26} & \thirdmean{0.7607} & \thirdmean{0.1936} & \thirdmean{0.0552} & 46.67 & 2.589 \\
+\midrule
+\rowcolor{tblstripe}
+64 & $W=1$ & 18.85 & 0.7459 & 0.2146 & 0.0619 & \bestmean{49.65} & \bestmean{2.276} \\
+ & $W=3$ & \secondmean{20.87} & \secondmean{0.7740} & \secondmean{0.1828} & \secondmean{0.0502} & \secondmean{50.63} & \secondmean{2.276} \\
+\rowcolor{tblstripe}
+ & $W=6$ & \bestmean{21.03} & \bestmean{0.7746} & \bestmean{0.1806} & \bestmean{0.0483} & \thirdmean{54.74} & \thirdmean{2.327} \\
+ & $W=12$ & \thirdmean{19.69} & \thirdmean{0.7478} & \thirdmean{0.2068} & \thirdmean{0.0596} & 62.82 & 2.590 \\
+\midrule
+\rowcolor{tblstripe}
+96 & $W=1$ & 18.53 & \thirdmean{0.7335} & \thirdmean{0.2251} & \thirdmean{0.0647} & \bestmean{74.69} & \bestmean{2.322} \\
+ & $W=3$ & \secondmean{20.24} & \bestmean{0.7605} & \secondmean{0.1961} & \secondmean{0.0543} & \secondmean{75.96} & \secondmean{2.323} \\
+\rowcolor{tblstripe}
+ & $W=6$ & \bestmean{20.31} & \secondmean{0.7592} & \bestmean{0.1955} & \bestmean{0.0531} & \thirdmean{82.33} & \thirdmean{2.328} \\
+ & $W=12$ & \thirdmean{18.96} & 0.7275 & 0.2251 & 0.0658 & 95.14 & 2.593 \\
+\bottomrule
+\end{fullwidthcomparison}
+\end{table*}

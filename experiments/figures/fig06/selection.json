@@ -1,0 +1,654 @@
+[
+  {
+    "dataset": "RT-1",
+    "index": 32,
+    "variant": "hybrid",
+    "instruction": "place green rice chip bag into middle drawer",
+    "assets": {
+      "GT": [
+        {
+          "method": "GT",
+          "frame": 8,
+          "sha256": "ce1ee28f45fd89db0810b89e22c57772edcd5cf84e51e7cbd7a10ad35fbcb800",
+          "file": "assets/rt-1_gt_8.png"
+        },
+        {
+          "method": "GT",
+          "frame": 16,
+          "sha256": "d669751b96f1d69b7c8321f85ee07e487fd61342c1bd926fa1630c81c113124a",
+          "file": "assets/rt-1_gt_16.png"
+        },
+        {
+          "method": "GT",
+          "frame": 24,
+          "sha256": "cb676b74e4356fe72a6fa5d210eda8ee91aeb15bedc5114358229569a340886c",
+          "file": "assets/rt-1_gt_24.png"
+        },
+        {
+          "method": "GT",
+          "frame": 32,
+          "sha256": "72d317f40d86af20a125f63e5cdb17cb04c9461d1fb4f182cb9677659352fa5e",
+          "file": "assets/rt-1_gt_32.png"
+        }
+      ],
+      "R2": [
+        {
+          "method": "R2",
+          "frame": 8,
+          "sha256": "78308c893e598111e31fe7026306fdff88bb93e2ca8f4d402d1427ba9ff911a0",
+          "file": "assets/rt-1_r2_8.png"
+        },
+        {
+          "method": "R2",
+          "frame": 16,
+          "sha256": "f337cced7855621c298945d8504cdfbd27536bb56451d6282503768d85347560",
+          "file": "assets/rt-1_r2_16.png"
+        },
+        {
+          "method": "R2",
+          "frame": 24,
+          "sha256": "91ae806856a61d340f21518276bb4fc06e0c9ccd277822b58e7c44a3cc82f9f4",
+          "file": "assets/rt-1_r2_24.png"
+        },
+        {
+          "method": "R2",
+          "frame": 32,
+          "sha256": "7577b251c9af26f7c03009a30a1d1d3a7601c45ffd66c2e3cbf062bfb29ac785",
+          "file": "assets/rt-1_r2_32.png"
+        }
+      ],
+      "WEAVER": [
+        {
+          "frame": 8,
+          "sha256": "253ce5328ac360174c2459ef0f7c0d4bd04486d844c333434b3937d4883fd1cf",
+          "pixel_sha256": "92005eb97b9d07b502c23117f10f367241e7671e8262b31072090a00a30e126b",
+          "file": "assets/rt-1_weaver_8.png"
+        },
+        {
+          "frame": 16,
+          "sha256": "f93662af08850c0d18a3dfb4c71ae4104ea217c0a9b593e15c58e636f1fcbf2d",
+          "pixel_sha256": "4debe0e4932beda3f8746428141e4a76d8591e09100f0ec8da9e1b2be4040d53",
+          "file": "assets/rt-1_weaver_16.png"
+        },
+        {
+          "frame": 24,
+          "sha256": "9f46316833da19117a5608b0fada5581cd80a67afc40f18a3c31db68b18863fa",
+          "pixel_sha256": "74cab805a496a2a2f2f9eb8902cd75f6ada36152d17f2b2a99f92d8c8600fe5f",
+          "file": "assets/rt-1_weaver_24.png"
+        },
+        {
+          "frame": 32,
+          "sha256": "9d2efb2e075f8ffd418fe6fb0d2f0ce483400fa0cfb85a1c7ce6dcb9e178e9f1",
+          "pixel_sha256": "2d994f81960ba8a2ed04ba6e33a84f6f98ec581f4f07beaa5bb7eaaf1c910340",
+          "file": "assets/rt-1_weaver_32.png"
+        }
+      ],
+      "Ctrl-World": [
+        {
+          "frame": 8,
+          "sha256": "3f4380798569ab38cc9a3127a8524cf9a4b94d09911837b9bd4b1c4569fe2d18",
+          "pixel_sha256": "5bd3c493ab6aae2946a337fc5e14f84b647f563ac79d24ba1208f315a72cc132",
+          "file": "assets/rt-1_ctrl-world_8.png"
+        },
+        {
+          "frame": 16,
+          "sha256": "96b23cf262a457955ada1987743a450e1d13dbeb9f274b4e884560c16f6c6c10",
+          "pixel_sha256": "f51789f705149bb316f4ab973402171b168a7536fca2b9e984cd4018f8128b35",
+          "file": "assets/rt-1_ctrl-world_16.png"
+        },
+        {
+          "frame": 24,
+          "sha256": "e48004dc860b3c0cae843a68a870511846c2a83d26708bcaa25c9892b8f787e7",
+          "pixel_sha256": "9a917868ca05f6c8c8f5ae748205768852258a78d859dee603d75c2f158d1dc8",
+          "file": "assets/rt-1_ctrl-world_24.png"
+        },
+        {
+          "frame": 32,
+          "sha256": "acc778d8aaf17f96e36d9f035261723bc8d90c8904a4f1474fce45d080c50598",
+          "pixel_sha256": "723b5b8700d2dfe426a9996c63ab1575e7e55e476f4273ee2959c806675cf90d",
+          "file": "assets/rt-1_ctrl-world_32.png"
+        }
+      ],
+      "Cosmos-Predict2.5": [
+        {
+          "frame": 8,
+          "sha256": "4e0959054b5c0d79ec2d1a1ed3bc83a5488c347ea37de7c89c7cde8841f3e169",
+          "pixel_sha256": "9a335914e75302f33e96697ccfda350159eaffa5e879d01e18f2e2df9c1349eb",
+          "file": "assets/rt-1_cosmos-predict2-5_8.png"
+        },
+        {
+          "frame": 16,
+          "sha256": "ffe506102e482df37226b13f7640a901c0ac352578aec3d1f1e50530eafc42f3",
+          "pixel_sha256": "6ba0ed5078f807f2c6245d9a2a4e34f2a49030426949c17f436d957e85d5847c",
+          "file": "assets/rt-1_cosmos-predict2-5_16.png"
+        },
+        {
+          "frame": 24,
+          "sha256": "f5a3d4ee8cb29ed96cd10b1f08ffa36879c928d70a14fef5d7f8f0454408a5ce",
+          "pixel_sha256": "4b06d565e07ecd98b54c76829c997e459e67a035dfad83a60dfd2d0835a2c219",
+          "file": "assets/rt-1_cosmos-predict2-5_24.png"
+        },
+        {
+          "frame": 32,
+          "sha256": "134e8ccbdc6a46ea4863281a31b70d4c70ee90024522e22064ba25ab2cf17864",
+          "pixel_sha256": "7269430df375a4c0e5926d9a4579b529dcfcd540cf14e53f190e4076bab2a4b3",
+          "file": "assets/rt-1_cosmos-predict2-5_32.png"
+        }
+      ]
+    },
+    "source_runs": {
+      "R2": {
+        "dataset": "RT-1",
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "43ea1d8b70038e9a55af7b205abed72f01bd32aaaecc893fb8c2c446d6490130",
+        "instruction": "place green rice chip bag into middle drawer",
+        "gt_hashes": {
+          "8": "95363f8bbeb404e3f8de3389de93855b74847612082f303b467b98bd74b0bfd5",
+          "16": "eade1178857c6bd7e69309a8c8e9196356d967a32e2701ba5c4f6268296e80aa",
+          "24": "6d3b9ba9ba4dd2a9918435d149cd303d6e8adb2940074c0731b97e50a610b543",
+          "32": "cd959d13ac151947d544bdcc41b4fd7b600dcdc7cef11261bbe76d8b599bea7a"
+        }
+      },
+      "WEAVER": {
+        "dataset": "RT-1",
+        "method": "WEAVER",
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "6cb0cf475d04bdedfef615193e7f41ee921fb8d0d73b1a9101248b0fa343d2af",
+        "generation": {
+          "episode": "06f3a5761eff9d8aa007e33a76909ad1fa4f96f8284ac501dcd5d9556dd559e5_0000",
+          "prediction_sha256": "6cb0cf475d04bdedfef615193e7f41ee921fb8d0d73b1a9101248b0fa343d2af",
+          "source_sha256": "9558ccc403c0b2d3aa67eb4137b4207e5b1c52cd39bb40c1787b69ab6c8795a2",
+          "checkpoint": "archived_cluster_artifact",
+          "seconds": 6.282809257507324,
+          "actions": 13,
+          "no_future_state": true
+        },
+        "gt_pixel_hashes": {
+          "8": "95363f8bbeb404e3f8de3389de93855b74847612082f303b467b98bd74b0bfd5",
+          "16": "eade1178857c6bd7e69309a8c8e9196356d967a32e2701ba5c4f6268296e80aa",
+          "24": "6d3b9ba9ba4dd2a9918435d149cd303d6e8adb2940074c0731b97e50a610b543",
+          "32": "cd959d13ac151947d544bdcc41b4fd7b600dcdc7cef11261bbe76d8b599bea7a"
+        }
+      },
+      "Ctrl-World": {
+        "dataset": "RT-1",
+        "method": "Ctrl-World",
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "60be818864c8b862ad7dda568e9b96ef38fe45c02d6c05012e06edd117ddfd0e",
+        "generation": {
+          "episode": "06f3a5761eff9d8aa007e33a76909ad1fa4f96f8284ac501dcd5d9556dd559e5_0000",
+          "checkpoint_step": 2000,
+          "nft": false,
+          "source_sha256": "9558ccc403c0b2d3aa67eb4137b4207e5b1c52cd39bb40c1787b69ab6c8795a2",
+          "prediction_sha256": "60be818864c8b862ad7dda568e9b96ef38fe45c02d6c05012e06edd117ddfd0e",
+          "observations": 2,
+          "future": 32,
+          "chunk_future": 4,
+          "tail_actions": "repeat last available recorded command beyond H32, unused predictions discarded",
+          "history": "six latent history slots; observed initial two then generated latents only",
+          "denoising_steps": 50,
+          "guidance": 1.0
+        },
+        "gt_pixel_hashes": {
+          "8": "95363f8bbeb404e3f8de3389de93855b74847612082f303b467b98bd74b0bfd5",
+          "16": "eade1178857c6bd7e69309a8c8e9196356d967a32e2701ba5c4f6268296e80aa",
+          "24": "6d3b9ba9ba4dd2a9918435d149cd303d6e8adb2940074c0731b97e50a610b543",
+          "32": "cd959d13ac151947d544bdcc41b4fd7b600dcdc7cef11261bbe76d8b599bea7a"
+        }
+      },
+      "Cosmos-Predict2.5": {
+        "dataset": "RT-1",
+        "method": "Cosmos-Predict2.5",
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "7e4ebb9ad182c232652879aeff141d97c882da7283786a33b71f68466b9512ae",
+        "generation": {
+          "episode": "06f3a5761eff9d8aa007e33a76909ad1fa4f96f8284ac501dcd5d9556dd559e5_0000",
+          "prediction_sha256": "7e4ebb9ad182c232652879aeff141d97c882da7283786a33b71f68466b9512ae",
+          "source_sha256": "9558ccc403c0b2d3aa67eb4137b4207e5b1c52cd39bb40c1787b69ab6c8795a2",
+          "checkpoint": "archived_cluster_artifact",
+          "seconds": 13.422144651412964,
+          "actions": 13,
+          "no_future_state": true
+        },
+        "gt_pixel_hashes": {
+          "8": "95363f8bbeb404e3f8de3389de93855b74847612082f303b467b98bd74b0bfd5",
+          "16": "eade1178857c6bd7e69309a8c8e9196356d967a32e2701ba5c4f6268296e80aa",
+          "24": "6d3b9ba9ba4dd2a9918435d149cd303d6e8adb2940074c0731b97e50a610b543",
+          "32": "cd959d13ac151947d544bdcc41b4fd7b600dcdc7cef11261bbe76d8b599bea7a"
+        }
+      }
+    }
+  },
+  {
+    "dataset": "BridgeV2",
+    "index": 79,
+    "variant": "hybrid",
+    "instruction": "PICK UP THE SPOON ANDPUT ON THE TOWEL",
+    "assets": {
+      "WEAVER": [
+        {
+          "method": "WEAVER",
+          "frame": 8,
+          "file": "assets/bridgev2_weaver_8.png",
+          "sha256": "688d94dfe8e947149106723847159f8a880c38c7383555105dc268c39d189e60"
+        },
+        {
+          "method": "WEAVER",
+          "frame": 16,
+          "file": "assets/bridgev2_weaver_16.png",
+          "sha256": "599c65fc63532ab7c84e32ab39bac85cca4c127a9a3a7babb4b3b544c820eefd"
+        },
+        {
+          "method": "WEAVER",
+          "frame": 24,
+          "file": "assets/bridgev2_weaver_24.png",
+          "sha256": "d924576597f455e8711fe012f894980099a802a21855f742c80d7df9a9ee8532"
+        },
+        {
+          "method": "WEAVER",
+          "frame": 32,
+          "file": "assets/bridgev2_weaver_32.png",
+          "sha256": "d293ca16ae8ae65f7b81f011a0ef07490cc300c594c9433893c22035a9f235d1"
+        }
+      ],
+      "Ctrl-World": [
+        {
+          "method": "Ctrl-World",
+          "frame": 8,
+          "file": "assets/bridgev2_ctrl-world_8.png",
+          "sha256": "29cb88b15352df7984cd08255b7b728e10a75c5dcbb5809fd15ac95db6468da3"
+        },
+        {
+          "method": "Ctrl-World",
+          "frame": 16,
+          "file": "assets/bridgev2_ctrl-world_16.png",
+          "sha256": "4ec8fdcc63ffdd7f6ba3515137f4933f679fd95e8c1e2614aae0166e3730fba9"
+        },
+        {
+          "method": "Ctrl-World",
+          "frame": 24,
+          "file": "assets/bridgev2_ctrl-world_24.png",
+          "sha256": "e4a0a124fa976cde59accab246fe29d3afb42247d3f5d5789dbb56eeadf6e850"
+        },
+        {
+          "method": "Ctrl-World",
+          "frame": 32,
+          "file": "assets/bridgev2_ctrl-world_32.png",
+          "sha256": "8511e15f16255aa2ac416168ae7a10935820b4aacb6895d8d3d0832cf96fe74c"
+        }
+      ],
+      "Cosmos-Predict2.5": [
+        {
+          "method": "Cosmos-Predict2.5",
+          "frame": 8,
+          "file": "assets/bridgev2_cosmos-predict2.5_8.png",
+          "sha256": "de67e5f73a18fc428b43aa9eb1a979c8c2315240818711ec1e5938f2a5447f95"
+        },
+        {
+          "method": "Cosmos-Predict2.5",
+          "frame": 16,
+          "file": "assets/bridgev2_cosmos-predict2.5_16.png",
+          "sha256": "a12a34e25402b5580faf62ffd72389f29090213ccc5661cf68cff414f54185d7"
+        },
+        {
+          "method": "Cosmos-Predict2.5",
+          "frame": 24,
+          "file": "assets/bridgev2_cosmos-predict2.5_24.png",
+          "sha256": "a15a9341957745facfacfbbfa45c0c8586da15b7899d4ec954dea2315d6e5cf4"
+        },
+        {
+          "method": "Cosmos-Predict2.5",
+          "frame": 32,
+          "file": "assets/bridgev2_cosmos-predict2.5_32.png",
+          "sha256": "b635bf6536a82181704ab05fb9bdfe9c23e5f0a9bff9718e8646615820b8f2ae"
+        }
+      ],
+      "R2": [
+        {
+          "method": "R2",
+          "frame": 8,
+          "file": "assets/bridgev2_r2_8.png",
+          "sha256": "7ae302bab4d70565bf7a5b6c9950468111cf38ee12fbea4b4d9c52f3a67c0011"
+        },
+        {
+          "method": "R2",
+          "frame": 16,
+          "file": "assets/bridgev2_r2_16.png",
+          "sha256": "8ea0ec54cb0414e6b2ad3ae51d2f7ae3212dc6ffbbb6b9d80069ec66e90679d3"
+        },
+        {
+          "method": "R2",
+          "frame": 24,
+          "file": "assets/bridgev2_r2_24.png",
+          "sha256": "eb63a465cc24f2bb2cc2a7e7d74cd310f85eae9d644b1a51798a1314178c1de1"
+        },
+        {
+          "method": "R2",
+          "frame": 32,
+          "file": "assets/bridgev2_r2_32.png",
+          "sha256": "5c0096c25e8c0214a743315bd16ddd10b594e649034e96b1d6ac27cf1c920174"
+        }
+      ],
+      "GT": [
+        {
+          "method": "GT",
+          "frame": 8,
+          "file": "assets/bridgev2_gt_8.png",
+          "sha256": "5a0c1cd821183d599a1db5ab1cbb6e37c0d417d61f038c1f1a3063ed0576df5a"
+        },
+        {
+          "method": "GT",
+          "frame": 16,
+          "file": "assets/bridgev2_gt_16.png",
+          "sha256": "245c8c47245ce2864df4a5fdd9f8d952625ab60b77515531d532fec6cf196cce"
+        },
+        {
+          "method": "GT",
+          "frame": 24,
+          "file": "assets/bridgev2_gt_24.png",
+          "sha256": "f96183300671fd34b769c612722c30adf2785e0a6cae09d39b6992b526d7cc84"
+        },
+        {
+          "method": "GT",
+          "frame": 32,
+          "file": "assets/bridgev2_gt_32.png",
+          "sha256": "4d21d382373851184fcc6bee94a2e63e7208e482cdb8a065d1b2510ed06b0334"
+        }
+      ]
+    },
+    "source_runs": {
+      "WEAVER": {
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "5f0f218d54eb12314b041d3f21145137c8b1dfe072b593e8710ede3b8b1fc70d",
+        "gt_hashes": {
+          "8": "3e0f0f2ea4d8d042619d0d1366f7b4246d76bfb678229dee0e172a80acbe2a00",
+          "16": "d0369529277f9934d2b527e4c183240fe96632d1b3c338090451f209b9e01311",
+          "24": "818045bc179151059f3cc36288bc46a5358fd300e9a787d29bfee3f7354fdc65",
+          "32": "6b3e7d489c6f8e4056029c78c860e975c1af7fd2955e67fc1739bcec693d6a98"
+        },
+        "generation": {
+          "episode": "train_eps_00002450.npz",
+          "model": "WEAVER",
+          "checkpoint": "archived_cluster_artifact",
+          "checkpoint_step": 2000,
+          "source_sha256": "d87ccc63d93a769ad6edeab6fb45a9d317c7ba5ad4a76c41fa2675c6a123959f",
+          "cohort_sha256": "e30e14041154f215515a0dca39391d3c26d6d6f40a9306129ca86cfe6ef60118",
+          "truth_sha256": "7e23e7f29fe7b3f17121450795418014075e8f9c213ba98a2303a2b8788bdebf",
+          "prediction_sha256": "5f0f218d54eb12314b041d3f21145137c8b1dfe072b593e8710ede3b8b1fc70d",
+          "seconds": 6.274261474609375,
+          "frame_count": 32,
+          "no_future_observation_input": true
+        }
+      },
+      "Ctrl-World": {
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "c0eca143569f9199d8fb42e4dd626ab0de7ee86171ac2970741f1c189a95edda",
+        "gt_hashes": {
+          "8": "3e0f0f2ea4d8d042619d0d1366f7b4246d76bfb678229dee0e172a80acbe2a00",
+          "16": "d0369529277f9934d2b527e4c183240fe96632d1b3c338090451f209b9e01311",
+          "24": "818045bc179151059f3cc36288bc46a5358fd300e9a787d29bfee3f7354fdc65",
+          "32": "6b3e7d489c6f8e4056029c78c860e975c1af7fd2955e67fc1739bcec693d6a98"
+        },
+        "generation": {
+          "episode": "train_eps_00002450.npz",
+          "checkpoint_step": 2000,
+          "nft": false,
+          "source_sha256": "d87ccc63d93a769ad6edeab6fb45a9d317c7ba5ad4a76c41fa2675c6a123959f",
+          "prediction_sha256": "c0eca143569f9199d8fb42e4dd626ab0de7ee86171ac2970741f1c189a95edda",
+          "observations": 2,
+          "future": 32,
+          "chunk_future": 4,
+          "tail_actions": "repeat last available recorded command beyond H32, unused predictions discarded",
+          "history": "six latent history slots; observed initial two then generated latents only",
+          "denoising_steps": 50,
+          "guidance": 1.0
+        }
+      },
+      "Cosmos-Predict2.5": {
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "4a604346e3ee5ffcd49639909a81c771f7723178680c83fb9a0c39516a446ab8",
+        "gt_hashes": {
+          "8": "3e0f0f2ea4d8d042619d0d1366f7b4246d76bfb678229dee0e172a80acbe2a00",
+          "16": "d0369529277f9934d2b527e4c183240fe96632d1b3c338090451f209b9e01311",
+          "24": "818045bc179151059f3cc36288bc46a5358fd300e9a787d29bfee3f7354fdc65",
+          "32": "6b3e7d489c6f8e4056029c78c860e975c1af7fd2955e67fc1739bcec693d6a98"
+        },
+        "generation": {
+          "episode": "train_eps_00002450.npz",
+          "source_sha256": "d87ccc63d93a769ad6edeab6fb45a9d317c7ba5ad4a76c41fa2675c6a123959f",
+          "cohort_sha256": "e30e14041154f215515a0dca39391d3c26d6d6f40a9306129ca86cfe6ef60118",
+          "truth_sha256": "7e23e7f29fe7b3f17121450795418014075e8f9c213ba98a2303a2b8788bdebf",
+          "seconds": 12.814005858032033,
+          "prediction_sha256": "4a604346e3ee5ffcd49639909a81c771f7723178680c83fb9a0c39516a446ab8",
+          "frame_count": 32,
+          "conditioning": "Recorded control commands, one observation, no future-state or future-RGB input",
+          "checkpoint_sha256": "fcba0cb41ce8e36ba42fa37e7bc97262bcdf483f116b8faaee9cbc66f8c23f15",
+          "checkpoint_step": 2000,
+          "model": "Cosmos-Predict2.5-2B robot/action-cond",
+          "seeds": [
+            0,
+            12,
+            24
+          ],
+          "denoising_steps": 35,
+          "guidance": 0
+        }
+      },
+      "R2": {
+        "path": "archived_cluster_artifact",
+        "npz_sha256": "36c17bd5de1e9b89d62d11beff5d9ed4c64c15a5ba576ea0d8a6084f177d25ef",
+        "gt_hashes": {
+          "8": "3e0f0f2ea4d8d042619d0d1366f7b4246d76bfb678229dee0e172a80acbe2a00",
+          "16": "d0369529277f9934d2b527e4c183240fe96632d1b3c338090451f209b9e01311",
+          "24": "818045bc179151059f3cc36288bc46a5358fd300e9a787d29bfee3f7354fdc65",
+          "32": "6b3e7d489c6f8e4056029c78c860e975c1af7fd2955e67fc1739bcec693d6a98"
+        },
+        "generation": {
+          "index": 79,
+          "id": "2f8a5ae148c2be14cd9d01ad0f18ee044e6ae1ca0b9a8ad4d393b4c6e21bdf17",
+          "input_sha256": "44c81ca95166e2b459e51b88f4d4dee9da006c9f855e8af82f73e66ac2afbb90",
+          "metrics": {
+            "10": {
+              "mse": 0.0020876187132671475,
+              "mae": 0.022046962566673756,
+              "psnr": 26.852298545837403,
+              "lpips": 0.07878504544496537,
+              "ssim": 0.872256463766098
+            },
+            "20": {
+              "mse": 0.0023235461092554035,
+              "mae": 0.02305682869628072,
+              "psnr": 26.42820234298706,
+              "lpips": 0.08255685120820999,
+              "ssim": 0.8618457227945328
+            },
+            "32": {
+              "mse": 0.004524509204202332,
+              "mae": 0.031750881171319634,
+              "psnr": 24.484897673130035,
+              "lpips": 0.10239828331395984,
+              "ssim": 0.8325519878417253
+            }
+          },
+          "per_frame": {
+            "mse": [
+              0.0017710524844005704,
+              0.002258862601593137,
+              0.0017473808256909251,
+              0.0025707813911139965,
+              0.0024498302955180407,
+              0.0017816771287471056,
+              0.002333560725674033,
+              0.0017589719500392675,
+              0.001868479885160923,
+              0.0023355898447334766,
+              0.0020564463920891285,
+              0.0026423728559166193,
+              0.002461830386891961,
+              0.0020746025256812572,
+              0.00206983950920403,
+              0.002687265397980809,
+              0.0023771459236741066,
+              0.002488597994670272,
+              0.00407401192933321,
+              0.0026626221369951963,
+              0.0038332794792950153,
+              0.003695578081533313,
+              0.004760792013257742,
+              0.006238388363271952,
+              0.008238420821726322,
+              0.007475948426872492,
+              0.008137096650898457,
+              0.008010728284716606,
+              0.009498950093984604,
+              0.010382232256233692,
+              0.011859412305057049,
+              0.016182545572519302
+            ],
+            "mae": [
+              0.021067505702376366,
+              0.02217726781964302,
+              0.021088283509016037,
+              0.02370399795472622,
+              0.023357126861810684,
+              0.021328171715140343,
+              0.022699035704135895,
+              0.02094111032783985,
+              0.021183162927627563,
+              0.022923963144421577,
+              0.022290699183940887,
+              0.024201901629567146,
+              0.023651443421840668,
+              0.0225331149995327,
+              0.022497640922665596,
+              0.02425488829612732,
+              0.023626290261745453,
+              0.023887313902378082,
+              0.029178768396377563,
+              0.024544887244701385,
+              0.04050174728035927,
+              0.03989263251423836,
+              0.04392674192786217,
+              0.047783561050891876,
+              0.051473360508680344,
+              0.04898346960544586,
+              0.043452829122543335,
+              0.04454443231225014,
+              0.04307873174548149,
+              0.04573390260338783,
+              0.0479702427983284,
+              0.05754997208714485
+            ],
+            "psnr": [
+              27.517684936523438,
+              26.461103439331055,
+              27.576126098632812,
+              25.899349212646484,
+              26.108638763427734,
+              27.491710662841797,
+              26.319808959960938,
+              27.547412872314453,
+              27.28511619567871,
+              26.3160343170166,
+              26.868824005126953,
+              25.780059814453125,
+              26.087419509887695,
+              26.830652236938477,
+              26.84063148498535,
+              25.706897735595703,
+              26.239442825317383,
+              26.040451049804688,
+              23.899776458740234,
+              25.746906280517578,
+              24.164295196533203,
+              24.323177337646484,
+              23.223207473754883,
+              22.04927635192871,
+              20.84156036376953,
+              21.263336181640625,
+              20.895305633544922,
+              20.963279724121094,
+              20.22324562072754,
+              19.837093353271484,
+              19.259368896484375,
+              17.90953254699707
+            ],
+            "lpips": [
+              0.0651741623878479,
+              0.07047663629055023,
+              0.07494997978210449,
+              0.0869574248790741,
+              0.0932849571108818,
+              0.0842837542295456,
+              0.08142908662557602,
+              0.07371129095554352,
+              0.07426423579454422,
+              0.08331892639398575,
+              0.07918430119752884,
+              0.08674372732639313,
+              0.08405997604131699,
+              0.0769459456205368,
+              0.07659155130386353,
+              0.08584100753068924,
+              0.08339571207761765,
+              0.0875774398446083,
+              0.11026802659034729,
+              0.09267888218164444,
+              0.09684299677610397,
+              0.0937977135181427,
+              0.10832265019416809,
+              0.12073104828596115,
+              0.1411179006099701,
+              0.14400072395801544,
+              0.15184782445430756,
+              0.13444197177886963,
+              0.14260412752628326,
+              0.14526031911373138,
+              0.15879403054714203,
+              0.18784673511981964
+            ],
+            "ssim": [
+              0.8875753283500671,
+              0.8738234043121338,
+              0.8756034970283508,
+              0.866601824760437,
+              0.8658191561698914,
+              0.8788690567016602,
+              0.8623288869857788,
+              0.8791362643241882,
+              0.8752270340919495,
+              0.8575801849365234,
+              0.865691065788269,
+              0.8489429354667664,
+              0.8495373129844666,
+              0.8617987632751465,
+              0.8617042303085327,
+              0.8498506546020508,
+              0.8539248704910278,
+              0.8530610799789429,
+              0.8116128444671631,
+              0.8582260608673096,
+              0.8469001650810242,
+              0.8485291004180908,
+              0.8306252360343933,
+              0.8065006136894226,
+              0.7779479622840881,
+              0.7705563306808472,
+              0.7714606523513794,
+              0.7771131992340088,
+              0.7592463493347168,
+              0.7514879107475281,
+              0.7503571510314941,
+              0.7140244841575623
+            ]
+          },
+          "inference_seconds": 27.327792782336473,
+          "artifact": "archived_cluster_artifact",
+          "artifact_sha256": "36c17bd5de1e9b89d62d11beff5d9ed4c64c15a5ba576ea0d8a6084f177d25ef"
+        },
+        "checkpoint": "archived_cluster_artifact"
+      }
+    },
+    "checkpoint_role": "Table2 validation-selected checkpoint; selectively illustrated qualitative example, not aggregate evidence"
+  }
+]
