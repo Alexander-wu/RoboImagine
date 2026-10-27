@@ -8,10 +8,11 @@
 
 **Learning from comparisons between imagined futures.**
 
-Hao Wu · Yuqi Li · Yizhou Zhao · Kun Wang · Xiao Luo · Yu Cheng<br>
-Yingli Tian · Laszlo A. Jeni · Ming-Hsuan Yang
+Hao Wu<sup>1</sup> · Yuqi Li<sup>2</sup> · Yizhou Zhao<sup>1</sup> · Kun Wang<sup>3</sup> · Xiao Luo<sup>4</sup> · Yu Cheng<sup>3</sup><br>
+Yingli Tian<sup>2</sup> · Laszlo A. Jeni<sup>1</sup> · Ming-Hsuan Yang<sup>5</sup>
 
-<sub>Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced</sub>
+<sup>1</sup> Carnegie Mellon University · <sup>2</sup> The City College of New York<br>
+<sup>3</sup> NTU · <sup>4</sup> University of Wisconsin–Madison · <sup>5</sup> UC Merced
 
 [**Models & examples**](https://huggingface.co/easylearning/RoboImagine) · [**Inference notebook**](notebooks/Inference.ipynb) · [**Experiment code**](experiments/executed_sources/README.md) · [**简体中文**](README.zh-CN.md)
 
@@ -46,6 +47,20 @@ RoboImagine first learns multimodal next-token prediction, then improves the mod
 
 ## Selected results
 
+### Prediction quality across three datasets
+
+RoboImagine’s reported 32-frame prediction results (Table 2):
+
+| Dataset | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
+|:--|--:|--:|--:|
+| RT-1 | **22.57** | **0.8035** | **0.1541** |
+| BridgeV2 | **21.53** | **0.7880** | **0.1527** |
+| RoboCasa | **18.39** | **0.7727** | **0.1768** |
+
+*RT-1 and RoboCasa use 128 reporting trajectories each; BridgeV2 uses the labeled 32-trajectory validation cohort and its validation-selected checkpoint.* [Table 2 and sources](experiments/tables/README.md)
+
+### Gains from post-training
+
 **Controlled post-training comparison on RT-1.** All rows below share the same SFT initialization and evaluation protocol: 128 trajectories, 32 predicted frames, and the same decoder.
 
 | Model | Additional updates | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
@@ -69,6 +84,19 @@ At the same update count, RoboImagine improves PSNR by **1.26 dB** and reduces L
 </table>
 
 *One drawer-closing example from Figure 8: all images show prediction frame +32. Continued SFT and RoboImagine each use 500 additional updates. This qualitative example is separate from the aggregate results.*
+
+### Semantic evaluation and feedback ablation
+
+An independent Qwen3-VL-8B-Thinking evaluator scores task-related quality on **97 shared valid RT-1 trajectories** (0–10; Table 3).
+
+| Configuration | Qwen total ↑ |
+|:--|--:|
+| SFT initialization | 7.04 |
+| Semantic feedback only | 7.69 |
+| Visual feedback only | 7.97 |
+| **RoboImagine · combined feedback** | **8.30** |
+
+Combined feedback achieves the highest semantic-evaluation score among these configurations, while visual-only feedback yields the strongest reconstruction metrics in this ablation. The two criteria capture complementary aspects of prediction quality. [Ablation results and scoring protocol](experiments/tables/README.md)
 
 ## Quick start
 

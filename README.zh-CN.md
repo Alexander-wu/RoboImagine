@@ -8,10 +8,11 @@
 
 **通过比较候选未来，学习机器人世界模型。**
 
-Hao Wu · Yuqi Li · Yizhou Zhao · Kun Wang · Xiao Luo · Yu Cheng<br>
-Yingli Tian · Laszlo A. Jeni · Ming-Hsuan Yang
+Hao Wu<sup>1</sup> · Yuqi Li<sup>2</sup> · Yizhou Zhao<sup>1</sup> · Kun Wang<sup>3</sup> · Xiao Luo<sup>4</sup> · Yu Cheng<sup>3</sup><br>
+Yingli Tian<sup>2</sup> · Laszlo A. Jeni<sup>1</sup> · Ming-Hsuan Yang<sup>5</sup>
 
-<sub>Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced</sub>
+<sup>1</sup> Carnegie Mellon University · <sup>2</sup> The City College of New York<br>
+<sup>3</sup> NTU · <sup>4</sup> University of Wisconsin–Madison · <sup>5</sup> UC Merced
 
 [**模型与样例**](https://huggingface.co/easylearning/RoboImagine) · [**推理 Notebook**](notebooks/Inference.ipynb) · [**原始实验代码**](experiments/executed_sources/README.zh-CN.md) · [**English**](README.md)
 
@@ -44,6 +45,20 @@ Yingli Tian · Laszlo A. Jeni · Ming-Hsuan Yang
 
 ## 代表性结果
 
+### 三个数据集的预测质量
+
+论文表 2 报告的 RoboImagine 32 帧预测结果：
+
+| 数据集 | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
+|:--|--:|--:|--:|
+| RT-1 | **22.57** | **0.8035** | **0.1541** |
+| BridgeV2 | **21.53** | **0.7880** | **0.1527** |
+| RoboCasa | **18.39** | **0.7727** | **0.1768** |
+
+*RT-1 与 RoboCasa 各使用 128 条报告轨迹；BridgeV2 使用已标明的 32 条验证轨迹及验证集选择的检查点。* [表 2 与数据来源](experiments/tables/README.zh-CN.md)
+
+### 后训练带来的收益
+
 **RT-1 上的受控后训练比较。** 下表使用相同 SFT 初始化与评估协议：128 条轨迹、32 帧预测、相同解码器。
 
 | 模型 | 额外更新次数 | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
@@ -67,6 +82,19 @@ Yingli Tian · Laszlo A. Jeni · Ming-Hsuan Yang
 </table>
 
 *图 8 的关闭抽屉案例：各图均展示第 +32 帧，继续 SFT 和 RoboImagine 均增加 500 次更新。该案例用于定性展示，汇总指标见上表。*
+
+### 语义评价与反馈消融
+
+独立的 Qwen3-VL-8B-Thinking 评价器在 **97 条共享有效 RT-1 轨迹**上进行任务相关质量评分（0–10 分；表 3）。
+
+| 配置 | Qwen 总分 ↑ |
+|:--|--:|
+| SFT 初始化 | 7.04 |
+| 仅语义反馈 | 7.69 |
+| 仅视觉反馈 | 7.97 |
+| **RoboImagine · 互补反馈** | **8.30** |
+
+互补反馈在这些配置中取得最高的语义评价得分；仅视觉反馈则在该消融中取得最强的重建指标。两类评价刻画了预测质量的不同方面。[消融结果与评分协议](experiments/tables/README.zh-CN.md)
 
 ## 快速开始
 
