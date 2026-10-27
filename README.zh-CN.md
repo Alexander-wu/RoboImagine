@@ -6,32 +6,30 @@
 
 ### Learning Robotic World Models with Semantic and Visual Feedback
 
-**比较候选未来，通过语义与视觉反馈学习机器人世界模型。**
+**通过比较候选未来，学习机器人世界模型。**
 
-[方法框架](#方法框架) · [结果概览](#结果概览) · [模型与样例](https://huggingface.co/easylearning/RoboImagine) · [快速开始](#快速开始) · [原始实验代码](experiments/executed_sources/README.zh-CN.md) · [图表与代码索引](docs/PAPER_INDEX.md) · [English](README.md)
+Hao Wu · Yuqi Li · Yizhou Zhao · Kun Wang · Xiao Luo · Yu Cheng<br>
+Yingli Tian · Laszlo A. Jeni · Ming-Hsuan Yang
+
+<sub>Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced</sub>
+
+[**模型与样例**](https://huggingface.co/easylearning/RoboImagine) · [**推理 Notebook**](notebooks/Inference.ipynb) · [**原始实验代码**](experiments/executed_sources/README.zh-CN.md) · [**English**](README.md)
+
+[研究概览](#研究概览) · [方法框架](#方法框架) · [代表性结果](#代表性结果) · [快速开始](#快速开始) · [论文复现](#论文复现)
 
 </div>
 
-RoboImagine 面向 **GPT 风格的自回归机器人世界模型**。模型接收视觉观测、动作序列和任务指令，通过**分组多样化束搜索（GDBS）**构造候选未来，并利用**语义偏好与视觉一致性反馈**进行后训练。固定锚点与分支独立的滚动历史在限制输入上下文长度的同时，保持候选生成与策略评价的条件一致。
+## 研究概览
 
-**Hao Wu、Yuqi Li、Yizhou Zhao、Kun Wang、Xiao Luo、Yu Cheng、Yingli Tian、Laszlo A. Jeni、Ming-Hsuan Yang**
-Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced
+机器人预测既需要**视觉保真度**，也需要准确刻画**与任务相关的动态变化**。RoboImagine 面向 GPT 风格的自回归机器人世界模型，在共享观测、动作和指令条件下，通过比较候选未来进行后训练。
 
-## 结果概览
+框架联合设计三个组件：
 
-在 **RT-1 的 128 条轨迹、32 帧预测**评估中，从相同初始化出发，采用相同更新次数与评估解码器，500 步后训练相较继续 SFT 提升 **1.26 dB PSNR**，降低 **11.93% LPIPS**。训练计算成本单独统计；相同更新次数不代表相同计算量。[结果及来源 →](experiments/figures/fig08/README.zh-CN.md)
+- **分组多样化束搜索（GDBS）**：构造具有差异的候选轨迹，为比较提供基础。
+- **互补语义与视觉反馈**：联合评价任务进展与像素、感知层面的视觉一致性。
+- **保持历史一致的策略优化**：在候选实际生成时使用的分支上下文下，调整其 token 概率。
 
-<table>
-<tr><th>Ground truth</th><th>SFT initialization</th><th>Continued SFT</th><th>RoboImagine</th></tr>
-<tr>
-<td><img src="docs/assets/drawer-gt.png" alt="Ground-truth drawer scene"></td>
-<td><img src="docs/assets/drawer-initial_sft.png" alt="SFT prediction"></td>
-<td><img src="docs/assets/drawer-sft_500.png" alt="Continued-SFT prediction"></td>
-<td><img src="docs/assets/drawer-hybrid_500.png" alt="RoboImagine prediction"></td>
-</tr>
-</table>
-
-*图 8 的关闭抽屉案例，各图均为第 +32 帧；继续 SFT 与 RoboImagine 均增加 500 次更新。*
+本仓库提供 **RT-1、BridgeV2 和 RoboCasa** 的主模型与对应 SFT 初始化，以及论文训练和评价所使用的原始实验程序。
 
 ## 方法框架
 
@@ -43,6 +41,32 @@ Carnegie Mellon University · The City College of New York · NTU · University 
 4. **保持历史一致的策略优化。** 组内相对优势调整候选 token 的概率，并向冻结的 SFT 策略正则化。评分时重放各分支实际使用的生成前缀。固定初始上下文、观测动态锚点与最近六帧状态—动作历史共同构成输入；六帧限制输入历史，不限制输出视频长度。
 
 评估使用逐帧、宽度为四的普通束搜索，无需反馈评价器或真实未来帧。[框架图 PDF](docs/assets/method-overview.pdf) · [实际训练与奖励代码](experiments/executed_sources/rt1_hybrid/README.md)
+
+## 代表性结果
+
+**RT-1 上的受控后训练比较。** 下表使用相同 SFT 初始化与评估协议：128 条轨迹、32 帧预测、相同解码器。
+
+| 模型 | 额外更新次数 | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
+|:--|--:|--:|--:|--:|
+| SFT 初始化 | 0 | 21.37 | 0.7860 | 0.1734 |
+| 继续 SFT | 500 | 21.31 | 0.7844 | 0.1750 |
+| **RoboImagine** | **500** | **22.57** | **0.8035** | **0.1541** |
+
+在相同更新次数下，RoboImagine 相较继续 SFT 提升 **1.26 dB PSNR**，降低 **11.93% LPIPS**。提升基于未四舍五入的数值计算；相同更新次数不代表相同计算量，训练 GPU 小时单独报告。
+
+[检查点结果与协议](experiments/figures/fig08/README.zh-CN.md) · [训练成本](experiments/figures/fig09/README.zh-CN.md) · [完整图表索引](docs/PAPER_INDEX.md)
+
+<table>
+<tr><th>Ground truth</th><th>SFT initialization</th><th>Continued SFT</th><th>RoboImagine</th></tr>
+<tr>
+<td><img src="docs/assets/drawer-gt.png" alt="Ground-truth drawer scene"></td>
+<td><img src="docs/assets/drawer-initial_sft.png" alt="SFT prediction"></td>
+<td><img src="docs/assets/drawer-sft_500.png" alt="Continued-SFT prediction"></td>
+<td><img src="docs/assets/drawer-hybrid_500.png" alt="RoboImagine prediction"></td>
+</tr>
+</table>
+
+*图 8 的关闭抽屉案例：各图均展示第 +32 帧，继续 SFT 和 RoboImagine 均增加 500 次更新。该案例用于定性展示，汇总指标见上表。*
 
 ## 快速开始
 
@@ -66,7 +90,7 @@ roboimagine --dataset rt1 --variant sft --example-index 0 \
 
 **[完整中文推理教程](docs/INFERENCE.zh-CN.md) · [英文教程](docs/INFERENCE.md) · [推理 notebook](notebooks/Inference.ipynb)**
 
-### 已发布权重
+### 模型与权重
 
 | 数据集 | 主模型 | 对应初始化 | 演示输入 |
 |---|---|---|---|
@@ -86,37 +110,55 @@ roboimagine --dataset rt1 --input case.npz --horizon 32 --output predictions/cus
 
 自定义输入格式、动作布局与更长序列的要求见[中文推理教程](docs/INFERENCE.zh-CN.md)。
 
-## 实验与复现入口
+## 论文复现
 
-| 目标 | 入口 |
-|---|---|
-| 从公开权重生成预测 | [模型推理](docs/INFERENCE.zh-CN.md) · [Notebook](notebooks/Inference.ipynb) |
-| 阅读真实训练、奖励与评价程序 | [服务器原始实验代码](experiments/executed_sources/README.zh-CN.md) |
-| 比较采样、普通 beam、GDBS 和 MCTS | [搜索消融](experiments/executed_sources/search_ablation/README.zh-CN.md) · [MCTS](experiments/executed_sources/mcts/README.zh-CN.md) |
-| 核查 SFT 续训与计算开销 | [SFT 续训](experiments/executed_sources/continued_sft/README.zh-CN.md) · [图 9](experiments/figures/fig09/README.zh-CN.md) |
-| 核查窗口、计时与统计聚合 | [固定 30 条轨迹的窗口实验](experiments/executed_sources/window30/README.zh-CN.md) |
-| 查找每张图表的具体实现 | [图表索引](docs/PAPER_INDEX.md) |
-| 使用已归档实验输出重绘图表 | [中文实验教程](experiments/README.zh-CN.md) · [Run All notebook](experiments/Reproduce_All.ipynb) |
+复现资源分为三个相互衔接的入口：从公开权重执行**模型推理**、查看服务器实际运行的**原始实验程序**，以及从归档输出**重绘图表**。
 
-`executed_sources` 保存服务器实际执行的训练、搜索、奖励、视频推理、指标计算与聚合代码。中英文指南说明实验配置、数据准备与迁移环境时需要替换的路径。图表 notebook 则用于已有实验输出的可视化。
+| 工作流 | 入口 | 内容 |
+|:--|:--|:--|
+| 模型推理 | [中文指南](docs/INFERENCE.zh-CN.md) · [Notebook](notebooks/Inference.ipynb) | 权重加载、自回归生成、记忆轨迹与指标计算 |
+| 训练与评价 | [原始实验代码](experiments/executed_sources/README.zh-CN.md) | 训练循环、搜索、奖励、预测、评分与统计聚合 |
+| 图表核查 | [论文图表索引](docs/PAPER_INDEX.md) | 每张图表对应的输入、程序、Notebook 与来源 |
+| 图表重绘 | [中文实验指南](experiments/README.zh-CN.md) · [Run All Notebook](experiments/Reproduce_All.ipynb) | 基于归档实验输出重建可视化 |
 
-### 四个研究问题
+原始程序指南记录实验配置、数据准备、依赖以及迁移环境时需要调整的路径。推理 Notebook 实际运行模型；绘图 Notebook 使用已有实验记录。
 
-- **RQ1：总体效果。** 三个数据集的视觉质量、任务语义、多模型评价及定性比较。
-- **RQ2：后训练收益。** 同初始化下的 SFT 续训对照、检查点曲线与训练 GPU 小时。
-- **RQ3：组件作用。** 语义、视觉与混合反馈，以及采样、普通 beam、GDBS、似然引导 MCTS；Qwen 消融统一使用 97 条配对有效轨迹。
-- **RQ4：长序列与效率。** 有界历史的质量与计算开销。表 5 / 图 14 使用相同 30 条长序列合格测试轨迹，覆盖五个预测长度；图 13 为独立的历史 11 条轨迹实验。
+### 实验与消融
 
-各实验保留各自的样本定义。表 2 的 BridgeV2 结果使用明确标注的 32 条验证轨迹；窗口实验的 30 条轨迹与主结果的 128 条轨迹不能混为同一评估集合。
+| 研究问题 | 实验证据 | 实现入口 |
+|:--|:--|:--|
+| **RQ1 · 预测质量与任务语义** | 三个数据集的视觉指标、多维评价与定性比较 | [表 1–2](experiments/tables/README.zh-CN.md) · [图 6–7](docs/PAPER_INDEX.md) |
+| **RQ2 · 后训练是否优于继续 SFT？** | 同初始化对照、检查点曲线与训练 GPU 小时 | [SFT 续训](experiments/executed_sources/continued_sft/README.zh-CN.md) · [学习曲线](experiments/figures/fig08/README.zh-CN.md) · [计算开销](experiments/figures/fig09/README.zh-CN.md) |
+| **RQ3 · 反馈与搜索分别贡献什么？** | 语义、视觉与混合反馈；采样、普通 beam、GDBS 与似然引导 MCTS | [搜索消融](experiments/executed_sources/search_ablation/README.zh-CN.md) · [MCTS](experiments/executed_sources/mcts/README.zh-CN.md) · [表 3–4](experiments/tables/README.zh-CN.md) |
+| **RQ4 · 有界历史如何影响质量与效率？** | 同轨迹窗口敏感性、长序列预测、延迟与峰值显存 | [窗口实验](experiments/executed_sources/window30/README.zh-CN.md) · [图 13–14](docs/PAPER_INDEX.md) |
 
-## 目录与发布说明
+<details>
+<summary><strong>评估协议与发布范围</strong></summary>
 
-- `src/roboimagine/`：模型、推理、搜索、记忆管理与指标计算。
-- `experiments/executed_sources/`：实际训练和评价代码。
-- `experiments/figures/`、`experiments/tables/`：实验图 6–14 与表 1–5 的来源、代码和指南。
-- `provenance/`：权重与代码发布清单及验证记录。
-- `docs/`：推理指南、图表索引与 README 使用的论文图像。
+- 上述 RT-1 受控结果使用 128 条轨迹、32 帧预测；Qwen 反馈与搜索消融使用 97 条配对有效轨迹。
+- 表 2 的 BridgeV2 数值对应已标明的 32 条验证轨迹。
+- 表 5 和图 14 在五个预测长度上使用同一批 30 条长序列合格测试轨迹。图 13 保留独立的历史 11 条轨迹实验，各评估集合不能混用。
+- 主模型、对应 SFT 权重、编解码器、适配器和演示输入已公开。完整预处理评估集合、评价器资产及全部中间/消融检查点未全部打包；完整运行要求见[原始程序指南](experiments/executed_sources/README.zh-CN.md)。
 
-已公开主模型及 SFT 权重和演示样例；完整预处理评估集合、评价器资产及全部中间/消融权重未全部打包，完整运行所需输入在[原始程序指南](experiments/executed_sources/README.zh-CN.md)中说明。验证记录见 [model validation](provenance/model_validation.json) 与 [download validation](provenance/public_download_validation.json)，第三方素材及代码条款见 [NOTICE](NOTICE.md)。
+</details>
 
-实现或复现问题欢迎通过 [GitHub Issues](https://github.com/Alexander-wu/RoboImagine/issues) 交流。
+**中英文文档：** [推理 EN](docs/INFERENCE.md) / [中文](docs/INFERENCE.zh-CN.md) · [实验 EN](experiments/README.md) / [中文](experiments/README.zh-CN.md) · [原始程序 EN](experiments/executed_sources/README.md) / [中文](experiments/executed_sources/README.zh-CN.md)
+
+## 仓库结构
+
+```text
+src/roboimagine/               模型、推理、搜索、记忆管理与指标
+model_configs/                各数据集发布配置
+notebooks/Inference.ipynb      模型推理 Notebook
+experiments/executed_sources/ 原始训练与评价程序
+experiments/figures/          实验图 6–14：输入、代码与指南
+experiments/tables/           表 1–5：来源与渲染程序
+provenance/                   发布清单与验证记录
+docs/                         推理指南、图表索引与展示素材
+```
+
+## 发布验证与来源
+
+仓库提供[模型验证记录](provenance/model_validation.json)、[独立缓存下载检查](provenance/public_download_validation.json)和[发布清单](provenance/release_manifest.json)。记录覆盖指定 CUDA 环境中的主模型预测一致性验证，以及对应 SFT 模型的基本运行检查。
+
+数据来源与第三方条款见[数据说明](docs/DATA_AND_PROVENANCE.md)及 [NOTICE](NOTICE.md)。实现或复现问题欢迎通过 [GitHub Issues](https://github.com/Alexander-wu/RoboImagine/issues) 交流。

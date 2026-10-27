@@ -6,20 +6,57 @@
 
 ### Learning Robotic World Models with Semantic and Visual Feedback
 
-**Compare candidate futures. Learn from task semantics and visual fidelity.**
+**Learning from comparisons between imagined futures.**
 
-[Method](#method-overview) · [Results](#results-at-a-glance) · [Models & examples](https://huggingface.co/easylearning/RoboImagine) · [Quick start](#quick-start) · [Experiment code](experiments/executed_sources/README.md) · [Paper-to-code map](docs/PAPER_INDEX.md) · [简体中文](README.zh-CN.md)
+Hao Wu · Yuqi Li · Yizhou Zhao · Kun Wang · Xiao Luo · Yu Cheng<br>
+Yingli Tian · Laszlo A. Jeni · Ming-Hsuan Yang
+
+<sub>Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced</sub>
+
+[**Models & examples**](https://huggingface.co/easylearning/RoboImagine) · [**Inference notebook**](notebooks/Inference.ipynb) · [**Experiment code**](experiments/executed_sources/README.md) · [**简体中文**](README.zh-CN.md)
+
+[Overview](#overview) · [Method](#method-overview) · [Results](#selected-results) · [Quick start](#quick-start) · [Reproducing the paper](#reproducing-the-paper)
 
 </div>
 
-RoboImagine is a post-training framework for **GPT-style autoregressive robotic world models**. Given visual observations, planned actions, and a task instruction, it constructs candidate futures with **grouped diverse beam search (GDBS)** and learns from **semantic preferences and visual consistency feedback**. Fixed anchors and branch-specific rolling histories keep generation and policy evaluation consistent under bounded input context.
+## Overview
 
-**Hao Wu, Yuqi Li, Yizhou Zhao, Kun Wang, Xiao Luo, Yu Cheng, Yingli Tian, Laszlo A. Jeni, and Ming-Hsuan Yang**
-Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced
+Accurate robotic prediction requires both **visual fidelity** and **task-relevant dynamics**. RoboImagine is a post-training framework for GPT-style autoregressive robotic world models that learns from comparisons among candidate futures conditioned on shared observations, actions, and instructions.
 
-## Results at a glance
+The framework connects three components:
 
-On **128 RT-1 trajectories with 32-frame predictions**, 500 post-training updates improve PSNR by **1.26 dB** and reduce LPIPS by **11.93%** relative to continued SFT from the same initialization, at the same update count and with the same evaluation decoder. Training costs are measured separately; equal updates are not equal compute. [Results and provenance →](experiments/figures/fig08/README.md)
+- **Grouped diverse beam search (GDBS)** constructs distinct candidate trajectories for comparison.
+- **Complementary semantic and visual feedback** evaluates task progress alongside pixel- and perceptual-level consistency.
+- **History-consistent policy optimization** updates candidate probabilities using the same branch-specific context used during generation.
+
+The release includes models for **RT-1, BridgeV2, and RoboCasa**, their SFT initializations, and the original programs underlying the paper’s training and evaluation experiments.
+
+## Method overview
+
+![RoboImagine: supervised initialization, diverse candidate search, complementary feedback, and policy optimization](docs/assets/method-overview.png)
+
+RoboImagine first learns multimodal next-token prediction, then improves the model by comparing candidate futures:
+
+1. **Supervised initialization.** A frozen visual codec quantizes scene and dynamics representations. A causal Transformer combines visual–action tokens with instruction features from a frozen T5 encoder; SFT trains the backbone and text cross-attention to predict future dynamics tokens.
+2. **Grouped diverse beam search.** Four groups of two beams construct candidates under shared conditions. A soft token-overlap penalty encourages cross-group differences, with one complete trajectory retained per group.
+3. **Complementary feedback.** The frozen 4B mJev evaluator (Jev) compares candidate videos in both orders using task context and eight sampled frames. Visual feedback is the negative sum of MAE and VGG-LPIPS. Candidate-wise standardized semantic and visual scores are fused with weights 0.25 and 0.75.
+4. **History-consistent policy updates.** Group-relative advantages reweight token likelihoods under each candidate’s actual generation prefixes, with regularization toward the SFT policy. Fixed initial context and the observed dynamics anchor accompany six recent predicted state–action pairs. The window bounds input history, not output length.
+
+**Inference.** The learned model uses frame-wise ordinary beam decoding of width four; neither the evaluator nor ground-truth futures is required. [Framework PDF](docs/assets/method-overview.pdf) · [Actual training and feedback code](experiments/executed_sources/rt1_hybrid/README.md)
+
+## Selected results
+
+**Controlled post-training comparison on RT-1.** All rows below share the same SFT initialization and evaluation protocol: 128 trajectories, 32 predicted frames, and the same decoder.
+
+| Model | Additional updates | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
+|:--|--:|--:|--:|--:|
+| SFT initialization | 0 | 21.37 | 0.7860 | 0.1734 |
+| Continued SFT | 500 | 21.31 | 0.7844 | 0.1750 |
+| **RoboImagine** | **500** | **22.57** | **0.8035** | **0.1541** |
+
+At the same update count, RoboImagine improves PSNR by **1.26 dB** and reduces LPIPS by **11.93%** relative to continued SFT. Gains are computed from unrounded measurements. Equal update counts do not imply equal computation; training GPU-hours are reported separately.
+
+[Checkpoint results and protocol](experiments/figures/fig08/README.md) · [Training cost](experiments/figures/fig09/README.md) · [Full experiment index](docs/PAPER_INDEX.md)
 
 <table>
 <tr><th>Ground truth</th><th>SFT initialization</th><th>Continued SFT</th><th>RoboImagine</th></tr>
@@ -32,17 +69,6 @@ On **128 RT-1 trajectories with 32-frame predictions**, 500 post-training update
 </table>
 
 *One drawer-closing example from Figure 8: all images show prediction frame +32. Continued SFT and RoboImagine each use 500 additional updates. This qualitative example is separate from the aggregate results.*
-
-## Method overview
-
-![RoboImagine framework](docs/assets/method-overview.png)
-
-1. **Supervised initialization.** A frozen visual codec quantizes scene and dynamics representations. A causal Transformer combines visual–action tokens with instruction features from a frozen T5 encoder; SFT trains the backbone and text cross-attention to predict future dynamics tokens.
-2. **Grouped diverse beam search.** Four groups of two beams construct candidates under shared conditions. A soft token-overlap penalty encourages cross-group differences, with one complete trajectory retained per group.
-3. **Complementary feedback.** The frozen 4B mJev evaluator (Jev) compares candidate videos in both orders using task context and eight sampled frames. Visual feedback is the negative sum of MAE and VGG-LPIPS. Candidate-wise standardized semantic and visual scores are fused with weights 0.25 and 0.75.
-4. **History-consistent policy updates.** Group-relative advantages reweight token likelihoods under each candidate’s actual generation prefixes, with regularization toward the SFT policy. Fixed initial context and the observed dynamics anchor accompany six recent predicted state–action pairs. The window bounds input history, not output length.
-
-At evaluation, the learned model uses frame-wise ordinary beam decoding of width four; neither the evaluator nor ground-truth futures is required. [Framework PDF](docs/assets/method-overview.pdf) · [Actual training and feedback code](experiments/executed_sources/rt1_hybrid/README.md)
 
 ## Quick start
 
@@ -62,19 +88,19 @@ roboimagine --dataset rt1 --variant sft --example-index 0 \
   --metrics --output predictions/rt1_sft
 ```
 
-The first run downloads pinned model assets and the frozen T5 encoder; optional LPIPS evaluation also requires VGG weights. Predictions are generated by the model. Outputs include `prediction.mp4`, float predictions and tokens, `memory_trace.json`, and `run.json` with the configuration and computed metrics.
+The first run downloads pinned model assets and the frozen T5 encoder; optional LPIPS evaluation also requires VGG weights. Outputs include `prediction.mp4`, float predictions and tokens, `memory_trace.json`, and `run.json` with the configuration and computed metrics.
 
 **[Inference guide (English)](docs/INFERENCE.md) · [推理教程（中文）](docs/INFERENCE.zh-CN.md) · [Inference notebook](notebooks/Inference.ipynb)**
 
-### Released checkpoints
+### Model zoo
 
 | Dataset | Main checkpoint | Matching initialization | Examples |
 |---|---|---|---|
-| RT-1 | Hybrid, 500 updates | Text-enabled SFT | 2 × 32-frame inputs |
-| BridgeV2 | Hybrid, validation-selected checkpoint | Matching text-adapted SFT | 2 × 32-frame inputs |
-| RoboCasa | Hybrid, 500 updates | Text-enabled SFT | 2 × 32-frame inputs |
+| RT-1 | Hybrid, 500 updates | Text-enabled SFT | 2 examples, 32 predicted frames |
+| BridgeV2 | Hybrid, validation-selected checkpoint | Matching text-adapted SFT | 2 examples, 32 predicted frames |
+| RoboCasa | Hybrid, 500 updates | Text-enabled SFT | 2 examples, 32 predicted frames |
 
-All six predictors, codecs, adapters, action ranges, and demonstration inputs are available on **[Hugging Face](https://huggingface.co/easylearning/RoboImagine)**. Use `--dataset bridge` or `--dataset robocasa` to switch datasets and `--variant sft` for the corresponding initialization. The [model guide](docs/INFERENCE.md#scope) records checkpoint selection and evaluation cohorts.
+All six predictors, codecs, adapters, action ranges, and demonstration inputs are available on **[Hugging Face](https://huggingface.co/easylearning/RoboImagine)**. Use `--dataset bridge` or `--dataset robocasa` to switch datasets and `--variant sft` for the corresponding initialization. Checkpoint selection and evaluation protocols are documented in the [model guide](docs/INFERENCE.md#scope).
 
 ```bash
 # Inspect how a shorter history changes inference.
@@ -86,30 +112,39 @@ roboimagine --dataset rt1 --input case.npz --horizon 32 --output predictions/cus
 
 See the [input specification](docs/INFERENCE.md#your-own-inputs) for shapes, action layouts, and longer rollouts.
 
-## Reproduce and inspect the experiments
+## Reproducing the paper
 
-| I want to… | Start here |
-|---|---|
-| Generate predictions from public weights | [Inference guide](docs/INFERENCE.md) · [Notebook](notebooks/Inference.ipynb) |
-| Inspect the training and reward computation | [Executed sources](experiments/executed_sources/README.md#start-with-the-computation) |
-| Compare GDBS, ordinary beam, sampling, and MCTS | [Search ablations](experiments/executed_sources/search_ablation/README.md) · [MCTS](experiments/executed_sources/mcts/README.md) |
-| Inspect continued SFT and compute accounting | [Continued-SFT experiment](experiments/executed_sources/continued_sft/README.md) · [Figure 9](experiments/figures/fig09/README.md) |
-| Inspect memory windows, timing, and aggregation | [Matched-30 window experiment](experiments/executed_sources/window30/README.md) |
-| Find the implementation behind a paper figure/table | [Paper-to-code index](docs/PAPER_INDEX.md) |
-| Redraw figures from archived experiment outputs | [Experiment guide](experiments/README.md) · [Run All notebook](experiments/Reproduce_All.ipynb) |
+The repository provides three connected entry points: **model inference** from released checkpoints, **original experiment programs** used on the server, and **figure/table rendering** from archived outputs. Start with the workflow relevant to your goal.
 
-The executed-source archive contains the **actual server programs** for training, search, rewards, prediction, scoring, and aggregation. Its bilingual guides document configurations, dataset preparation, and paths to adapt when running in another environment. Figure notebooks are a separate visualization workflow over archived outputs.
+| Workflow | Entry point | What it provides |
+|:--|:--|:--|
+| Model inference | [Guide](docs/INFERENCE.md) · [Notebook](notebooks/Inference.ipynb) | Checkpoint loading, autoregressive generation, memory traces, and metric computation |
+| Training and evaluation | [Executed sources](experiments/executed_sources/README.md) | Training loops, search, reward computation, prediction, scoring, and aggregation |
+| Figure and table inspection | [Paper-to-code index](docs/PAPER_INDEX.md) | Per-figure inputs, scripts, notebooks, and source records |
+| Figure rendering | [Experiment guide](experiments/README.md) · [Run All notebook](experiments/Reproduce_All.ipynb) | Visualizations reconstructed from archived experiment outputs |
 
-**[English experiment guide](experiments/README.md) · [中文实验教程](experiments/README.zh-CN.md) · [中文原始程序指南](experiments/executed_sources/README.zh-CN.md)**
+Original experiment guides record the configurations, data preparation, dependencies, and paths to adapt for a new environment. The inference notebook runs the model; figure notebooks render existing experiment records.
 
-### Experimental coverage
+### Experiments and ablations
 
-- **RQ1 — Overall performance:** visual quality and semantic evaluation on RT-1, BridgeV2, and RoboCasa; qualitative comparisons and independent multimodal evaluators.
-- **RQ2 — Post-training effectiveness:** shared initialization, continued-SFT controls, checkpoint learning curves, and training GPU-hours.
-- **RQ3 — Component contributions:** semantic-only, visual-only, and Hybrid feedback; sampling, ordinary beam, GDBS, and likelihood-guided MCTS. Qwen feedback/search ablations share 97 paired valid trajectories.
-- **RQ4 — Long-horizon generation:** bounded history and quality–efficiency trade-offs. Table 5/Figure 14 use the same 30 long-eligible test trajectories across five horizons; Figure 13 is the separate historical 11-trajectory study.
+| Research question | Evidence | Implementation |
+|:--|:--|:--|
+| **RQ1 · Prediction quality and task semantics** | Visual metrics, multidimensional evaluation, and qualitative comparisons across RT-1, BridgeV2, and RoboCasa | [Tables 1–2](experiments/tables/README.md) · [Figures 6–7](docs/PAPER_INDEX.md#figure-by-figure-navigation) |
+| **RQ2 · Does post-training improve over continued SFT?** | Shared-initialization controls, checkpoint curves, and training GPU-hours | [Continued SFT](experiments/executed_sources/continued_sft/README.md) · [Learning curves](experiments/figures/fig08/README.md) · [Compute accounting](experiments/figures/fig09/README.md) |
+| **RQ3 · What do feedback and search contribute?** | Semantic-only, visual-only, and combined feedback; sampling, ordinary beam, GDBS, and likelihood-guided MCTS | [Search ablations](experiments/executed_sources/search_ablation/README.md) · [MCTS](experiments/executed_sources/mcts/README.md) · [Tables 3–4](experiments/tables/README.md) |
+| **RQ4 · How does bounded history affect quality and efficiency?** | Matched-trajectory window sensitivity, long-horizon prediction, latency, and peak GPU memory | [Window study](experiments/executed_sources/window30/README.md) · [Figures 13–14](docs/PAPER_INDEX.md#figure-by-figure-navigation) |
 
-Cohorts and source provenance are documented per experiment. In particular, Table 2’s BridgeV2 result uses the labeled 32-trajectory validation cohort. The matched-30 memory study and the main 128-trajectory evaluation are distinct cohorts.
+<details>
+<summary><strong>Evaluation protocols and release scope</strong></summary>
+
+- The controlled RT-1 results above use 128 trajectories and 32 predicted frames. Qwen feedback/search ablations use 97 paired valid trajectories.
+- Table 2’s BridgeV2 result is reported on its labeled 32-trajectory validation cohort.
+- Table 5 and Figure 14 use the same 30 long-eligible test trajectories across five horizons. Figure 13 retains the separate historical 11-trajectory study. These cohorts are not interchangeable.
+- Main and matching SFT checkpoints, codecs, adapters, and demonstration inputs are public. Full prepared evaluation cohorts, evaluator assets, and all intermediate/ablation checkpoints are not bundled. The [executed-source guide](experiments/executed_sources/README.md#portability-provenance-and-remaining-assets) lists the requirements for full runs.
+
+</details>
+
+**Documentation:** [Inference EN](docs/INFERENCE.md) / [中文](docs/INFERENCE.zh-CN.md) · [Experiments EN](experiments/README.md) / [中文](experiments/README.zh-CN.md) · [Executed sources EN](experiments/executed_sources/README.md) / [中文](experiments/executed_sources/README.zh-CN.md)
 
 ## Repository structure
 
@@ -124,12 +159,8 @@ provenance/                    Release manifests and verification records
 docs/                          Inference guides, paper index, and figure assets
 ```
 
-## Verification and release notes
+## Release verification and attribution
 
-The released main-model examples match archived tokens and float predictions in the recorded CUDA environment. Matching SFT smoke tests and fresh-cache download checks are documented in [model validation](provenance/model_validation.json), [download validation](provenance/public_download_validation.json), and the [release manifest](provenance/release_manifest.json).
+The release includes [model validation](provenance/model_validation.json), [fresh-cache download checks](provenance/public_download_validation.json), and a [release manifest](provenance/release_manifest.json). Recorded checks cover main-model prediction parity and matching SFT smoke tests in the documented CUDA environment.
 
-Main/SFT checkpoints and demonstration inputs are public. Full prepared evaluation cohorts, evaluator assets, and every intermediate/ablation checkpoint are not bundled; the [executed-source guide](experiments/executed_sources/README.md#portability-provenance-and-remaining-assets) specifies the inputs needed for full runs. See [data provenance](docs/DATA_AND_PROVENANCE.md) and [source/asset notices](NOTICE.md) for third-party terms.
-
-## Contact
-
-For questions about the implementation or reproduction, please [open an issue](https://github.com/Alexander-wu/RoboImagine/issues).
+See [data provenance](docs/DATA_AND_PROVENANCE.md) and [source and asset notices](NOTICE.md) for dataset origins and third-party terms. Implementation and reproduction questions are welcome through [GitHub Issues](https://github.com/Alexander-wu/RoboImagine/issues).
