@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="website/assets/mark.svg" width="48" alt="RoboImagine">
+<img src="docs/assets/mark.svg" width="48" alt="RoboImagine">
 
 # RoboImagine
 
@@ -8,34 +8,41 @@
 
 **比较候选未来，通过语义与视觉反馈学习机器人世界模型。**
 
-[模型与样例](https://huggingface.co/easylearning/RoboImagine) · [快速开始](#快速开始) · [原始实验代码](experiments/executed_sources/README.zh-CN.md) · [图表与代码索引](docs/PAPER_INDEX.md) · [English](README.md)
+[方法框架](#方法框架) · [结果概览](#结果概览) · [模型与样例](https://huggingface.co/easylearning/RoboImagine) · [快速开始](#快速开始) · [原始实验代码](experiments/executed_sources/README.zh-CN.md) · [图表与代码索引](docs/PAPER_INDEX.md) · [English](README.md)
 
 </div>
 
 RoboImagine 面向 **GPT 风格的自回归机器人世界模型**。模型接收视觉观测、动作序列和任务指令，通过**分组多样化束搜索（GDBS）**构造候选未来，并利用**语义偏好与视觉一致性反馈**进行后训练。固定锚点与分支独立的滚动历史在限制输入上下文长度的同时，保持候选生成与策略评价的条件一致。
 
-**Hao Wu、Yuqi Li、Yizhou Zhao、Kun Wang、Xiao Luo、Yu Cheng、Yingli Tian、Laszlo A. Jeni、Ming-Hsuan Yang**  
+**Hao Wu、Yuqi Li、Yizhou Zhao、Kun Wang、Xiao Luo、Yu Cheng、Yingli Tian、Laszlo A. Jeni、Ming-Hsuan Yang**
 Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced
+
+## 结果概览
+
+在 **RT-1 的 128 条轨迹、32 帧预测**评估中，从相同初始化出发，采用相同更新次数与评估解码器，500 步后训练相较继续 SFT 提升 **1.26 dB PSNR**，降低 **11.93% LPIPS**。训练计算成本单独统计；相同更新次数不代表相同计算量。[结果及来源 →](experiments/figures/fig08/README.zh-CN.md)
+
+<table>
+<tr><th>Ground truth</th><th>SFT initialization</th><th>Continued SFT</th><th>RoboImagine</th></tr>
+<tr>
+<td><img src="docs/assets/drawer-gt.png" alt="Ground-truth drawer scene"></td>
+<td><img src="docs/assets/drawer-initial_sft.png" alt="SFT prediction"></td>
+<td><img src="docs/assets/drawer-sft_500.png" alt="Continued-SFT prediction"></td>
+<td><img src="docs/assets/drawer-hybrid_500.png" alt="RoboImagine prediction"></td>
+</tr>
+</table>
+
+*图 8 的关闭抽屉案例，各图均为第 +32 帧；继续 SFT 与 RoboImagine 均增加 500 次更新。*
 
 ## 方法框架
 
-![RoboImagine 方法框架](website/assets/method-overview.png)
+![RoboImagine 方法框架](docs/assets/method-overview.png)
 
 1. **监督初始化。** 冻结的视觉编解码器将场景与动态状态量化为离散 token；因果 Transformer 联合视觉—动作 token 与冻结 T5 编码的指令特征，通过 SFT 训练主干及文本交叉注意力，学习未来动态 token 的预测。
 2. **分组多样化束搜索。** 在共享观测、动作和指令条件下，使用四组、每组两个 beam 构造候选。跨组 token 重叠惩罚鼓励差异，每组保留一条完整轨迹。
 3. **互补反馈。** 冻结的 4B mJev（正文简称 Jev）依据任务上下文及每个视频的八帧，双向比较候选的任务进展；视觉反馈为 MAE 与 VGG-LPIPS 之和的负值。两类得分在候选集合内分别标准化，再以 0.25 和 0.75 的权重融合。
 4. **保持历史一致的策略优化。** 组内相对优势调整候选 token 的概率，并向冻结的 SFT 策略正则化。评分时重放各分支实际使用的生成前缀。固定初始上下文、观测动态锚点与最近六帧状态—动作历史共同构成输入；六帧限制输入历史，不限制输出视频长度。
 
-评估使用逐帧、宽度为四的普通束搜索，无需反馈评价器或真实未来帧。[框架图 PDF](website/assets/method-overview.pdf) · [实际训练与奖励代码](experiments/executed_sources/rt1_hybrid/README.md)
-
-## 方法概览
-
-- **互补反馈：** 冻结多模态评价器比较任务进展，像素与感知层面的视觉反馈约束局部预测误差。
-- **多样化候选：** GDBS 在不同束组中保留候选，使用软 token 重叠惩罚鼓励候选差异。
-- **有界分支记忆：** 固定初始上下文、动态锚点与最近的状态—动作历史共同支持后续生成。
-- **实验可追溯：** 提供模型推理接口、服务器实际执行的训练与评估程序、配置、来源记录和实验绘图 notebook。
-
-在 **RT-1 的 128 条轨迹、32 帧预测**评估中，从相同初始化出发，采用相同更新次数与评估解码器，500 步后训练相较继续 SFT 提升 **1.26 dB PSNR**，降低 **11.93% LPIPS**。训练计算成本单独统计；相同更新次数不代表相同计算量。[结果及来源 →](experiments/figures/fig08/README.zh-CN.md)
+评估使用逐帧、宽度为四的普通束搜索，无需反馈评价器或真实未来帧。[框架图 PDF](docs/assets/method-overview.pdf) · [实际训练与奖励代码](experiments/executed_sources/rt1_hybrid/README.md)
 
 ## 快速开始
 
@@ -108,7 +115,7 @@ roboimagine --dataset rt1 --input case.npz --horizon 32 --output predictions/cus
 - `experiments/executed_sources/`：实际训练和评价代码。
 - `experiments/figures/`、`experiments/tables/`：实验图 6–14 与表 1–5 的来源、代码和指南。
 - `provenance/`：权重与代码发布清单及验证记录。
-- `website/`：可交互项目主页源码。
+- `docs/`：推理指南、图表索引与 README 使用的论文图像。
 
 已公开主模型及 SFT 权重和演示样例；完整预处理评估集合、评价器资产及全部中间/消融权重未全部打包，完整运行所需输入在[原始程序指南](experiments/executed_sources/README.zh-CN.md)中说明。验证记录见 [model validation](provenance/model_validation.json) 与 [download validation](provenance/public_download_validation.json)，第三方素材及代码条款见 [NOTICE](NOTICE.md)。
 

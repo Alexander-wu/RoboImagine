@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="website/assets/mark.svg" width="48" alt="RoboImagine">
+<img src="docs/assets/mark.svg" width="48" alt="RoboImagine">
 
 # RoboImagine
 
@@ -8,7 +8,7 @@
 
 **Compare candidate futures. Learn from task semantics and visual fidelity.**
 
-[Models & examples](https://huggingface.co/easylearning/RoboImagine) · [Quick start](#quick-start) · [Experiment code](experiments/executed_sources/README.md) · [Paper-to-code map](docs/PAPER_INDEX.md) · [简体中文](README.zh-CN.md)
+[Method](#method-overview) · [Results](#results-at-a-glance) · [Models & examples](https://huggingface.co/easylearning/RoboImagine) · [Quick start](#quick-start) · [Experiment code](experiments/executed_sources/README.md) · [Paper-to-code map](docs/PAPER_INDEX.md) · [简体中文](README.zh-CN.md)
 
 </div>
 
@@ -17,22 +17,17 @@ RoboImagine is a post-training framework for **GPT-style autoregressive robotic 
 **Hao Wu, Yuqi Li, Yizhou Zhao, Kun Wang, Xiao Luo, Yu Cheng, Yingli Tian, Laszlo A. Jeni, and Ming-Hsuan Yang**
 Carnegie Mellon University · The City College of New York · NTU · University of Wisconsin–Madison · UC Merced
 
-## At a glance
-
-- **Complementary feedback.** A frozen multimodal evaluator compares task progress; pixel- and perceptual-level feedback constrains visual errors.
-- **Diverse candidate construction.** GDBS retains candidates from separate beam groups using a soft token-overlap penalty.
-- **Bounded branch memory.** Fixed context and a dynamic anchor accompany each branch’s recent state–action history.
-- **Inspectable experiments.** Released model inference, original executed training/evaluation sources, checkpoint configurations, and experimental figure notebooks.
+## Results at a glance
 
 On **128 RT-1 trajectories with 32-frame predictions**, 500 post-training updates improve PSNR by **1.26 dB** and reduce LPIPS by **11.93%** relative to continued SFT from the same initialization, at the same update count and with the same evaluation decoder. Training costs are measured separately; equal updates are not equal compute. [Results and provenance →](experiments/figures/fig08/README.md)
 
 <table>
 <tr><th>Ground truth</th><th>SFT initialization</th><th>Continued SFT</th><th>RoboImagine</th></tr>
 <tr>
-<td><img src="website/assets/drawer-gt.png" alt="Ground-truth drawer scene"></td>
-<td><img src="website/assets/drawer-initial_sft.png" alt="SFT prediction"></td>
-<td><img src="website/assets/drawer-sft_500.png" alt="Continued-SFT prediction"></td>
-<td><img src="website/assets/drawer-hybrid_500.png" alt="RoboImagine prediction"></td>
+<td><img src="docs/assets/drawer-gt.png" alt="Ground-truth drawer scene"></td>
+<td><img src="docs/assets/drawer-initial_sft.png" alt="SFT prediction"></td>
+<td><img src="docs/assets/drawer-sft_500.png" alt="Continued-SFT prediction"></td>
+<td><img src="docs/assets/drawer-hybrid_500.png" alt="RoboImagine prediction"></td>
 </tr>
 </table>
 
@@ -40,14 +35,14 @@ On **128 RT-1 trajectories with 32-frame predictions**, 500 post-training update
 
 ## Method overview
 
-![RoboImagine framework](website/assets/method-overview.png)
+![RoboImagine framework](docs/assets/method-overview.png)
 
 1. **Supervised initialization.** A frozen visual codec quantizes scene and dynamics representations. A causal Transformer combines visual–action tokens with instruction features from a frozen T5 encoder; SFT trains the backbone and text cross-attention to predict future dynamics tokens.
 2. **Grouped diverse beam search.** Four groups of two beams construct candidates under shared conditions. A soft token-overlap penalty encourages cross-group differences, with one complete trajectory retained per group.
 3. **Complementary feedback.** The frozen 4B mJev evaluator (Jev) compares candidate videos in both orders using task context and eight sampled frames. Visual feedback is the negative sum of MAE and VGG-LPIPS. Candidate-wise standardized semantic and visual scores are fused with weights 0.25 and 0.75.
 4. **History-consistent policy updates.** Group-relative advantages reweight token likelihoods under each candidate’s actual generation prefixes, with regularization toward the SFT policy. Fixed initial context and the observed dynamics anchor accompany six recent predicted state–action pairs. The window bounds input history, not output length.
 
-At evaluation, the learned model uses frame-wise ordinary beam decoding of width four; neither the evaluator nor ground-truth futures is required. [Framework PDF](website/assets/method-overview.pdf) · [Actual training and feedback code](experiments/executed_sources/rt1_hybrid/README.md)
+At evaluation, the learned model uses frame-wise ordinary beam decoding of width four; neither the evaluator nor ground-truth futures is required. [Framework PDF](docs/assets/method-overview.pdf) · [Actual training and feedback code](experiments/executed_sources/rt1_hybrid/README.md)
 
 ## Quick start
 
@@ -126,7 +121,7 @@ experiments/executed_sources/  Original training and evaluation programs
 experiments/figures/           Experimental Figures 6–14: inputs, code, guides
 experiments/tables/            Tables 1–5: sources and rendering
 provenance/                    Release manifests and verification records
-website/                       Static research project page
+docs/                          Inference guides, paper index, and figure assets
 ```
 
 ## Verification and release notes
@@ -135,6 +130,6 @@ The released main-model examples match archived tokens and float predictions in 
 
 Main/SFT checkpoints and demonstration inputs are public. Full prepared evaluation cohorts, evaluator assets, and every intermediate/ablation checkpoint are not bundled; the [executed-source guide](experiments/executed_sources/README.md#portability-provenance-and-remaining-assets) specifies the inputs needed for full runs. See [data provenance](docs/DATA_AND_PROVENANCE.md) and [source/asset notices](NOTICE.md) for third-party terms.
 
-## Project page and contact
+## Contact
 
-The [project-page source](website/README.md) includes synchronized dataset previews and interactive learning curves. For questions about the implementation or reproduction, please [open an issue](https://github.com/Alexander-wu/RoboImagine/issues).
+For questions about the implementation or reproduction, please [open an issue](https://github.com/Alexander-wu/RoboImagine/issues).
