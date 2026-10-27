@@ -1,0 +1,209 @@
+{
+  "demos": [
+    {
+      "id": "rt1",
+      "label": "RT-1",
+      "instruction": "place water bottle into middle drawer",
+      "checkpoint": "Hybrid \u00b7 500 updates"
+    },
+    {
+      "id": "bridge",
+      "label": "BridgeV2",
+      "instruction": "take the spatula and keep it down on the table",
+      "checkpoint": "Hybrid \u00b7 250 updates (validation-selected)"
+    },
+    {
+      "id": "robocasa",
+      "label": "RoboCasa",
+      "instruction": "Put the shaker and condiment bottle from the counter next to their counterparts in the cabinet.",
+      "checkpoint": "Hybrid \u00b7 500 updates"
+    }
+  ],
+  "curves": {
+    "baseline": {
+      "label": "SFT 50k",
+      "metrics": {
+        "mse": 0.01013495640936668,
+        "mae": 0.04946537332102707,
+        "psnr": 21.366095108911395,
+        "lpips": 0.1734311460495519,
+        "ssim": 0.785980892542284
+      }
+    },
+    "series": [
+      {
+        "id": "r2_hybrid",
+        "label": "RoboImagine (GDBS)",
+        "points": [
+          {
+            "step": 100,
+            "metrics": {
+              "psnr": 22.01226362469606,
+              "ssim": 0.7955163118604105,
+              "lpips": 0.16279918586496933,
+              "mae": 0.045519787843431914,
+              "mse": 0.008606559023938587
+            }
+          },
+          {
+            "step": 250,
+            "metrics": {
+              "psnr": 22.452265467960387,
+              "ssim": 0.8021564949231106,
+              "lpips": 0.15548367502196925,
+              "mae": 0.043057668415031,
+              "mse": 0.007741814749067544
+            }
+          },
+          {
+            "step": 500,
+            "metrics": {
+              "mse": 0.007459440057537847,
+              "mae": 0.042266772257335106,
+              "psnr": 22.567982499487698,
+              "lpips": 0.15409563022330985,
+              "ssim": 0.8035291924170451
+            }
+          }
+        ]
+      },
+      {
+        "id": "continued_sft",
+        "label": "Continued SFT",
+        "points": [
+          {
+            "step": 100,
+            "metrics": {
+              "psnr": 21.345265034819022,
+              "ssim": 0.7848478686719318,
+              "lpips": 0.1743712039633465,
+              "mae": 0.04980275156049174,
+              "mse": 0.010273173910270827
+            }
+          },
+          {
+            "step": 250,
+            "metrics": {
+              "psnr": 21.334651267388836,
+              "ssim": 0.7857112642159336,
+              "lpips": 0.17400829881626123,
+              "mae": 0.049602532220433204,
+              "mse": 0.010187089857360832
+            }
+          },
+          {
+            "step": 500,
+            "metrics": {
+              "mse": 0.010431715381322704,
+              "mae": 0.050073954129175036,
+              "psnr": 21.311314462916926,
+              "lpips": 0.17496617923825397,
+              "ssim": 0.7844221863269922
+            }
+          }
+        ]
+      },
+      {
+        "id": "mcts",
+        "label": "MCTS",
+        "points": [
+          {
+            "step": 100,
+            "metrics": {
+              "mse": 0.010140890051594909,
+              "mae": 0.04936727999120194,
+              "psnr": 21.392774869222194,
+              "lpips": 0.17322674500792345,
+              "ssim": 0.7864100795341074
+            }
+          },
+          {
+            "step": 250,
+            "metrics": {
+              "mse": 0.010331182215274737,
+              "mae": 0.049784259937496245,
+              "psnr": 21.360219470225275,
+              "lpips": 0.17458185094437795,
+              "ssim": 0.7852158848909312
+            }
+          },
+          {
+            "step": 500,
+            "metrics": {
+              "mse": 0.010019465045296272,
+              "mae": 0.048989290081181025,
+              "psnr": 21.48980776173994,
+              "lpips": 0.1721681508624897,
+              "ssim": 0.7870823375633336
+            }
+          }
+        ]
+      },
+      {
+        "id": "ordinary",
+        "label": "Ordinary beam",
+        "points": [
+          {
+            "step": 100,
+            "metrics": {
+              "mse": 0.009409444723111449,
+              "mae": 0.04747109246704895,
+              "psnr": 21.6825099370908,
+              "lpips": 0.16851140009566734,
+              "ssim": 0.7906994625227526
+            }
+          },
+          {
+            "step": 250,
+            "metrics": {
+              "mse": 0.009431103853472678,
+              "mae": 0.04756140138852061,
+              "psnr": 21.72572886152193,
+              "lpips": 0.16828411353071715,
+              "ssim": 0.7906964382200385
+            }
+          },
+          {
+            "step": 500,
+            "metrics": {
+              "mse": 0.00864855842250023,
+              "mae": 0.04538297908266031,
+              "psnr": 22.071287161437795,
+              "lpips": 0.1626548366712086,
+              "ssim": 0.796226022488554
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "provenance": {
+    "hub_revision": "cb4f5e2bdfbbbff2ad6caffa058d50fa21ec3ec7",
+    "files": [
+      {
+        "file": "rt1--example000.npz",
+        "sha256": "1388dcb35905077df69ead0a665f2a2c1217d13fa1c7712c2ab78a41ca215eff"
+      },
+      {
+        "file": "rt1--expected000.npz",
+        "sha256": "37df6dcdab76c4b5646efcec9149d5429d247a7285eaee626ead1c7254361e02"
+      },
+      {
+        "file": "bridge--example000.npz",
+        "sha256": "df9b6aef738717191a33243af93a84a3beba0752ba9713e837dc349431e323f7"
+      },
+      {
+        "file": "bridge--expected000.npz",
+        "sha256": "d2f4d8ddc51b87fec935bd94ba92978df9f3164abfce975a24290022d424718c"
+      },
+      {
+        "file": "robocasa--example000.npz",
+        "sha256": "9a5e5605ebe1751ce23842fe492823a30fa70ca7106e4c49b1d4caa3587f8b96"
+      },
+      {
+        "file": "robocasa--expected000.npz",
+        "sha256": "5bcf326291cd000b7c896aa179010e5e5629afe0882d9cc33576960f222743be"
+      }
+    ]
+  }
+}
