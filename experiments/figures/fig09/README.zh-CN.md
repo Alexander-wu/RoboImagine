@@ -1,5 +1,8 @@
 # 图 9 — 训练 GPU 小时与质量
 
+**实际实验计算代码：** [continued_sft](../../executed_sources/continued_sft/README.zh-CN.md) · [rt1_hybrid](../../executed_sources/rt1_hybrid/README.zh-CN.md)
+本页 notebook 仅重绘保存结果；训练、生成和评分见上面的原始程序。
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## 对应论文与实验设置

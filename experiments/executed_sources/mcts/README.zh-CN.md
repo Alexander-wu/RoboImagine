@@ -1,0 +1,13 @@
+# Likelihood-guided MCTS
+
+[English](README.md) | [实验源码总索引](../README.zh-CN.md)
+
+对应：Table 4; Figures 8/11。4 卡，累积 2 次，16 次模拟，500 步。
+
+- [原始执行代码](source_v1/train_mcts.py)
+- [具体实现／评分代码](source_v1/mcts_search.py)
+- [原始配置或队列说明](config_v1/protocol.json)
+
+这些文件从已运行的服务器目录读取。没有重新训练、推理或生成评分。计算逻辑未改；机器目录和 GPU UUID 改为占位符。每个文件的原始及发布 SHA256 见 [来源清单](../SOURCE_MANIFEST.json)。
+
+输入、输出及运行顺序见[总教程](../README.zh-CN.md#运行前需要哪些文件)。完整准备数据、部分消融权重及历史回执尚未包含，不能直接把本目录当成从空环境运行全部实验的入口。历史哈希门禁保留；迁移时应在新目录记录本地来源，不能关闭检查或覆盖旧记录。

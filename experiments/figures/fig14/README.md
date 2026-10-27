@@ -1,5 +1,8 @@
 # Figure 14 — Window sensitivity and inference efficiency
 
+**Actual experiment computation:** [window30](../../executed_sources/window30/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol

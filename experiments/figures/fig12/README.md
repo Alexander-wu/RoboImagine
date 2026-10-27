@@ -1,5 +1,8 @@
 # Figure 12 — GDBS search case study
 
+**Actual experiment computation:** [rt1_hybrid](../../executed_sources/rt1_hybrid/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol

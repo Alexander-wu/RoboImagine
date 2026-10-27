@@ -1,4 +1,7 @@
-# 论文实验复现教程
+# 已有实验结果绘图工具
+
+**真实训练、推理、评分和汇总代码请先看[服务器实验源码教程](executed_sources/README.zh-CN.md)。** [公开权重推理入口](../docs/INFERENCE.zh-CN.md)实际生成预测并可计算像素指标。本目录的绘图 notebook 仅重绘存档结果，不是实验复现或指标重新验证。
+
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [项目主页](../README.md)
 
@@ -12,9 +15,9 @@
 | 重新生成表格 | `tables/build_tables.py` | 五页独立预览，表 1–2 仅导出我们模型的行 |
 | 从公开权重生成预测 | [推理教程](../docs/INFERENCE.zh-CN.md)、[推理 notebook](../notebooks/Inference.ipynb) | 三数据集主模型及 SFT，共六套预测权重、六个演示输入 |
 | 尝试不同历史窗口 | 推理 CLI 的 `--window` / `--no-anchor` | 对给定输入重新推理，不重新训练 |
-| 从头训练全部消融、重跑所有评价器 | 尚未提供完整端到端流程 | 不包含训练调度、奖励服务托管、完整预处理评估集及消融/中间检查点 |
+| 从头训练全部消融、重跑所有评价器 | 尚未提供完整端到端流程 | 原始训练／奖励／评分源码已归档；完整数据、全部消融权重及环境迁移仍需准备 |
 
-模型实现包含普通 beam 和 GDBS；MCTS 目前发布的是实验结果与协议，不包含可执行的 MCTS 训练入口。推理 CLI 的评估 beam width **不等于**训练阶段的搜索消融选项。
+普通 beam、GDBS 和 MCTS 的实际执行源码已在 [executed_sources](executed_sources/README.zh-CN.md) 整理。推理 CLI 的评估 beam width **不等于**训练阶段的搜索消融选项。
 
 ## 安装与一键运行
 

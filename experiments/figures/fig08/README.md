@@ -1,5 +1,8 @@
 # Figure 8 — Continued-SFT and search-variant learning curves
 
+**Actual experiment computation:** [continued_sft](../../executed_sources/continued_sft/README.md) · [learning_curves](../../executed_sources/learning_curves/README.md) · [search_curves](../../executed_sources/search_curves/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol

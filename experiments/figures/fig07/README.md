@@ -1,5 +1,8 @@
 # Figure 7 — Multi-model evaluation and excerpts
 
+**Actual experiment computation:** [qwen97](../../executed_sources/qwen97/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol

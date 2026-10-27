@@ -1,5 +1,8 @@
 # 图 8 — SFT 续训与搜索变体训练曲线
 
+**实际实验计算代码：** [continued_sft](../../executed_sources/continued_sft/README.zh-CN.md) · [learning_curves](../../executed_sources/learning_curves/README.zh-CN.md) · [search_curves](../../executed_sources/search_curves/README.zh-CN.md)
+本页 notebook 仅重绘保存结果；训练、生成和评分见上面的原始程序。
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## 对应论文与实验设置

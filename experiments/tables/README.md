@@ -1,5 +1,7 @@
 # Paper tables
 
+**Computation provenance:** [Actual training/inference/scoring/aggregation sources](../executed_sources/README.md) map Tables 2–5 to the executed code. Table renderers only typeset saved results; Table 1’s author-provided aggregates are not newly evaluated scores.
+
 [English](README.md) | [简体中文](README.zh-CN.md) | [Experiment guide](../README.md)
 
 ## Run

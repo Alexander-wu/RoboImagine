@@ -1,5 +1,8 @@
 # Figure 10 — Three-dataset SFT comparison
 
+**Actual experiment computation:** [rt1_visual](../../executed_sources/rt1_visual/README.md) · [dataset_suite](../../executed_sources/dataset_suite/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol

@@ -1,0 +1,84 @@
+{
+  "version": "r2_auto_suite_v1_20261013",
+  "scope": "R2 separate-dataset reward controls and RT1 search ablation; fixed-budget pilot",
+  "initial_updates": 0,
+  "seeds": [
+    20261011
+  ],
+  "group_size": 4,
+  "global_batch": 8,
+  "horizon_train": 10,
+  "search": {
+    "strategy": "diverse",
+    "groups": 4,
+    "beams": 2,
+    "penalty": 0.1
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 1e-06,
+    "weight_decay": 0,
+    "grad_clip": 1,
+    "fresh": true
+  },
+  "clip": 0.2,
+  "kl": 0.001,
+  "reference": "Frozen copy of the exact per-dataset initializer",
+  "mjev": "Frozen SoMarkAI/mJev-Qwen3-VL-4B-RLCD 7af7cda55ea36e76bce64e87a02c9faea1919d64, both orders of all6pairs, candidate-list label logits, same native implementation as Bridge pilot",
+  "evaluation": {
+    "cases": 128,
+    "horizon": 32,
+    "beam": 4,
+    "memory": "full",
+    "primary": "mean frames1..32 then mean all128 trajectories",
+    "secondary": "frame32 only; H10,H20 prefix means",
+    "cohort": "Exactly the sealed per-dataset selection; all comparisons use the same128 IDs and input hashes",
+    "no_gt_future_inputs": true
+  },
+  "seeds_meaning": "One seed, synchronous8GPU; multiple windows per episode allowed on RoboCasa",
+  "checkpoints": [
+    100,
+    250,
+    500
+  ],
+  "stopping": "500globalupdates;650globalbatch cap; globally all-tied batch skips; local ties zero policy advantage and retainKL",
+  "cost": "8 synchronous GPUs, four decoded candidates per group. Sampling has4 live paths; beam methods have8. Equal updates/candidate count, not equal FLOPs.",
+  "frozen": "codec,T5,judge and reference; update core and original trained adapters at same fixedlr",
+  "target_updates": 500,
+  "metric_reward_used": true,
+  "training_data": "Fixed 5200 training windows, 8 disjoint smoke episodes, 128 dev episodes; no joint training",
+  "world_size": 8,
+  "max_global_batches": 650,
+  "gradient_sync": "DDP; no_sync first9of10frame backward calls; lastframe averages gradient across8ranks.",
+  "evaluation_parallelism": "128dev indexmodulo8;16cases perGPU; collectall128",
+  "metric_reward": "negative mean per-frame MAE + VGG LPIPS",
+  "hybrid": {
+    "metric": 0.75,
+    "mjev": 0.25,
+    "scaling": "per-group sample std floored at1e-6"
+  },
+  "prompt_policy": "Unchanged from completed mJev500, including inherited T/U-vs-C/D wording. No prompt change during reward ablation.",
+  "artifact_provenance": "Existing FutureWorlds SFT base plus Bridge text-adaptation checkpoints; not the original R1 distilled-reward model",
+  "dataset": "bridge",
+  "action_dim": 13,
+  "arm": "hybrid",
+  "text_mode": "full",
+  "verified_files": {
+    "/opt/roboimagine-workspace/bundle/bridge/models/sft/config.json": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+    "/opt/roboimagine-workspace/bundle/bridge/models/sft/generation_config.json": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+    "/opt/roboimagine-workspace/bundle/bridge/models/sft/model.safetensors": "ad08d7cd5c8dbddf24f1f8840833948a810ab84324ff0bb8f1b42a35c6b75d9c",
+    "/opt/roboimagine-workspace/bundle/bridge/codec/diffusion_pytorch_model.safetensors": "0dfb0bfe8543da0b27998ff685ad41d7e44d05fa003dfb1412006d045512db64",
+    "/opt/roboimagine-workspace/bundle/bridge/codec/config.json": "bcca7b2a901b508938f60af4c16f62ce698d90138b7fbf0d3a3824d527b45c02",
+    "/opt/roboimagine-workspace/bundle/bridge/preprocessing/action_ranges.pth": "4492b53758cea8b3d4cb01e01ddf32d9d4bf31095fb3ca768a2d3ff631be8b15",
+    "/opt/roboimagine-workspace/bundle/bridge/futureworlds_config.json": "1dcd2980ddc3a903e7cf515e51be7c1addcb4614b3c9ec9aca36f986a57772b7",
+    "/opt/roboimagine-workspace/experiments/roboalign_r2_text_20261010/text/checkpoints/000500/training_state.pt": "a229a2bd86cba84d012e27942c4aa441be068ae9aa419c20847e72a3a868a921",
+    "/opt/roboimagine-workspace/experiments/roboalign_r2_text_20261010/text/checkpoints/000500/config.json": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+    "/opt/roboimagine-workspace/experiments/roboalign_r2_text_20261010/text/checkpoints/000500/generation_config.json": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+    "/opt/roboimagine-workspace/experiments/roboalign_r2_text_20261010/text/checkpoints/000500/text_adapters.safetensors": "d0be291622f4f03d83f7b0f5c347e057aaf8bfe6d478a636467f5023a6c93397",
+    "/opt/roboimagine-workspace/experiments/roboalign_r2_text_20261010/text/checkpoints/000500/model.safetensors": "cf6dc07cee053a6a2e54b1406bc346737aa516ff3c4c82e750d51838a4b5dfcd",
+    "/opt/roboimagine-workspace/experiments/roboalign_r2_text_20261010/text/checkpoints/000500/receipt.json": "9ed191655a1ac79d3a75827a6d54f42fda2dd18791ee3a944d4a250c0f171dbf"
+  },
+  "initial_checkpoint": "/opt/roboimagine-workspace/experiments/roboalign_r2_text_20261010/text/checkpoints/000500",
+  "initialization_description": "Bundle SFT50000 + text-adaptation500 (or matched no-text500 for text control)",
+  "baseline_complete": "/opt/roboimagine-workspace/experiments/r2_auto_suite_20261013/bridge_sft/complete.json"
+}

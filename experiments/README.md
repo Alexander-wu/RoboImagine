@@ -1,18 +1,12 @@
-# Paper experiment reproduction
+# Archived experiment figures and tables
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [Project home](../README.md)
 
-## What can be reproduced now?
+## Actual experiments versus redrawing
 
-| Task | Available path | Scope |
-|---|---|---|
-| Redraw paper results | Figure notebooks / `run_all.py` | Saved experimental outputs, no GPU or evaluator API |
-| Rebuild tables | `tables/build_tables.py` | Five preview pages; Tables 1–2 contain our rows only |
-| Generate new main/SFT predictions | [Inference guide](../docs/INFERENCE.md) and [notebook](../notebooks/Inference.ipynb) | Six published checkpoints, six demonstration inputs, pinned downloads |
-| Try another history window | Inference CLI `--window` / `--no-anchor` | New inference on supplied inputs; no retraining |
-| Retrain every ablation / rerun all evaluators | Not an end-to-end released workflow | Training orchestration, hosted reward services, full prepared cohorts and ablation/intermediate weights are not included |
+For training, prediction, scoring and aggregation, use the [actual executed server sources](executed_sources/README.md), with a [paper-to-source map](executed_sources/README.md#paper-to-source-map). The [public inference guide](../docs/INFERENCE.md) generates new predictions from main/SFT weights and supports pixel-based metrics.
 
-The released model code includes ordinary beam and GDBS. The MCTS experiment is documented through archived results and protocol; an executable MCTS training launcher is not supplied. The inference CLI's evaluation beam width does **not** select a training-search ablation.
+This directory's figure/table notebooks **redraw saved outputs**. Running them is not training, model evaluation, or verification of the paper's numerical claims. Original MCTS, feedback, continued-SFT and window worker code is now separately archived under `executed_sources/`; full datasets/ablation checkpoints and relocation of source gates remain requirements for a full run.
 
 ## Installation and Run All
 

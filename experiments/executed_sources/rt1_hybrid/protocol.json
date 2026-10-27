@@ -1,0 +1,116 @@
+{
+  "version": "r2_rt1_hybrid500_20261012",
+  "scope": "Matched RT1 SFT50000 to hybrid500; same initialization, schedule, globalbatch8 and128dev as completed puremJev500",
+  "initial_variant": "sft",
+  "initial_updates": 0,
+  "assets": {
+    "rt1/models/main/model.safetensors": {
+      "sha256": "9f5cde05fc628a550fa321343573c66919eb72338438e37883cecc45bc28d068",
+      "bytes": 508419080
+    },
+    "rt1/models/main/text_adapters.safetensors": {
+      "sha256": "c426c478c690679230b613401b59f8d17bc7863b33450ba12964d42722b489cd",
+      "bytes": 9476032
+    },
+    "rt1/models/main/config.json": {
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bytes": 695
+    },
+    "rt1/models/main/generation_config.json": {
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bytes": 117
+    },
+    "rt1/models/sft/model.safetensors": {
+      "sha256": "072b972d52a73e1a7c28b4dae7385dcd434dca57634c66f9742cccc1337f8cc7",
+      "bytes": 508419080
+    },
+    "rt1/models/sft/text_adapters.safetensors": {
+      "sha256": "006511fd5bbfdeb2f6975695415243b5cec4912517c7f187e65864a48ecfcf07",
+      "bytes": 9476032
+    },
+    "rt1/models/sft/config.json": {
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bytes": 695
+    },
+    "rt1/models/sft/generation_config.json": {
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bytes": 117
+    },
+    "rt1/codec/diffusion_pytorch_model.safetensors": {
+      "sha256": "7c8194f83617137ef0a002a15d60c6ee222bcd2442afb4ed704a7918496cc073",
+      "bytes": 517850360
+    },
+    "rt1/codec/config.json": {
+      "sha256": "9739df1c8157400c8efc54e67370f1e6be9db074c059ef25b26e475fc0fe9d9d",
+      "bytes": 844
+    },
+    "rt1/preprocessing/frac_action_ranges.pth": {
+      "sha256": "7b22a29492c55958ab63b16c91a6825b0c844e06afb4107f6fccf8f3d437db60",
+      "bytes": 1274
+    }
+  },
+  "arms": [
+    "hybrid"
+  ],
+  "seeds": [
+    20261011
+  ],
+  "group_size": 4,
+  "global_batch": 8,
+  "horizon_train": 10,
+  "search": {
+    "strategy": "diverse",
+    "groups": 4,
+    "beams": 2,
+    "penalty": 0.1
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 1e-06,
+    "weight_decay": 0,
+    "grad_clip": 1,
+    "fresh": true
+  },
+  "clip": 0.2,
+  "kl": 0.001,
+  "reference": "Frozen identical SFT50000 checkpoint including text adapters",
+  "mjev": "Frozen SoMarkAI/mJev-Qwen3-VL-4B-RLCD 7af7cda55ea36e76bce64e87a02c9faea1919d64, both orders of all6pairs, candidate-list label logits, same native implementation as Bridge pilot",
+  "evaluation": {
+    "cases": 128,
+    "horizon": 32,
+    "beam": 4,
+    "memory": "full",
+    "primary": "mean frames1..32 then mean all128 trajectories",
+    "secondary": "frame32 only; H10,H20 prefix means",
+    "cohort": "exact IDs in original configs/cohorts/rt1_128.json, start0; re-evaluate baseline on same runtime",
+    "no_gt_future_inputs": true
+  },
+  "seeds_meaning": "Seed20261011;5200unique predetermined train windows,8disjoint smoke,128dev. One global schedule split byrank.",
+  "checkpoints": [
+    100,
+    250,
+    500
+  ],
+  "stopping": "500globalupdates;650globalbatch cap; globally all-tied batch skips; local ties zero policy advantage and retainKL",
+  "cost": "One model with8synchronousDDP replicas; not8independent runs. One trajectory/fourcandidates perGPU perupdate.",
+  "frozen": "codec,T5,judge and reference; update core and original trained adapters at same fixedlr",
+  "changes_from_original_training": "SFT initialization; globalbatch8,lr1e-6 sharedcore/adapters,puremJev500updates; distinct from historical batch16.",
+  "sft_steps": 50000,
+  "target_updates": 500,
+  "metric_reward_used": true,
+  "training_data": "5200train windows+8smoke selected byIDhash before training; no dev based selection",
+  "baseline_file": "/opt/roboimagine-workspace/experiments/rt1_mjev_20261011/sft_reference_v1/complete.json",
+  "world_size": 8,
+  "max_global_batches": 650,
+  "train_pool_episodes": 5200,
+  "gradient_sync": "DDP; no_sync first9of10frame backward calls; lastframe averages gradient across8ranks.",
+  "evaluation_parallelism": "128dev indexmodulo8;16cases perGPU; collectall128",
+  "matched_mjev_root": "/opt/roboimagine-workspace/experiments/rt1_mjev_20261011/sft_mjev500_8gpu_v1",
+  "metric_reward": "negative mean per-frame MAE + VGG LPIPS",
+  "hybrid": {
+    "metric": 0.75,
+    "mjev": 0.25,
+    "scaling": "per-group sample std floored at1e-6"
+  },
+  "prompt_policy": "Unchanged from completed mJev500, including inherited T/U-vs-C/D wording. No prompt change during reward ablation."
+}

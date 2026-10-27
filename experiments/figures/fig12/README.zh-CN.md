@@ -1,5 +1,8 @@
 # 图 12 — 真实 GDBS 搜索案例
 
+**实际实验计算代码：** [rt1_hybrid](../../executed_sources/rt1_hybrid/README.zh-CN.md)
+本页 notebook 仅重绘保存结果；训练、生成和评分见上面的原始程序。
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## 对应论文与实验设置

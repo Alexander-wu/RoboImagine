@@ -1,5 +1,8 @@
 # Figure 9 — Training cost and prediction quality
 
+**Actual experiment computation:** [continued_sft](../../executed_sources/continued_sft/README.md) · [rt1_hybrid](../../executed_sources/rt1_hybrid/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol

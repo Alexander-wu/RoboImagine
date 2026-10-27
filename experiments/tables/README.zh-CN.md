@@ -1,5 +1,7 @@
 # 论文表格复现
 
+**计算来源：** [真实训练／推理／评分／汇总程序](../executed_sources/README.zh-CN.md)，按表 2–5 对应到实验源码；本目录的 LaTeX 生成器只是排版工具。表 1 的作者提供汇总不冒充重新评分结果。
+
 [English](README.md) | [简体中文](README.zh-CN.md) | [实验总指南](../README.zh-CN.md)
 
 ## 运行方法

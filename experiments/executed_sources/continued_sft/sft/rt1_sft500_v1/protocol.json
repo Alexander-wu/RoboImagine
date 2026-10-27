@@ -1,0 +1,54 @@
+{
+  "version": "rt1_sft_continuation500_v1",
+  "dataset": "rt1",
+  "seed": 20261011,
+  "initializer": "text-enabled RT-1 SFT50000, prior RL=0",
+  "initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+  "old_root": "/opt/roboimagine-workspace/experiments/rt1_mjev_20261011/sft_mjev500_8gpu_v1",
+  "baseline": "/opt/roboimagine-workspace/experiments/rt1_mjev_20261011/sft_reference_v1/complete.json",
+  "updates": 500,
+  "world_size": 8,
+  "global_batch": 8,
+  "schedule": "same seeded shuffle of the existing 5200 windows; first 4000",
+  "targets": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "memory": "fixed initial context + dynamic anchor1 + recent6",
+  "objective": "teacher-forced next-token CE on 80 dynamics tokens per frame; mean of 10 frames",
+  "optimizer": {
+    "type": "AdamW",
+    "lr": 1e-06,
+    "weight_decay": 0.0,
+    "grad_clip": 1.0,
+    "fresh": true
+  },
+  "precision": "FP32 weights and computation, TF32 disabled; matches RL update precision",
+  "text": "existing trained cross-attention; fixed valid instruction; no text dropout",
+  "frozen": "visual tokenizer and T5; train core and existing text adapters",
+  "checkpoints": [
+    100,
+    250,
+    500
+  ],
+  "selection": "final step500; no best-dev checkpoint selection",
+  "evaluation": {
+    "cases": 128,
+    "horizon": 32,
+    "beam_width": 4,
+    "memory": "full",
+    "primary": "mean predicted frames1..32, then all128 trajectories",
+    "seed": "20261011+10000+index",
+    "no_future_images": true
+  },
+  "cost": "matched optimizer updates and trajectory windows, not matched GPU time; preparation, training and evaluation durations reported separately",
+  "scope": "one synchronized 8-GPU training run; no independent training-seed claim"
+}

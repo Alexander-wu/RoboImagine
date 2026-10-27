@@ -1,0 +1,686 @@
+{
+  "version": 1,
+  "checkpoint": "/opt/roboimagine-workspace/experiments/r2_separate_controls_20261012/rt1_hybrid500/run/checkpoint_000500",
+  "checkpoint_digest": "f4a63e643ec4525f7abedd5edbfd4a3ad1b764b184f36e202fde9cc2e46b9aa1",
+  "checkpoint_receipt_sha256": "d33e06fa446ff85769cdf10eb8af0d4c045b6fbc2e8b1166b7fd0e35576abaeb",
+  "source_manifest_sha256": "56dcb5718d66b44c6af672c7535290668b8769b3928ae0de4036a0ad993c104b",
+  "inputs_manifest_sha256": "9aa715984075b670319bd2e6cf0a3939e3b11f37c926c393808d0f2a848441f2",
+  "cases": [
+    {
+      "index": 0,
+      "id": "046ea5ed189e05ab910b7aeae9004db48cd8d7362c898eb007583ca530cb29f2",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_000.npz",
+      "sha256": "2210967962703731d7ac48610dc9fe06f4fa2c8ce486fe75c9328b00474ff37b",
+      "text": "pick apple from bottom drawer and place on counter",
+      "original": {
+        "id": "046ea5ed189e05ab910b7aeae9004db48cd8d7362c898eb007583ca530cb29f2",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00081-of-01024",
+        "record_index": 83,
+        "offset": 115526975,
+        "length": 2928590,
+        "sha256": "cb4116e034aba58753bc6c656651eaec90c4d3fa0cbff22adaa04489c83bfbe1",
+        "frames": 117,
+        "text": "pick apple from bottom drawer and place on counter",
+        "text_id": "8b934e5a9d147ba3f50292d09fbfbeb7e82164966f9d7e955f6a8b9f35d833b6",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 94621327
+    },
+    {
+      "index": 1,
+      "id": "090b9510ffab39f750e93675d27bd573b544917b2991b0b4fa35c67e0515baa9",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_001.npz",
+      "sha256": "94bb9685784018d17e7a476c7e32d212011d75d5e8b3e55e68c6099c0d6980e5",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "090b9510ffab39f750e93675d27bd573b544917b2991b0b4fa35c67e0515baa9",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00201-of-01024",
+        "record_index": 4,
+        "offset": 3815158,
+        "length": 3258990,
+        "sha256": "80707496b1894a14ede60b24eca0214115ddec052b06942e51982e52a603ea8d",
+        "frames": 101,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 172015026
+    },
+    {
+      "index": 2,
+      "id": "0df66b90a84b08cea57351381b328cd0ab5f84d01591e4bee45aab175e3c8bfc",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_002.npz",
+      "sha256": "93b0d085fcd2c10e27166a63fd938ed8f85b057c9adbe103ce20339eca1e4cfa",
+      "text": "open middle drawer",
+      "original": {
+        "id": "0df66b90a84b08cea57351381b328cd0ab5f84d01591e4bee45aab175e3c8bfc",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00288-of-01024",
+        "record_index": 44,
+        "offset": 63578373,
+        "length": 3544909,
+        "sha256": "0e39d29c3587bb5771b219aa7a44328d90b7564a4f3455d78789d0fa044bd704",
+        "frames": 104,
+        "text": "open middle drawer",
+        "text_id": "b7422c4a758163f5a44f6c918f6ef00b2d8bf4418a1315a24ca2a6ef2b433e8b",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 254514226
+    },
+    {
+      "index": 3,
+      "id": "124cc9792563fc221e4aaa423951df5810d9656d0bb2176626f204307c5a4a2e",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_003.npz",
+      "sha256": "9ca57d74d62c158cb80008f1d456e3d775b9839695350d71d0947af206f7abe3",
+      "text": "place water bottle into bottom drawer",
+      "original": {
+        "id": "124cc9792563fc221e4aaa423951df5810d9656d0bb2176626f204307c5a4a2e",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00277-of-01024",
+        "record_index": 20,
+        "offset": 28188576,
+        "length": 3315713,
+        "sha256": "eb3711c57ba09fb5b0caf032b06d12699b5b6669dfaaf3dfca902b3ed1cfdfef",
+        "frames": 101,
+        "text": "place water bottle into bottom drawer",
+        "text_id": "061bb571883366c087ab9dcf50908813dd5d3c909f6a1fc35f329f1cea473e19",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 327283227
+    },
+    {
+      "index": 4,
+      "id": "18b44f0c9d044cfcf0bba754d68da3181d93cc5c517d4dcd98324261e459b509",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_004.npz",
+      "sha256": "fd7504d47d4a15e9ff5e6662131c9637769f388d36258c41e31fa695759f937e",
+      "text": "open top drawer",
+      "original": {
+        "id": "18b44f0c9d044cfcf0bba754d68da3181d93cc5c517d4dcd98324261e459b509",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00350-of-01024",
+        "record_index": 6,
+        "offset": 10406714,
+        "length": 3361076,
+        "sha256": "727a88876cccc4f3b3e1c59b21d696d2fb11ae3116122e8e976eaac8a40377a8",
+        "frames": 103,
+        "text": "open top drawer",
+        "text_id": "09e8bf36b16e64d70506a5d24af9809eaf06e9e014f3b798c9d70b429eee28d8",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 434730926
+    },
+    {
+      "index": 5,
+      "id": "1e3f47b00cdb269421529756e8e44bdaede9f88328f5168ab3246f8986091ad6",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_005.npz",
+      "sha256": "be77e886db5d65d241006bd61291bfaa0372257a377cfaeb9dfb2b7c2db0ffd2",
+      "text": "open top drawer",
+      "original": {
+        "id": "1e3f47b00cdb269421529756e8e44bdaede9f88328f5168ab3246f8986091ad6",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-01023-of-01024",
+        "record_index": 1,
+        "offset": 811883,
+        "length": 4203861,
+        "sha256": "6e10f76593cb69046185c8ed91e42189604798b7c4f2c2e90b703b3385478198",
+        "frames": 156,
+        "text": "open top drawer",
+        "text_id": "09e8bf36b16e64d70506a5d24af9809eaf06e9e014f3b798c9d70b429eee28d8",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 527724626
+    },
+    {
+      "index": 6,
+      "id": "276624bc3639f94ebe798ddf129ffebdf2206f373e9131ecea7c93261e0bbb81",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_006.npz",
+      "sha256": "e67198eca8552bd65a49d85f713090dd84b3775f9d58b06046749fda3d9c71dc",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "276624bc3639f94ebe798ddf129ffebdf2206f373e9131ecea7c93261e0bbb81",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00833-of-01024",
+        "record_index": 17,
+        "offset": 23134525,
+        "length": 6016615,
+        "sha256": "d108397e674dbf0a2da57a861aeed32f926c76d3284aa59ab1db65aa031884ea",
+        "frames": 179,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 681266526
+    },
+    {
+      "index": 7,
+      "id": "2924e57dbff94015114a2c106603b4a3709bc6c258d8d15b4b8621693e0b39b6",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_007.npz",
+      "sha256": "215fb17ac22f45355f896e35e6b7929c3f7bd991f1474578ca07296a9fc72d2a",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "2924e57dbff94015114a2c106603b4a3709bc6c258d8d15b4b8621693e0b39b6",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00843-of-01024",
+        "record_index": 101,
+        "offset": 142183088,
+        "length": 3759974,
+        "sha256": "6cf4f3bc54bbdec519cf6ac029ced08d1fce6d0ee2914959c4f4bc3aef4c6940",
+        "frames": 114,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 710544927
+    },
+    {
+      "index": 8,
+      "id": "3aafef58f8442c2e8abcf146c42bf06e67be1a5ae7df10892b7e842ca77c69fb",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_008.npz",
+      "sha256": "90dfb8541be46005b4b74feb15b956a53a2672c8d84512a0b1b8471007887113",
+      "text": "place rxbar chocolate into middle drawer",
+      "original": {
+        "id": "3aafef58f8442c2e8abcf146c42bf06e67be1a5ae7df10892b7e842ca77c69fb",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00207-of-01024",
+        "record_index": 63,
+        "offset": 86774135,
+        "length": 3528105,
+        "sha256": "eee16c94f18b3c2cb4911555f1559b6f7f9ed99ddb74b82f159f1aa81d4c3ffd",
+        "frames": 111,
+        "text": "place rxbar chocolate into middle drawer",
+        "text_id": "8d3cdb344340f78d82e865a48e79433bd8ae6519d1ce6f24449481d32fb2150a",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1004869626
+    },
+    {
+      "index": 9,
+      "id": "3ba5f56017e00b8829618dfd4f7196d94575c452593e379ad5f998eadab6cf46",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_009.npz",
+      "sha256": "2731cb9aa49ffd709d66dac2be82c5aa0bd18ae06ae4dac4d209f87e87ad81b2",
+      "text": "place rxbar chocolate into bottom drawer",
+      "original": {
+        "id": "3ba5f56017e00b8829618dfd4f7196d94575c452593e379ad5f998eadab6cf46",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00269-of-01024",
+        "record_index": 42,
+        "offset": 64033497,
+        "length": 4599653,
+        "sha256": "7af1cf2fe990983592aefb3402b2f31fab6b2ef111ba4232fc7201908f83fe9e",
+        "frames": 136,
+        "text": "place rxbar chocolate into bottom drawer",
+        "text_id": "26472745adc86a9195db74e45200b09b21d408cc4a3201136f67c24e61a3ec44",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1020993026
+    },
+    {
+      "index": 10,
+      "id": "41d6b709da3d4e6f9c54ae3e17e639111a14955e04b7a878ecb2b7f7ba71949f",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_010.npz",
+      "sha256": "7c50cd4e2f13ae7512dc78e6e48624325c7f5c1b0b9fd4c6410f70bbadbf0640",
+      "text": "close middle drawer",
+      "original": {
+        "id": "41d6b709da3d4e6f9c54ae3e17e639111a14955e04b7a878ecb2b7f7ba71949f",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00119-of-01024",
+        "record_index": 53,
+        "offset": 70530577,
+        "length": 3961278,
+        "sha256": "f5a417c56d0421ec509d42437e74dc1fc238db9342ce62ecce61fd1d631a686b",
+        "frames": 124,
+        "text": "close middle drawer",
+        "text_id": "1ad97dedbded31f60de8b901712922f2ee2f8549d985137fe7d9ea6e034dd0ae",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1124851627
+    },
+    {
+      "index": 11,
+      "id": "4ee4cc793606d174804cf7384d6cc1f474b0bec298f708fb17772bb554a6c68a",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_011.npz",
+      "sha256": "dcd8a717ce7631f2ee071df493115d25573e34cca76eb469bd4a53a89ca1adc0",
+      "text": "pick coke can from bottom drawer and place on counter",
+      "original": {
+        "id": "4ee4cc793606d174804cf7384d6cc1f474b0bec298f708fb17772bb554a6c68a",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00010-of-01024",
+        "record_index": 40,
+        "offset": 52590233,
+        "length": 3124993,
+        "sha256": "cbfbd83568bc6b47aaaa14c27ac510658b416c7d41cb4148c2c59482dd128730",
+        "frames": 123,
+        "text": "pick coke can from bottom drawer and place on counter",
+        "text_id": "370652f64789331c3a9233d10fec9c8890ff653f32764ad7ab6cc8b097e30976",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1343878427
+    },
+    {
+      "index": 12,
+      "id": "51026b8d0a3d5c5c9a9a66caeacd69ee3d0930720e47c81de11b4c450e40e89b",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_012.npz",
+      "sha256": "9a5a879826f017094c5b6f13894e749c1ef0ce96e64707246396887d85874810",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "51026b8d0a3d5c5c9a9a66caeacd69ee3d0930720e47c81de11b4c450e40e89b",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00768-of-01024",
+        "record_index": 0,
+        "offset": 12,
+        "length": 3203858,
+        "sha256": "ec45834807f3dfeb93a24b37e6bf008a3fc2ff796adc109529eab2565c38957f",
+        "frames": 101,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1379374127
+    },
+    {
+      "index": 13,
+      "id": "54acee25465bd3aca11e0b0d2e8f9544b8f9d568e3a4c9434ffb5058e838349d",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_013.npz",
+      "sha256": "3fdf9762d26b64328d6e876aceb93a70b1f800f4c6396e0d9fc329ed76e7fdfe",
+      "text": "pick pepsi can from top drawer and place on counter",
+      "original": {
+        "id": "54acee25465bd3aca11e0b0d2e8f9544b8f9d568e3a4c9434ffb5058e838349d",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00295-of-01024",
+        "record_index": 10,
+        "offset": 12713289,
+        "length": 3405093,
+        "sha256": "997dc06e7d1d87eaaf96ff21fcf090b2afd164fc224456436da3381bab9ef8f1",
+        "frames": 104,
+        "text": "pick pepsi can from top drawer and place on counter",
+        "text_id": "8a11696a34dbab0e66f89e7b5fbf09c0964e8d713f36dd89a443b89656c04a59",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1440880327
+    },
+    {
+      "index": 14,
+      "id": "566413a04cdf1426c89c4b7fc81167c27929a825ea14933038ce70389d832d79",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_014.npz",
+      "sha256": "f4bb2796a9c2f010b250bcc9cac2525444868da3dfd49bec606b794490d579d2",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "566413a04cdf1426c89c4b7fc81167c27929a825ea14933038ce70389d832d79",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00914-of-01024",
+        "record_index": 38,
+        "offset": 44965158,
+        "length": 4311554,
+        "sha256": "70584024168c1f3dc39b4391e7531071688a4619d6840d421fdecaa360a109a8",
+        "frames": 129,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1469660226
+    },
+    {
+      "index": 15,
+      "id": "59798994200ee1709661b5ae13b2b812bb098cb1e083ab28dc4cc1cf7e7578b5",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_015.npz",
+      "sha256": "a984ba1a44516938e8dba2770461104b957f15bece0a4cbc1778b2cd62e821c3",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "59798994200ee1709661b5ae13b2b812bb098cb1e083ab28dc4cc1cf7e7578b5",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00018-of-01024",
+        "record_index": 82,
+        "offset": 123045915,
+        "length": 5634517,
+        "sha256": "4abe85e2aed355469421173196790a2a65de346e0d49d86fca47141b24fbb7a3",
+        "frames": 166,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1521398326
+    },
+    {
+      "index": 16,
+      "id": "6e49f431bfae39caa0fd233b01eff2e9f64532e53ae7cfa0ea9bcff835f8df99",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_016.npz",
+      "sha256": "d91188a7dc00f40b49464599100df7f39b974f81185eba5e85781a9b7b6db277",
+      "text": "pick pepsi can from top drawer and place on counter",
+      "original": {
+        "id": "6e49f431bfae39caa0fd233b01eff2e9f64532e53ae7cfa0ea9bcff835f8df99",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00690-of-01024",
+        "record_index": 16,
+        "offset": 21289436,
+        "length": 4124314,
+        "sha256": "01afc05656b7711db125159215fe41c1b11f283347ae8f2a39f6294c927e58b9",
+        "frames": 125,
+        "text": "pick pepsi can from top drawer and place on counter",
+        "text_id": "8a11696a34dbab0e66f89e7b5fbf09c0964e8d713f36dd89a443b89656c04a59",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 1870601427
+    },
+    {
+      "index": 17,
+      "id": "7982651cd53addc22d8204b6de14343a38edcf249622f5a8fa5acc70c6dc1d40",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_017.npz",
+      "sha256": "e2eeaa31792fdd50362bc50b95f3b6de6860b2d62b96d88fded34cc8c0d8692a",
+      "text": "pick water bottle from bottom drawer and place on counter",
+      "original": {
+        "id": "7982651cd53addc22d8204b6de14343a38edcf249622f5a8fa5acc70c6dc1d40",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00546-of-01024",
+        "record_index": 67,
+        "offset": 86873820,
+        "length": 3948638,
+        "sha256": "4a17423fef255ac585ece578d1d34f129f3d8780b796a4bbf2c03d744f61bb6c",
+        "frames": 117,
+        "text": "pick water bottle from bottom drawer and place on counter",
+        "text_id": "bf44ea8c87d7bc971fdc134cace59c4cde4208db4b8d6be10c5c1251d6f10ee8",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 2058849726
+    },
+    {
+      "index": 18,
+      "id": "7dc22338be33384cc0f96392063f9053366a2e5d5892266c689c2ebe7c3dfb46",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_018.npz",
+      "sha256": "63aeaac3eca283429f1e54c1a7ab1e9fb509bebb60bc797677b26a81403b5866",
+      "text": "pick coke can from bottom drawer and place on counter",
+      "original": {
+        "id": "7dc22338be33384cc0f96392063f9053366a2e5d5892266c689c2ebe7c3dfb46",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00626-of-01024",
+        "record_index": 13,
+        "offset": 23186560,
+        "length": 3665298,
+        "sha256": "2178e0398617d6587359629408b15bb7bee4174fd8ab3656b0772b286a0aea20",
+        "frames": 146,
+        "text": "pick coke can from bottom drawer and place on counter",
+        "text_id": "370652f64789331c3a9233d10fec9c8890ff653f32764ad7ab6cc8b097e30976",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 2130136026
+    },
+    {
+      "index": 19,
+      "id": "9a481800d05b9edbe7c5abcf17255afc62c6013fc93654a4155bd007f64a7957",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_019.npz",
+      "sha256": "add162650539ef736947c2b2fe8013de7e8fb886692196161d47fba6986bf8b7",
+      "text": "open middle drawer",
+      "original": {
+        "id": "9a481800d05b9edbe7c5abcf17255afc62c6013fc93654a4155bd007f64a7957",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00256-of-01024",
+        "record_index": 57,
+        "offset": 82842742,
+        "length": 4431518,
+        "sha256": "e2c9400c0ad191c2c3b47e0f37defdb0681d41a10a642560dfc9205055321c2c",
+        "frames": 133,
+        "text": "open middle drawer",
+        "text_id": "b7422c4a758163f5a44f6c918f6ef00b2d8bf4418a1315a24ca2a6ef2b433e8b",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 2608677026
+    },
+    {
+      "index": 20,
+      "id": "9d655495b0225da4c3d94492d63a54d4d354a576aeebec94f5a43cebc94eb065",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_020.npz",
+      "sha256": "dbb0eca207be4b138b00751fbf6bb13efb0efde196a9a3f3b27ab3f94194ba5a",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "9d655495b0225da4c3d94492d63a54d4d354a576aeebec94f5a43cebc94eb065",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00760-of-01024",
+        "record_index": 47,
+        "offset": 65780835,
+        "length": 3481992,
+        "sha256": "dc65db113342cf361eac5ba4677730c50a7d0b3dadf6639064f19ae4683dac01",
+        "frames": 104,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 2660924727
+    },
+    {
+      "index": 21,
+      "id": "a11ac344fcb56886e58d31e867ddc59a6a488a04fb86ea35d027f0779040be94",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_021.npz",
+      "sha256": "29fd73297b4b3cac1d3fa59b61d7a8be383f29c8b6eb3a7346abf05918da1f8d",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "a11ac344fcb56886e58d31e867ddc59a6a488a04fb86ea35d027f0779040be94",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00378-of-01024",
+        "record_index": 71,
+        "offset": 98057855,
+        "length": 3443355,
+        "sha256": "5b8d131bf8d9251b8486dc902cca8a7ac66fa0af3718828074c84bd69eeb3e6b",
+        "frames": 98,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 2723146726
+    },
+    {
+      "index": 22,
+      "id": "a216cdec91d58c94214f6ecd1998d82b3efcd278e486cef7b6aaf36359bb642f",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_022.npz",
+      "sha256": "6927eb10941f31190b19d229e95859ba762fde976eaadadac0204b4a0a463950",
+      "text": "place water bottle into bottom drawer",
+      "original": {
+        "id": "a216cdec91d58c94214f6ecd1998d82b3efcd278e486cef7b6aaf36359bb642f",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00806-of-01024",
+        "record_index": 26,
+        "offset": 31293967,
+        "length": 3547286,
+        "sha256": "0192abd4b7c575f95c93ede6b5c342a4dfbaf5246eb1ed7fe03e1eb1114584f8",
+        "frames": 109,
+        "text": "place water bottle into bottom drawer",
+        "text_id": "061bb571883366c087ab9dcf50908813dd5d3c909f6a1fc35f329f1cea473e19",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 2739664526
+    },
+    {
+      "index": 23,
+      "id": "b6b538ed5bb8ce59997e47cbe871f113c0d10f095a9f9a0959153cc3bf890152",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_023.npz",
+      "sha256": "ee9521680ce3a119e99418bcc659e313c7bc4abec3775856e9a5bc6f8385ee6b",
+      "text": "open top drawer",
+      "original": {
+        "id": "b6b538ed5bb8ce59997e47cbe871f113c0d10f095a9f9a0959153cc3bf890152",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00462-of-01024",
+        "record_index": 96,
+        "offset": 131892626,
+        "length": 3500744,
+        "sha256": "ca15d284509d1ce150531ad000da4fba8bd98c5dc8ee9a18b6bf8ee370a421eb",
+        "frames": 154,
+        "text": "open top drawer",
+        "text_id": "09e8bf36b16e64d70506a5d24af9809eaf06e9e014f3b798c9d70b429eee28d8",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 3085590927
+    },
+    {
+      "index": 24,
+      "id": "c35c650c4a76429c4978ea7d5851051861bc14b708ccab569b5bcf08d19e161a",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_024.npz",
+      "sha256": "abbd618fbc23d8d6bac01fd5fc525b56880e25e4cbae8cf28243908c0e9a526c",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "c35c650c4a76429c4978ea7d5851051861bc14b708ccab569b5bcf08d19e161a",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00827-of-01024",
+        "record_index": 4,
+        "offset": 4791680,
+        "length": 5201645,
+        "sha256": "80dcac35d7d67fc4c8154612247cbd5aef5ed57393489cf926f9f283b4b55281",
+        "frames": 156,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 3297873326
+    },
+    {
+      "index": 25,
+      "id": "cabb4ea9b0187c248b9cb7a33929c5e162e52c13d9a80b76b5734ce24c39682c",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_025.npz",
+      "sha256": "6f4250e0ac92997b9d1ddacd6a672e4f57f57c1515de2f4e0d945f720cfdaf1e",
+      "text": "place rxbar blueberry into middle drawer",
+      "original": {
+        "id": "cabb4ea9b0187c248b9cb7a33929c5e162e52c13d9a80b76b5734ce24c39682c",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00524-of-01024",
+        "record_index": 68,
+        "offset": 97230412,
+        "length": 3357484,
+        "sha256": "9f6cda62a493a3dfd48f86c79f9a3d15575fe178ca72ae22669a61067d01ef78",
+        "frames": 132,
+        "text": "place rxbar blueberry into middle drawer",
+        "text_id": "aa189e224eeb927f6a2cdf3b142b239c9fc30cf779cc3ba966280abf37ecc3a5",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 3421534027
+    },
+    {
+      "index": 26,
+      "id": "d0ce9890746b674ea1fbcdb67f1f3077beb29e3c44e3370b055bd8315679af18",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_026.npz",
+      "sha256": "5e579eace9a27cc508c0ce382fee58a6fadb30c516b752adbe8249935e341064",
+      "text": "place brown chip bag into middle drawer",
+      "original": {
+        "id": "d0ce9890746b674ea1fbcdb67f1f3077beb29e3c44e3370b055bd8315679af18",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00750-of-01024",
+        "record_index": 22,
+        "offset": 33911848,
+        "length": 2859006,
+        "sha256": "7cd19f9973447ccc2b5c66cd1ba3c260d01d4b511e96f2f5a64917cc7233c6d6",
+        "frames": 106,
+        "text": "place brown chip bag into middle drawer",
+        "text_id": "da0bfcf67b43868e3de51233a77932b88794beb615d2ac8fdd695a0eec6b7493",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 3523461426
+    },
+    {
+      "index": 27,
+      "id": "e2f7c53db608e6a2ef258e103f72c2b51a8f75e0634d8331708768b1b1a9cf9f",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_027.npz",
+      "sha256": "2ae452af2f045cad4a0cbc93e04958498527cd53cc0716927ad83cb8ff1b0f29",
+      "text": "open right fridge door",
+      "original": {
+        "id": "e2f7c53db608e6a2ef258e103f72c2b51a8f75e0634d8331708768b1b1a9cf9f",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00352-of-01024",
+        "record_index": 77,
+        "offset": 104342374,
+        "length": 12710266,
+        "sha256": "0b2a6c61b5c5afbaef7e01128e58bac7ec585ec17158f10ec45b19b236bd24b8",
+        "frames": 294,
+        "text": "open right fridge door",
+        "text_id": "95d8123a61431f4f7a9a2395385a4f5c7916ecddf2985642bd915dd110ba2d0c",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 3828149727
+    },
+    {
+      "index": 28,
+      "id": "e91693f961ea96389c36bb5b4ced63713a96d26c8619b3831356ba067d7a1a90",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_028.npz",
+      "sha256": "99a7b75df0513f4f2d0d845e8580fe616d24cb5ffcee058e040934742c204e60",
+      "text": "open bottom drawer",
+      "original": {
+        "id": "e91693f961ea96389c36bb5b4ced63713a96d26c8619b3831356ba067d7a1a90",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00062-of-01024",
+        "record_index": 42,
+        "offset": 50984752,
+        "length": 4088905,
+        "sha256": "594c7e7b75f882d56ffaa760ae630bc874b924823bc006a19eb125804ffb2c92",
+        "frames": 122,
+        "text": "open bottom drawer",
+        "text_id": "a1df470bcf27c1e11cfcb37a7a5ed45d7e89aee290b186d7f3097ffe33d4b9c4",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 3930832027
+    },
+    {
+      "index": 29,
+      "id": "ff708015382713137767d254b3749a80e3c6e71e861775cc90265a7001c2bfad",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_rq4_matched30_20261026/v1/inputs/case_029.npz",
+      "sha256": "d24c420915e4ebf4327dd91b7eb8bff623694a27825a77f50d9400769ce70f5b",
+      "text": "open middle drawer",
+      "original": {
+        "id": "ff708015382713137767d254b3749a80e3c6e71e861775cc90265a7001c2bfad",
+        "path": "/opt/roboimagine-workspace/data/single_arm_full_20261007/original/rt1_original/fractal20220817_data/0.1.0/fractal20220817_data-train.tfrecord-00687-of-01024",
+        "record_index": 37,
+        "offset": 41998455,
+        "length": 3384715,
+        "sha256": "95e93168bb8b3f9266aaa68da68dd5220557430788f8dfdd87a3519ce68c7849",
+        "frames": 111,
+        "text": "open middle drawer",
+        "text_id": "b7422c4a758163f5a44f6c918f6ef00b2d8bf4418a1315a24ca2a6ef2b433e8b",
+        "split": "test",
+        "source_split": "train"
+      },
+      "seed": 10856631
+    }
+  ],
+  "horizons": [
+    16,
+    32,
+    48,
+    64,
+    96
+  ],
+  "arms": {
+    "current_only": [
+      1,
+      false
+    ],
+    "w1": [
+      1,
+      true
+    ],
+    "w3": [
+      3,
+      true
+    ],
+    "w6": [
+      6,
+      true
+    ],
+    "w12": [
+      12,
+      true
+    ]
+  },
+  "repeats": 3,
+  "beam_width": 4,
+  "precision": "FP32; TF32 disabled",
+  "seed": 20261026,
+  "selection": "Python random.Random(20261026).sample(sorted(all instructed test episode IDs with >=98 real frames),30); sorted selected IDs for processing; no outcome-based selection",
+  "eligible": 38,
+  "selected": 30,
+  "split": "test",
+  "initial_observations": 2,
+  "trained_updates": 0,
+  "expected_generation_records": 2250,
+  "expected_quality_records": 750,
+  "timing": "Three independent whole-rollout measurements per case, horizon and arm; average within trajectory first. Exclude text cache, model loading, scoring, file IO. Warm each arm/horizon in same process. Exclusive GPU use; no training overlap.",
+  "memory": "Peak PyTorch allocated memory including model/codec/text residency; reserved separate; not full device memory.",
+  "shared_conditions": "Same two initial real frames, real action prefixes and instruction; standalone generation at each horizon; no padding or GT refresh; windows exclude fixed dynamic anchor.",
+  "confidence": "Paired 10000 trajectory bootstrap; timing repeats are not independent trajectories; one trained checkpoint.",
+  "scope": "Thirty randomly selected long-eligible test trajectories shared by all five horizons. Findings apply to this long-eligible cohort, not the entire RT1 distribution."
+}

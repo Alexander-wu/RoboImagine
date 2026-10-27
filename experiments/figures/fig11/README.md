@@ -1,5 +1,8 @@
 # Figure 11 — Prediction distances and feedback
 
+**Actual experiment computation:** [prediction_feedback](../../executed_sources/prediction_feedback/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol

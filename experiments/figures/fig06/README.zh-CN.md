@@ -1,5 +1,8 @@
 # 图 6 — GT 与模型预测的四时刻对比
 
+**实际实验计算代码：** [bridge_selected](../../executed_sources/bridge_selected/README.zh-CN.md)
+本页 notebook 仅重绘保存结果；训练、生成和评分见上面的原始程序。
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## 对应论文与实验设置

@@ -1,0 +1,389 @@
+{
+  "methods": [
+    "sft",
+    "mcts500",
+    "ordinary500",
+    "diverse500"
+  ],
+  "generation_updates": {
+    "sft": 0,
+    "mcts500": 500,
+    "ordinary500": 500,
+    "diverse500": 500
+  },
+  "indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "cases": 128,
+  "predicted_frames": 32,
+  "ordered_pair_calls": 1536,
+  "displayed_frame_indices_zero_based": [
+    0,
+    4,
+    9,
+    13,
+    18,
+    22,
+    27,
+    31
+  ],
+  "judge": "Frozen training mJev4B; not an independent evaluator",
+  "candidate_labels_blind_to_method": true,
+  "score": "mean antisymmetric P(A)-P(B) margin against all three other models",
+  "source_service_sha256": "64aba33102879a71c74a7cc3346fc814e5a5aa34da038754aed5bc78a32c43be",
+  "service_h32_sha256": "0d920f74ea62d958050341feef06924f4f350f75fdf6f78543f5c9910bfac793",
+  "prompt_source_sha256": "394edb1462134167dded4adcf7ea23956b0ba50ba17dea9414fe7d1ba87ded74",
+  "changes": [
+    [
+      "video.shape==(10,256,320,3)",
+      "video.shape==(32,256,320,3)"
+    ],
+    [
+      "np.linspace(0,9,8)",
+      "np.linspace(0,31,8)"
+    ],
+    [
+      "z['videos'].shape==(4,10,256,320,3)",
+      "z['videos'].shape==(4,32,256,320,3)"
+    ],
+    [
+      "'records_per_model':15600",
+      "'records_per_model':1536"
+    ],
+    [
+      "torch.set_num_threads(2);torch.backends.cuda.matmul.allow_tf32=False",
+      "torch.set_num_threads(2);torch.backends.cuda.matmul.allow_tf32=False\ntorch.cuda.set_per_process_memory_fraction(16*2**30/torch.cuda.get_device_properties(0).total_memory)"
+    ]
+  ],
+  "prepared_sha256": "79ecdd0e66bf288cc9e29063f726771f19932b9519c42e28b4eaa507aadac12d",
+  "physical_gpu_uuid": "GPU-REPLACE-UUID-1",
+  "additional_physical_GPUs": 0,
+  "memory_cap_GiB": 16,
+  "bridge_gpu_uuids": [
+    "GPU-REPLACE-UUID-1",
+    "GPU-REPLACE-UUID-2",
+    "GPU-REPLACE-UUID-3",
+    "GPU-REPLACE-UUID-4"
+  ],
+  "bridge_job_id": "roboimagine-bridge-retry-20261026-run-v1",
+  "bridge_start_status": {
+    "state": "RUNNING",
+    "stage": "lr2e7_train",
+    "started": 1792996422.31759,
+    "elapsed_seconds": 668.7357978820801
+  },
+  "bridge_training_start_status": {
+    "world": 4,
+    "global_batch": 8,
+    "state": "TRAINING",
+    "global_batches": 100,
+    "updates": 100,
+    "target_updates": 500,
+    "global_skipped": 0,
+    "local_ties": 1,
+    "elapsed_seconds": 5037.819275770336
+  },
+  "gpu_preflight": [
+    {
+      "index": 1,
+      "uuid": "GPU-REPLACE-UUID-1",
+      "free_MiB": 58954.0,
+      "used_MiB": 38330.0,
+      "processes": [
+        {
+          "container_pid": 3419339,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/worker_entry.py train_retry ",
+          "kind": "worker",
+          "cuda_visible_devices": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "local_rank": "0"
+        },
+        {
+          "container_pid": 3420136,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/judge_service.py mjev4b /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/results_v1/lr2e7_train/rank0/judgments ",
+          "kind": "judge",
+          "cuda_visible_devices": [
+            "1"
+          ],
+          "local_rank": "0"
+        }
+      ],
+      "host_gpu_pids": [
+        312899,
+        321632
+      ],
+      "identity_check": "Container command/env and four-GPU rank mapping; host PIDs are in a different namespace"
+    },
+    {
+      "index": 2,
+      "uuid": "GPU-REPLACE-UUID-2",
+      "free_MiB": 58954.0,
+      "used_MiB": 38330.0,
+      "processes": [
+        {
+          "container_pid": 3419340,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/worker_entry.py train_retry ",
+          "kind": "worker",
+          "cuda_visible_devices": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "local_rank": "1"
+        },
+        {
+          "container_pid": 3420132,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/judge_service.py mjev4b /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/results_v1/lr2e7_train/rank1/judgments ",
+          "kind": "judge",
+          "cuda_visible_devices": [
+            "2"
+          ],
+          "local_rank": "1"
+        }
+      ],
+      "host_gpu_pids": [
+        312900,
+        321599
+      ],
+      "identity_check": "Container command/env and four-GPU rank mapping; host PIDs are in a different namespace"
+    },
+    {
+      "index": 3,
+      "uuid": "GPU-REPLACE-UUID-3",
+      "free_MiB": 58954.0,
+      "used_MiB": 38330.0,
+      "processes": [
+        {
+          "container_pid": 3419341,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/worker_entry.py train_retry ",
+          "kind": "worker",
+          "cuda_visible_devices": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "local_rank": "2"
+        },
+        {
+          "container_pid": 3420130,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/judge_service.py mjev4b /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/results_v1/lr2e7_train/rank2/judgments ",
+          "kind": "judge",
+          "cuda_visible_devices": [
+            "3"
+          ],
+          "local_rank": "2"
+        }
+      ],
+      "host_gpu_pids": [
+        312901,
+        321597
+      ],
+      "identity_check": "Container command/env and four-GPU rank mapping; host PIDs are in a different namespace"
+    },
+    {
+      "index": 4,
+      "uuid": "GPU-REPLACE-UUID-4",
+      "free_MiB": 58954.0,
+      "used_MiB": 38330.0,
+      "processes": [
+        {
+          "container_pid": 3419342,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/worker_entry.py train_retry ",
+          "kind": "worker",
+          "cuda_visible_devices": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "local_rank": "3"
+        },
+        {
+          "container_pid": 3420131,
+          "command": "/opt/roboimagine-workspace/env/bin/python -u /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/source_v1/judge_service.py mjev4b /opt/roboimagine-workspace/experiments/roboimagine_bridge_retry_20261026/results_v1/lr2e7_train/rank3/judgments ",
+          "kind": "judge",
+          "cuda_visible_devices": [
+            "4"
+          ],
+          "local_rank": "3"
+        }
+      ],
+      "host_gpu_pids": [
+        312902,
+        321598
+      ],
+      "identity_check": "Container command/env and four-GPU rank mapping; host PIDs are in a different namespace"
+    }
+  ],
+  "controller_pid": 3456404,
+  "controller_sha256": "0756c7f8aa0d624d78cd8f38045b18cf68414ecf5934907be046c69d7af2f939",
+  "driver_job_id": null,
+  "source_completions": [
+    {
+      "method": "sft",
+      "path": "/opt/roboimagine-workspace/experiments/rt1_mjev_20261011/sft_reference_v1/complete.json",
+      "sha256": "3f6563764c16df6059ee8d97ab1c06213d9bd6f5a0b5909206279c1c8325ca0c",
+      "initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+      "final_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+      "updates": 0
+    },
+    {
+      "method": "mcts500",
+      "path": "/opt/roboimagine-workspace/experiments/roboimagine_mcts_rt1_20261025/results_v1/run4/complete.json",
+      "sha256": "66e6e51ddee054fe8b774f685a64d354d0916cb41f65884bdaeab53f2e5c3978",
+      "initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+      "final_digest": "b3ed6e5f9c4675a8575d9f10e3b5f2c29f9cd7652d53bcf7eaad78cef2ffb04f",
+      "updates": 500
+    },
+    {
+      "method": "ordinary500",
+      "path": "/opt/roboimagine-workspace/experiments/r2_rt1_recovery_20261016/ordinary250_to500_v1/complete.json",
+      "sha256": "de651c3492eb8d8053e51164e16963f242a81141ec762a8d0f9dd89d853aeb4e",
+      "initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+      "final_digest": "1595186f2e4937367335f36e5d9b4d5aa3b0b9ba93d30cf339958031631d5136",
+      "updates": 500
+    },
+    {
+      "method": "diverse500",
+      "path": "/opt/roboimagine-workspace/experiments/r2_separate_controls_20261012/rt1_hybrid500/run/complete.json",
+      "sha256": "33a3a5b4c7e2fc2787a719bab7dbb0c0600275f087a4c59734cb131c638397c0",
+      "initial_digest": "e6c3a7b5db0d677f55ece747ddec6edf7f60b5b901a95b14a8d575c8c5a27865",
+      "final_digest": "f4a63e643ec4525f7abedd5edbfd4a3ad1b764b184f36e202fde9cc2e46b9aa1",
+      "updates": 500
+    }
+  ],
+  "judge_pid": 3457327
+}

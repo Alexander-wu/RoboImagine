@@ -6,18 +6,20 @@ RoboImagine learns autoregressive robotic world models by comparing candidate fu
 
 [Models & examples on Hugging Face](https://huggingface.co/easylearning/RoboImagine) · [Experiment guide (English)](experiments/README.md) · [实验复现教程（中文）](experiments/README.zh-CN.md) · [Inference guide](docs/INFERENCE.md) · [推理教程（中文）](docs/INFERENCE.zh-CN.md)
 
-## Reproduce the paper: choose your starting point
+## Reproduce predictions and inspect the actual experiment code
 
-| Goal | Start here | Requirements |
+**Start with [the executed experiment sources](experiments/executed_sources/README.md) / [服务器原始实验代码与中文教程](experiments/executed_sources/README.zh-CN.md).** These are the training, candidate-search, video prediction, visual metrics, judge and aggregation programs retrieved from the already completed server runs. They are not calculators populated with paper means.
+
+| Goal | Entry point | What it does |
 |---|---|---|
-| Recreate experimental Figures 6–14 and Tables 1–5 | [Run All results notebook](experiments/Reproduce_All.ipynb) | CPU; plotting dependencies; TeX for table PDFs |
-| Generate a new video from published weights | [Run All inference notebook](notebooks/Inference.ipynb) | Compatible PyTorch/CUDA environment recommended; initial model downloads |
-| Inspect a particular ablation | [Feedback, search, continued SFT and memory protocols](experiments/README.md#ablations-what-changes-and-what-stays-fixed) | Archived measurements and figure-specific notebooks |
-| Change the history window on your own inputs | [Input format and inference options](docs/INFERENCE.md#your-own-inputs) | Compatible observations/actions; no retraining required |
+| Generate and score a prediction from public weights | [Inference guide](docs/INFERENCE.md) · [notebook](notebooks/Inference.ipynb) | Loads the checkpoint; generates pixels; optional `--metrics` compares predictions with GT |
+| Inspect or adapt the actual paper experiment | [Paper-to-source map](experiments/executed_sources/README.md#paper-to-source-map) · [中文](experiments/executed_sources/README.zh-CN.md) | Original training/inference/scoring/aggregation code and protocols |
+| Trace feedback, MCTS/beam, continued-SFT and window ablations | [Computation entry points](experiments/executed_sources/README.md#start-with-the-computation) | Actual algorithm implementations, prompts, averaging and timing logic |
+| Redraw the archived figures / tables | [Plot notebook](experiments/Reproduce_All.ipynb) | Visualization only; does not rerun or validate an experiment |
 
-The results notebooks replay **archived experimental measurements and frames**. The inference notebook generates **new predictions from published checkpoints**. Both paths are available; full retraining of every ablation is not yet an end-to-end released workflow.
+Full-cohort retraining still needs the corresponding prepared datasets, evaluator assets and original run inputs listed in the [source guide](experiments/executed_sources/README.md#portability-provenance-and-remaining-assets). The released main/SFT demos already have a separate public inference interface. Plotting saved results must not be confused with reproducing model results.
 
-## 1. Recreate the experimental figures and tables
+## 1. Redraw archived experimental figures and tables
 
 Clone the repository and create a Python 3.10+ environment:
 
@@ -31,7 +33,7 @@ cd experiments
 jupyter lab Reproduce_All.ipynb
 ```
 
-Select the installed environment's kernel and choose **Run All**. For command-line reproduction, from `experiments/`:
+Select the installed environment's kernel and choose **Run All**. For command-line **redrawing**, from `experiments/`:
 
 ```bash
 python run_all.py                         # Figures 6–14
@@ -106,7 +108,7 @@ Full settings, cohort definitions, averaging rules, costs and current release co
 
 ## Release scope and verification
 
-Model inference, fixed-anchor rolling memory, ordinary beam and GDBS code are included. Full training orchestration, reward-service hosting, full prepared evaluation inputs and reward-only/search-ablation/intermediate checkpoints are not included. MCTS is released as experiment records/protocol, not a complete training launcher. Architecture/method illustration scripts are outside this experimental release.
+Model inference and the original executed training, MCTS/beam search, reward-service, metric and aggregation sources are included. The archived worker sources retain their original protocol gates and require relocation/input preparation; they are not a portable all-experiment launcher. Full prepared cohorts, evaluator assets and every ablation/intermediate checkpoint are not yet bundled. Architecture/method illustration scripts are outside this release.
 
 The six main-model demonstration outputs match archived token sequences and float pixels in the tested CUDA environment. Matching SFT smoke tests, notebook execution and a separate fresh-cache public-download check are recorded in [model validation](provenance/model_validation.json), [download validation](provenance/public_download_validation.json) and the [release manifest](provenance/release_manifest.json). These checks validate the included examples, not every paper trajectory.
 

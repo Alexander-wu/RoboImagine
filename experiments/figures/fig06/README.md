@@ -1,5 +1,8 @@
 # Figure 6 — Four-timestamp prediction comparison
 
+**Actual experiment computation:** [bridge_selected](../../executed_sources/bridge_selected/README.md)
+This page’s notebook redraws saved results; the links above lead to the original training, generation and scoring programs.
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 ## Paper correspondence and protocol
