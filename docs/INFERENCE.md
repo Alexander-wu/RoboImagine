@@ -64,3 +64,5 @@ The bundled demo clips support 32 predicted frames. Longer rollouts require the 
 The six main-model examples reproduce their archived token sequences exactly and have zero maximum float-pixel difference under the tested CUDA environment (PyTorch 2.10.0, Transformers 4.57.1, diffusers 0.35.2). One example from each matching SFT checkpoint also passes shape and finite-output checks. The inference notebook passes Run All using the verified cached RT-1 bundle and pinned local T5, including MP4 output. See `provenance/model_validation.json`. This checks these examples, not all dataset trajectories.
 
 Pinned checkpoint release: `easylearning/RoboImagine@cb4f5e2bdfbbbff2ad6caffa058d50fa21ec3ec7`.
+
+The released loader also passes a fresh-cache public download of the complete RT-1 main bundle and example/reference pair, with all downloaded files verified. The download test and CUDA notebook inference test are recorded separately in `provenance/`.

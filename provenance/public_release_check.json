@@ -1,0 +1,7 @@
+{
+  "state": "PASS",
+  "revision": "cb4f5e2bdfbbbff2ad6caffa058d50fa21ec3ec7",
+  "asset_files": 48,
+  "total_bytes": 4857466926,
+  "verification": "Remote LFS SHA-256 for binary assets; Git blob SHA-1 for small files, with all local SHA-256 values previously checked"
+}

@@ -1,0 +1,10 @@
+{
+  "state": "PASS",
+  "dataset": "rt1",
+  "variant": "main",
+  "revision": "cb4f5e2bdfbbbff2ad6caffa058d50fa21ec3ec7",
+  "bundle_files": 8,
+  "example": "rt1--example000.npz",
+  "reference": "rt1--expected000.npz",
+  "source": "Fresh public Hugging Face downloads through released loader; verified SHA-256"
+}

@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "rt1--sft--config.json",
+      "bytes": 695,
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bundle_path": "rt1/models/sft/config.json"
+    },
+    {
+      "path": "rt1--sft--generation_config.json",
+      "bytes": 117,
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bundle_path": "rt1/models/sft/generation_config.json"
+    },
+    {
+      "path": "rt1--sft--model.safetensors",
+      "bytes": 508419080,
+      "sha256": "072b972d52a73e1a7c28b4dae7385dcd434dca57634c66f9742cccc1337f8cc7",
+      "bundle_path": "rt1/models/sft/model.safetensors"
+    },
+    {
+      "path": "rt1--sft--text_adapters.safetensors",
+      "bytes": 9476032,
+      "sha256": "006511fd5bbfdeb2f6975695415243b5cec4912517c7f187e65864a48ecfcf07",
+      "bundle_path": "rt1/models/sft/text_adapters.safetensors"
+    },
+    {
+      "path": "rt1--main--config.json",
+      "bytes": 695,
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bundle_path": "rt1/models/main/config.json"
+    },
+    {
+      "path": "rt1--main--generation_config.json",
+      "bytes": 117,
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bundle_path": "rt1/models/main/generation_config.json"
+    },
+    {
+      "path": "rt1--main--model.safetensors",
+      "bytes": 508419080,
+      "sha256": "5bc04b243c730b04d1d7beb1b0bb39c46c3c1c8796fc2cd66eddafb24a6fd291",
+      "bundle_path": "rt1/models/main/model.safetensors"
+    },
+    {
+      "path": "rt1--main--text_adapters.safetensors",
+      "bytes": 9476032,
+      "sha256": "d3fc8788c6709938817024455c7354c72c1c3a610c5f705b4ce6b1ad9a400f2f",
+      "bundle_path": "rt1/models/main/text_adapters.safetensors"
+    },
+    {
+      "path": "rt1--codec--config.json",
+      "bytes": 844,
+      "sha256": "9739df1c8157400c8efc54e67370f1e6be9db074c059ef25b26e475fc0fe9d9d",
+      "bundle_path": "rt1/codec/config.json"
+    },
+    {
+      "path": "rt1--codec--diffusion_pytorch_model.safetensors",
+      "bytes": 517850360,
+      "sha256": "7c8194f83617137ef0a002a15d60c6ee222bcd2442afb4ed704a7918496cc073",
+      "bundle_path": "rt1/codec/diffusion_pytorch_model.safetensors"
+    },
+    {
+      "path": "rt1--action_ranges.pt",
+      "bytes": 1274,
+      "sha256": "7b22a29492c55958ab63b16c91a6825b0c844e06afb4107f6fccf8f3d437db60",
+      "bundle_path": "rt1/preprocessing/action_ranges.pt"
+    },
+    {
+      "path": "rt1--roboimagine_config.json",
+      "bundle_path": "rt1/futureworlds_config.json",
+      "bytes": 1053,
+      "sha256": "2f36bb5d2d120a9594f51af95d1de2beebef42e5abbca4fd8527d0ec0fd28584"
+    },
+    {
+      "path": "bridge--sft--config.json",
+      "bytes": 695,
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bundle_path": "bridge/models/sft/config.json"
+    },
+    {
+      "path": "bridge--sft--generation_config.json",
+      "bytes": 117,
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bundle_path": "bridge/models/sft/generation_config.json"
+    },
+    {
+      "path": "bridge--sft--model.safetensors",
+      "bytes": 508419080,
+      "sha256": "cf6dc07cee053a6a2e54b1406bc346737aa516ff3c4c82e750d51838a4b5dfcd",
+      "bundle_path": "bridge/models/sft/model.safetensors"
+    },
+    {
+      "path": "bridge--sft--text_adapters.safetensors",
+      "bytes": 9476032,
+      "sha256": "d0be291622f4f03d83f7b0f5c347e057aaf8bfe6d478a636467f5023a6c93397",
+      "bundle_path": "bridge/models/sft/text_adapters.safetensors"
+    },
+    {
+      "path": "bridge--main--config.json",
+      "bytes": 695,
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bundle_path": "bridge/models/main/config.json"
+    },
+    {
+      "path": "bridge--main--generation_config.json",
+      "bytes": 117,
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bundle_path": "bridge/models/main/generation_config.json"
+    },
+    {
+      "path": "bridge--main--model.safetensors",
+      "bytes": 508419080,
+      "sha256": "91ed455c3d52f119e4867c14a1b8dc184e4c185fd6749bba9f4185a08a0ee3b3",
+      "bundle_path": "bridge/models/main/model.safetensors"
+    },
+    {
+      "path": "bridge--main--text_adapters.safetensors",
+      "bytes": 9476032,
+      "sha256": "9b07521e7129b70f208a0e93f8f16515619afdc71a7a626b7a084547cb7fe1a3",
+      "bundle_path": "bridge/models/main/text_adapters.safetensors"
+    },
+    {
+      "path": "bridge--codec--config.json",
+      "bytes": 839,
+      "sha256": "bcca7b2a901b508938f60af4c16f62ce698d90138b7fbf0d3a3824d527b45c02",
+      "bundle_path": "bridge/codec/config.json"
+    },
+    {
+      "path": "bridge--codec--diffusion_pytorch_model.safetensors",
+      "bytes": 517850360,
+      "sha256": "0dfb0bfe8543da0b27998ff685ad41d7e44d05fa003dfb1412006d045512db64",
+      "bundle_path": "bridge/codec/diffusion_pytorch_model.safetensors"
+    },
+    {
+      "path": "bridge--action_ranges.pt",
+      "bytes": 829,
+      "sha256": "4492b53758cea8b3d4cb01e01ddf32d9d4bf31095fb3ca768a2d3ff631be8b15",
+      "bundle_path": "bridge/preprocessing/action_ranges.pt"
+    },
+    {
+      "path": "bridge--roboimagine_config.json",
+      "bundle_path": "bridge/futureworlds_config.json",
+      "bytes": 1069,
+      "sha256": "782278bbff445f5c906fda3c0cf3c151a18d167aedbd316e8c459e48371b6b4b"
+    },
+    {
+      "path": "robocasa--sft--config.json",
+      "bytes": 695,
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bundle_path": "robocasa/models/sft/config.json"
+    },
+    {
+      "path": "robocasa--sft--generation_config.json",
+      "bytes": 117,
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bundle_path": "robocasa/models/sft/generation_config.json"
+    },
+    {
+      "path": "robocasa--sft--model.safetensors",
+      "bytes": 508419080,
+      "sha256": "a86d465e8b5c1cc824238b010aed477ea61d6d8307102135b886b32ca065463c",
+      "bundle_path": "robocasa/models/sft/model.safetensors"
+    },
+    {
+      "path": "robocasa--sft--text_adapters.safetensors",
+      "bytes": 9476032,
+      "sha256": "ef8a06e8ba6451ad1873d9476400c04ae581ce8e654ca77958f7cc56d9f6b380",
+      "bundle_path": "robocasa/models/sft/text_adapters.safetensors"
+    },
+    {
+      "path": "robocasa--main--config.json",
+      "bytes": 695,
+      "sha256": "b78291f41d3c8cfaa996cf7cf8402fac3cf33dc316b814f61efdabb4f1822605",
+      "bundle_path": "robocasa/models/main/config.json"
+    },
+    {
+      "path": "robocasa--main--generation_config.json",
+      "bytes": 117,
+      "sha256": "59078ac9810218a5538a78fb3818208cadbe4c7df503940282c91fb33ca8252f",
+      "bundle_path": "robocasa/models/main/generation_config.json"
+    },
+    {
+      "path": "robocasa--main--model.safetensors",
+      "bytes": 508419080,
+      "sha256": "47cd7e20b6073149b9ad1306aa5df6fbba9163c607ad22e7b1c69eea136c63e1",
+      "bundle_path": "robocasa/models/main/model.safetensors"
+    },
+    {
+      "path": "robocasa--main--text_adapters.safetensors",
+      "bytes": 9476032,
+      "sha256": "49f8f8141c8aa2daaa85dd7868c67121b204859b612fbcd82bfe97df9d26850e",
+      "bundle_path": "robocasa/models/main/text_adapters.safetensors"
+    },
+    {
+      "path": "robocasa--codec--config.json",
+      "bytes": 839,
+      "sha256": "bcca7b2a901b508938f60af4c16f62ce698d90138b7fbf0d3a3824d527b45c02",
+      "bundle_path": "robocasa/codec/config.json"
+    },
+    {
+      "path": "robocasa--codec--diffusion_pytorch_model.safetensors",
+      "bytes": 517850360,
+      "sha256": "4ea6133eae9d3deba4fc546ac7d0cb318363d0d79372b29a8e7d1a753023b77d",
+      "bundle_path": "robocasa/codec/diffusion_pytorch_model.safetensors"
+    },
+    {
+      "path": "robocasa--action_ranges.pt",
+      "bytes": 2003,
+      "sha256": "55531c0e5296d01b8eb78aa941b422bde30e80e458a24d362f874671f2dbfaf4",
+      "bundle_path": "robocasa/preprocessing/action_ranges.pt"
+    },
+    {
+      "path": "robocasa--roboimagine_config.json",
+      "bundle_path": "robocasa/futureworlds_config.json",
+      "bytes": 1079,
+      "sha256": "f2b04f41a9de873b9df8dc31bae794d3f4edf034f0eaf08bdb3d748614c7af6e"
+    }
+  ],
+  "datasets": {
+    "rt1": {
+      "settings": "rt1--roboimagine_config.json",
+      "initial_observations": 2,
+      "action_dimension": 13,
+      "checkpoint_updates": 500,
+      "checkpoint_files": {
+        "model.safetensors": "5bc04b243c730b04d1d7beb1b0bb39c46c3c1c8796fc2cd66eddafb24a6fd291",
+        "text_adapters.safetensors": "d3fc8788c6709938817024455c7354c72c1c3a610c5f705b4ce6b1ad9a400f2f"
+      }
+    },
+    "bridge": {
+      "settings": "bridge--roboimagine_config.json",
+      "initial_observations": 2,
+      "action_dimension": 13,
+      "checkpoint_updates": 250,
+      "checkpoint_files": {
+        "model.safetensors": "91ed455c3d52f119e4867c14a1b8dc184e4c185fd6749bba9f4185a08a0ee3b3",
+        "text_adapters.safetensors": "9b07521e7129b70f208a0e93f8f16515619afdc71a7a626b7a084547cb7fe1a3"
+      }
+    },
+    "robocasa": {
+      "settings": "robocasa--roboimagine_config.json",
+      "initial_observations": 2,
+      "action_dimension": 52,
+      "checkpoint_updates": 500,
+      "checkpoint_files": {
+        "model.safetensors": "47cd7e20b6073149b9ad1306aa5df6fbba9163c607ad22e7b1c69eea136c63e1",
+        "text_adapters.safetensors": "49f8f8141c8aa2daaa85dd7868c67121b204859b612fbcd82bfe97df9d26850e"
+      }
+    }
+  },
+  "examples": [
+    {
+      "path": "rt1--example000.npz",
+      "bytes": 5184546,
+      "sha256": "1388dcb35905077df69ead0a665f2a2c1217d13fa1c7712c2ab78a41ca215eff",
+      "dataset": "rt1",
+      "example_index": 0,
+      "trajectory_id": "005e86d7d9f9a5c94b2f39f7b1ced1198c7668f685fd4e795b88488602e2d0ea",
+      "horizon": 32,
+      "source_clip_sha256": "8b93654982310be28e062d809033504d3bc6cfed3eae58345fa173f2dc86535f",
+      "source_split": "train",
+      "logical_split": "dev"
+    },
+    {
+      "path": "rt1--expected000.npz",
+      "bytes": 28171254,
+      "sha256": "37df6dcdab76c4b5646efcec9149d5429d247a7285eaee626ead1c7254361e02",
+      "dataset": "rt1",
+      "example_index": 0,
+      "kind": "saved_prediction_reference"
+    },
+    {
+      "path": "rt1--example001.npz",
+      "bytes": 4701882,
+      "sha256": "82ad2dff156f5760a029ce7d614d3417fe95706c81aab970358d6350b678cdf3",
+      "dataset": "rt1",
+      "example_index": 1,
+      "trajectory_id": "00652ad69e65cb0e4ff95199e06981a16ea2dea877d927496820e450b18ae7e6",
+      "horizon": 32,
+      "source_clip_sha256": "f821e85e40fa98101ca275db0f6c8e7e48fd1c02068761ac3b9eeae061463b81",
+      "source_split": "train",
+      "logical_split": "dev"
+    },
+    {
+      "path": "rt1--expected001.npz",
+      "bytes": 28111636,
+      "sha256": "a00f0987033659d3f529edbe61f772e2515e915f3a19c5b143c0bafb808936ce",
+      "dataset": "rt1",
+      "example_index": 1,
+      "kind": "saved_prediction_reference"
+    },
+    {
+      "path": "bridge--example000.npz",
+      "bytes": 6890706,
+      "sha256": "df9b6aef738717191a33243af93a84a3beba0752ba9713e837dc349431e323f7",
+      "dataset": "bridge",
+      "example_index": 0,
+      "trajectory_id": "0b3cbd4d4afdd29b786d61b1e09a8ed4fc9beec7ad4b8df72c7b660cfabafc58",
+      "horizon": 32,
+      "source_clip_sha256": "f22cb53d9d0dcba907edeff60c431f3532f3131a9563588d69ac5b09e1cf6525",
+      "source_split": "train",
+      "logical_split": "dev"
+    },
+    {
+      "path": "bridge--expected000.npz",
+      "bytes": 27957021,
+      "sha256": "d2f4d8ddc51b87fec935bd94ba92978df9f3164abfce975a24290022d424718c",
+      "dataset": "bridge",
+      "example_index": 0,
+      "kind": "saved_prediction_reference"
+    },
+    {
+      "path": "bridge--example001.npz",
+      "bytes": 7554114,
+      "sha256": "a5fabbe3b093af598c784c3ed1acd1ea823d330ce90c73efb0a023c1522f3c92",
+      "dataset": "bridge",
+      "example_index": 1,
+      "trajectory_id": "4f2e55fd37cad230f41204ca82928b83edb54a5d18735f11e762f39ae0b1aed0",
+      "horizon": 32,
+      "source_clip_sha256": "874d784e3733f46648144fcb3983935861f158f5d1e2bb4da762ecd129f96061",
+      "source_split": "train",
+      "logical_split": "dev"
+    },
+    {
+      "path": "bridge--expected001.npz",
+      "bytes": 27862659,
+      "sha256": "cc8429f6fadd10c83a7604235014c6540c5e15e358b27430d1acfadcb0cf6ec5",
+      "dataset": "bridge",
+      "example_index": 1,
+      "kind": "saved_prediction_reference"
+    },
+    {
+      "path": "robocasa--example000.npz",
+      "bytes": 2770290,
+      "sha256": "9a5e5605ebe1751ce23842fe492823a30fa70ca7106e4c49b1d4caa3587f8b96",
+      "dataset": "robocasa",
+      "example_index": 0,
+      "trajectory_id": "3a464147027451a844f917af99945bd027a2bc960154c730d2336ced00133b69",
+      "horizon": 32,
+      "source_clip_sha256": "651daa21fe01c363d1be44c8cbaed5c17a028fca66aaef53484a859bb27674e6",
+      "source_split": "target_human",
+      "logical_split": "dev"
+    },
+    {
+      "path": "robocasa--expected000.npz",
+      "bytes": 26661818,
+      "sha256": "5bcf326291cd000b7c896aa179010e5e5629afe0882d9cc33576960f222743be",
+      "dataset": "robocasa",
+      "example_index": 0,
+      "kind": "saved_prediction_reference"
+    },
+    {
+      "path": "robocasa--example001.npz",
+      "bytes": 3354028,
+      "sha256": "5c0097eb4e8d45587af47f3343985d4a2cd51867bc91524022ad16fe43140ad2",
+      "dataset": "robocasa",
+      "example_index": 1,
+      "trajectory_id": "e84622e122de1cdbe39b6665f12451785513642a882f3d982a8d1bfe110fa9a0",
+      "horizon": 32,
+      "source_clip_sha256": "eec3585ef1cb2ff5c958365551fab2cd4ecdc1dbe92550e4d62d1f040da501a3",
+      "source_split": "target_human",
+      "logical_split": "dev"
+    },
+    {
+      "path": "robocasa--expected001.npz",
+      "bytes": 27310519,
+      "sha256": "39727ad2d1d9affeaa51cc4e3e3498eefb35213a1b0947e9cecf7b25b2f14b1c",
+      "dataset": "robocasa",
+      "example_index": 1,
+      "kind": "saved_prediction_reference"
+    }
+  ]
+}
